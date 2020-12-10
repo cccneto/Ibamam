@@ -1,3 +1,5 @@
+library(tidyverse)
+
 # Fazer um vetor com todas as siglas de UF
 ufs <- unique(geobr::grid_state_correspondence_table$code_state)
 
@@ -12,3 +14,24 @@ df_multas_arrumar <- df_multas$data %>% tibble::as_tibble()
 dplyr::glimpse(df_multas_arrumar)
 
 # Alterar a classe de "dataAuto", "dataPagamento"
+
+df <- load("~/Ibamam/data/da_arrec_ibama.rda")
+df <- da_arrec_ibama
+
+
+# ajustando variaveis de Data para o formato correto
+df <- df %>%
+  mutate(dataAuto = lubridate::dmy(dataAuto)) %>%
+  mutate(dataPagamento = lubridate::dmy(dataPagamento)) %>%
+  mutate(tipoInfracao = as.factor(tipoInfracao)) %>%
+  mutate(uf = as.factor(uf)) %>%
+  mutate(tipoAuto = as.factor(tipoAuto)) %>%
+  mutate(moeda = as.factor(moeda)) %>%
+  mutate(statusDebito = as.factor(statusDebito)) %>%
+  mutate(enquadramentoLegal = as.factor(enquadramentoLegal)) %>%
+   mutate(across(where(is.character), str_remove_all, pattern = fixed("  "))) %>%
+  mutate(enquadramentoJuridico = as.factor(if_else(nchar(cpfCnpj) <= 14,"CPF","CNPJ")))
+
+
+df %>% glimpse()
+
