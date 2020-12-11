@@ -43,26 +43,27 @@ ufs <- unique(geobr::grid_state_correspondence_table$code_state)
 # Usando a funcao purrr, aplicar a funcao criada (obter_arquivos_arrec()) em todas as UFs
 df_arrecadacao <- purrr::map_dfr(ufs, obter_arquivos_arrec, path = "out.arrec/")
 
-
-df_arrecadacao_arrumar <- df_arrecadacao$data %>% tibble::as_tibble()
-
-# salvando em csv
-write.csv(df_arrecadacao_arrumar, file = "df_arrecadacao_arrumar.csv",
-          sep = ",", fileEncoding = "Latin1")
-
-# Salvando df para criar arquivo para depois salvar em rda.
-da_arrec_ibama <- read.csv("df_arrecadacao_arrumar.csv")
-
-# salvar nos dados do pacote
-# usethis::use_data(da_arrec_ibama, overwrite = TRUE)
+# convertendo dados para tibble
+df_arrecadacao_2 <- df_arrecadacao$data %>% tibble::as_tibble()
 
 
-glimpse(df_arrecadacao_arrumar)
-
+# ajustando variaveis de Data para o formato correto
 library(tidyverse)
+df_arrec <- df_arrecadacao_2 %>%
+  mutate(dataAuto = lubridate::dmy(dataAuto)) %>%
+  mutate(dataPagamento = lubridate::dmy(dataPagamento)) %>%
+  mutate(tipoInfracao = as.factor(tipoInfracao)) %>%
+  mutate(uf = as.factor(uf)) %>%
+  mutate(tipoAuto = as.factor(tipoAuto)) %>%
+  mutate(moeda = as.factor(moeda)) %>%
+  mutate(statusDebito = as.factor(statusDebito)) %>%
+  mutate(enquadramentoLegal = as.factor(enquadramentoLegal)) %>%
+  mutate(across(where(is.character), str_remove_all, pattern = fixed("  "))) %>%
+  mutate(enquadramentoJuridico = as.factor(if_else(nchar(cpfCnpj) <= 14,"CPF","CNPJ")))
 
-df4 <- df2 %>%
-  select(dataAuto, dataPagamento) %>%
- mutate(dataAuto1 = lubridate::dmy(dataAuto)) %>%
-  View()
 
+df_arrec %>% glimpse()
+
+## salvando em csv
+# write.csv(df_arrec, file = "df_arrec.csv",
+# sep = ",", fileEncoding = "Latin1")

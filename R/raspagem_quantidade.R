@@ -40,18 +40,33 @@ ufs <- unique(geobr::grid_state_correspondence_table$code_state)
 # Usando a fun??o purrr, aplicar a fun??o criada (obter_arquivos_multas()) em todas as UFs
 df_multas <- purrr::map_dfr(ufs, obter_arquivos_multas, path = "out.multa/")
 
-# convertendo para tibble
-library("magrittr")
 
+library(magrittr)
+library(tidyverse)
+
+# convertendo para tibble
 df_multas_arrumar <- df_multas$data %>% tibble::as_tibble()
 
-# Precisa limpar essa base a?!
-dplyr::glimpse(df_multas_arrumar)
+glimpse(df_multas_arrumar)
+
+# ajustando variaveis de Data para o formato correto
 
 
-library("lubridate")
-# Como ajustar as colunas "dataAuto' e "ultimaAtualizacaoRelatorio"
-# df <- lubridate::dmy(df_multas_arrumar$dataAuto)
+df_multa <- df_multas_arrumar %>%
+  mutate(dataAuto = lubridate::dmy(dataAuto)) %>%
+  mutate(tipoInfracao = as.factor(tipoInfracao)) %>%
+  mutate(uf = as.factor(uf)) %>%
+  mutate(tipoAuto = as.factor(tipoAuto)) %>%
+  mutate(moeda = as.factor(moeda)) %>%
+  mutate(situacaoDebito = as.factor(situacaoDebito)) %>%
+  mutate(enquadramentoLegal = as.factor(enquadramentoLegal)) %>%
+  mutate(across(where(is.character), str_remove_all, pattern = fixed("  "))) %>%
+  mutate(enquadramentoJuridico = as.factor(if_else(nchar(cpfCnpj) <= 14,"CPF","CNPJ")))
 
-df <- df_multas_arrumar
-glimpse(df)
+
+df_multa %>% glimpse()
+
+
+## salvando em csv
+# write.csv(df_multa, file = "df_multa.csv",
+# sep = ",", fileEncoding = "Latin1")
