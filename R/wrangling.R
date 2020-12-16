@@ -32,6 +32,10 @@ df <- df %>%
    mutate(across(where(is.character), str_remove_all, pattern = fixed("  "))) %>%
   mutate(enquadramentoJuridico = as.factor(if_else(nchar(cpfCnpj) <= 14,"CPF","CNPJ")))
 
-
-df %>% glimpse()
+library(ggplot2)
+df %>%
+  select(moeda, dataAuto, dataPagamento, valorPago, valorAuto) %>%
+  group_by(moeda) %>%
+  arrange(moeda) %>%
+  ggplot() + geom_line(aes(valorPago, dataPagamento))
 

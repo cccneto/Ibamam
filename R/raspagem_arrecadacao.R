@@ -2,17 +2,16 @@
 #'
 #' @param path pasta onde salvarei a tabela json
 #'
+#' @importFrom dplyr %>%
+#'
 #' @export
-
 library(magrittr)
 
 # Criar uma funcao para ler os arquivos
 
 obter_arquivos_arrec <- function(uf, path) {
 
-  `%>%` <- magrittr::`%>%`  #  carregando apenas a funcao do pacote
-
-  uf_links <-
+    uf_links <-
     glue::glue(
       "http://dadosabertos.ibama.gov.br/dados/SICAFI/{uf}/Arrecadacao/arrecadacaobenstutelados.json"
     )
