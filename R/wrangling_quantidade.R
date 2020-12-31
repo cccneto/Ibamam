@@ -4,6 +4,7 @@ library(dplyr)
 # carregando dataframe
 load("df_multas.rda")
 class(df_multas$uf)
+
 # ajustando variaveis de Data para o formato correto
 
 df_multa <- df_multas %>%
