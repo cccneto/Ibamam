@@ -1,6 +1,6 @@
-#' Baixa os arquivos a tabela json
+#' @title Downloading data from Ibama database
 #'
-#' @param path pasta onde salvarei a tabela json
+#' @param path Path where the jason files will be saved.
 #'
 #' @importFrom dplyr %>%
 #'
