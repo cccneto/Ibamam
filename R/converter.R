@@ -1,13 +1,20 @@
-# Criar a funcionalidade para atualizacao dos valores
-library(dplyr)
+#' @title Currency converter
+#'
+#' @description Given the currency that was used, the function returns the values converted to Real (R$).
+#' Function was developed from the equations proposed at http://idealsoftwares.com.br/tabelas/tabela.php?id=351
+#'
+#' @param moeda The .....  of currency.
+#' @param valor The... monetary values.
+#'
+#' @importFrom dplyr %>%
+#' @export
 
-load("df_arrec.rda")
-dplyr::glimpse(df_arrec)
+# carregar dados
+#load("df_arrec.rda")
 
+# Função de conversão para a moeda do Plano Real
 
-# Função de conversão para a moeda do Plano Real (divir por), extraido de  http://idealsoftwares.com.br/tabelas/tabela.php?id=351
-
-converter <- function(moeda, valor, x = 1000, y = 2.75){
+converter <- function(moeda, valor){
   if(moeda == "UFIR"){
     new_valor <- valor * 1.0641
   } else if (moeda == "OTN"){
@@ -17,15 +24,15 @@ converter <- function(moeda, valor, x = 1000, y = 2.75){
   } else if (moeda == "MVR"){
     new_valor <- valor * 19.00
   } else if(moeda == "Cruzeiro (70 a 86)"){
-    new_valor <- valor / (x^4 * y)
+    new_valor <- valor / (1000^4 * 2.75)
   } else if (moeda == "Cruzado"){
-    new_valor <- valor / (x^3 * y)
+    new_valor <- valor / (1000^3 * 2.75)
   } else if (moeda == "Cruzado Novo"){
-    new_valor <- valor / (x^2 * y)
+    new_valor <- valor / (1000^2 * 2.75)
   } else if (moeda == "Cruzeiro (90 a 93)"){
-    new_valor <- valor / (x^2 * y)
+    new_valor <- valor / (1000^2 * 2.75)
   } else if(moeda == "Cruzeiro Real"){
-    new_valor <- valor / (x * y)
+    new_valor <- valor / (1000 * 2.75)
   } else if (moeda == "Real"){
     new_valor <- valor
   }
