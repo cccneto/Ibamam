@@ -39,11 +39,17 @@ converter <- function(moeda, valor){
   return(new_valor)
 }
 
-# Obtendo os resultados via purrr
+#' @example
+converter("UFIR", 10)
+#' # A função funciona para valores de comprimento 1.
+#'
+#' # Pode ainda obter os resultados via purrr
 convertido <- purrr::map2_dbl(df_arrec$moeda, df_arrec$valorAuto, converter)
 
-# Se quiser adicionar como coluna da sua tibble, você pode fazer
+#' # E se quiser adicionar como coluna da sua tibble, você pode fazer
 df_arrec_convertido <- df_arrec %>%
   dplyr::mutate(convertido = purrr::map2_dbl(moeda, valorAuto, converter))
+
+
 
 
