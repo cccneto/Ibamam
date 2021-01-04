@@ -1,6 +1,8 @@
-#' Baixa os arquivos a tabela json
+#' @title Downloading data from Ibama database
 #'
-#' @param path pasta onde salvarei a tabela json
+#' @param path Path where the jason files will be saved.
+#'
+#' @importFrom dplyr %>%
 #'
 #' @export
 
@@ -32,9 +34,6 @@ obter_arquivos_multas <- function(uf, path) {
 
   content
 }
-
-library(magrittr)
-library(tidyverse)
 
 # Fazer um vetor com todas as siglas de UF
 ufs <- unique(geobr::grid_state_correspondence_table$code_state)
