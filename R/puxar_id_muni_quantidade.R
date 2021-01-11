@@ -112,15 +112,6 @@ df_multa_limpo_leftjoin <-
   dplyr::left_join(df_multa_limpo, ibgecode,
                    by = c("municipio" = "name_muni", "uf" = "abrev_state"))
 
-# Para saber quais municipios estão sem code_muni
-
-# sum(is.na(df_multa_limpo_leftjoin$code_muni))
-#
-# df_multa_limpo_leftjoin  %>%
-#   select(municipio, uf, code_muni) %>%
-#   arrange(desc(code_muni)) %>%
-#   filter(is.na(code_muni)) %>%
-#  distinct() %>%
-#   View()
-
+# salvando como arquivo rda
+save(df_multa_limpo_leftjoin, file = "df_multa_limpo_leftjoin.rda")
 
