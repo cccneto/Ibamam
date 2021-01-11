@@ -10,7 +10,7 @@
 #' @export
 
 # carregar dados
-#load("df_arrec.rda")
+load("df_arrec.rda")
 
 # Função de conversão para a moeda do Plano Real
 
@@ -43,13 +43,21 @@ converter <- function(moeda, valor){
 converter("UFIR", 10)
 #' # A função funciona para valores de comprimento 1.
 #'
-#' # Pode ainda obter os resultados via purrr
+#' # Pode ainda obter os resultados via purrr. Obs.: essa etapa demora pode demorar 5 minutos
 convertido <- purrr::map2_dbl(df_arrec$moeda, df_arrec$valorAuto, converter)
 
-#' # E se quiser adicionar como coluna da sua tibble, você pode fazer
+#' # E se quiser adicionar como coluna da sua tibble, você pode fazer. Obs.: essa etapa demora pode demorar 5 minutos
 df_arrec_convertido <- df_arrec %>%
   dplyr::mutate(convertido = purrr::map2_dbl(moeda, valorAuto, converter))
 
 
+#' # É possivel converter multiplos valores simultaneamente?
+
+df_arrec_convertido <- df_arrec %>%
+  dplyr::mutate(
+                valorAutoConvertido = purrr::map2_dbl(moeda, valorAuto, converter),
+                valorbaseParcelaConvertido = purrr::map2_dbl(moeda, valorbaseParcela,
+                converter)
+                )
 
 
