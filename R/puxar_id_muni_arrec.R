@@ -112,6 +112,9 @@ df_arrec_leftjoin <-
   dplyr::left_join(df_arrec_limpo, ibgecode,
                    by = c("municipio" = "name_muni", "uf" = "abrev_state"))
 
+# salvando como RDa
+save(df_arrec_leftjoin, file = "df_arrec_leftjoin.rda")
+
 # conferindo as datas dos autos e pagamentos
 df_arrec_leftjoin %>% select(dataAuto, dataPagamento) %>%  arrange(desc(dataPagamento))
 
