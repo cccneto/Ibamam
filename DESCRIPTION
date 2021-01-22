@@ -1,13 +1,13 @@
 Package: Ibamam
-Title: What the Package Does (One Line, Title Case)
+Title: This package provides the IBAMA database for environmental fines
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Claudiano",
+           family = "Cruz Neto",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "cneto@ufrb.edu.br",
+           comment = c(ORCID = "https://orcid.org/0000-0003-4307-570X"))
+Description: This package provides the IBAMA database for environmental fines and fines. The data were cross-checked with the Brazilian Federal Revenue database to obtain information from the Legal Nature Classification and National Classification of Economic Activities (CNAE)
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
 Encoding: UTF-8
@@ -18,3 +18,12 @@ URL: https://github.com/cccneto/Ibamam
 BugReports: https://github.com/cccneto/Ibamam/issues
 Depends: 
     R (>= 2.10)
+Imports: 
+    dplyr,
+    glue,
+    httr,
+    jsonlite,
+    tibble,
+    geobr,
+    stringr,
+    abjutils

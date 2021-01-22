@@ -33,6 +33,21 @@
 # COmposição das multas quitadas em 2020
 
 
+# Reunião com CADU
+
+# Ideia 1 - Fazer um DEA pela superintendências do IBAMA, pensando em eficiência.
+# (variáveis, n. funcionários, orcamento, tamanho do estado, e o q mais?) -
+
+# Ideia 2 - Decreto Bolsonaro antes e depois
+# Tempo médio de pagamento das multas antes e depois
+# Variando natureza do "tipo de infração" x "bioma" x "cpf/cpnj"
+
+# Ideia 3  - abordagem mais Espacial
+# Indice de Crimes Ambientais (via ibama)
+# Existe diferença significa decorrente da implementação do decreto?
+
+
+
 # Reportagem não compara pagamentos com anos de autuações
 # Reportagem não monta esquema visual do fluxo do processo antes e pós decreto de 2019
 
