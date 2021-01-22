@@ -115,3 +115,6 @@ df_multa_limpo_leftjoin <-
 # salvando como arquivo rda
 save(df_multa_limpo_leftjoin, file = "df_multa_limpo_leftjoin.rda")
 
+write_csv(df_multa_limpo_leftjoin, "data-raw/df_multa_limpo_leftjoin.csv")
+
+# usethis::use_data(df_multa_limpo_leftjoin, overwrite = TRUE)

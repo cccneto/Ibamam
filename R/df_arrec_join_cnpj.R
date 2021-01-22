@@ -41,10 +41,11 @@ cnpj_dados_cnae_secundario <- read.csv("cnpj_dados_cnae_secundario.csv",
 # carregar dados da arrecadação
 load("C:/Users/User/Documents/Ibamam/df_arrec_leftjoin.rda")
 
+
 # Criar DF filtrando por CNPJ
 df_arrec_cnpj <-
   df_arrec_leftjoin  %>%
-  filter(enquadramentoJuridico == "CNPJ") %>%
+   filter(enquadramentoJuridico == "CNPJ") %>%
   dplyr::mutate(num_cnpj = as.double((stringr::str_replace_all(cpfCnpj,
                                                                "[^[:alnum:]]", ""))))
 

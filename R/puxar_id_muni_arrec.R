@@ -115,6 +115,11 @@ df_arrec_leftjoin <-
 # salvando como RDa
 save(df_arrec_leftjoin, file = "df_arrec_leftjoin.rda")
 
+write_csv(df_arrec_leftjoin, "data-raw/df_arrec_leftjoin.csv")
+
+#usethis::use_data(df_arrec_leftjoin, overwrite = TRUE)
+
+
 # conferindo as datas dos autos e pagamentos
 df_arrec_leftjoin %>% select(dataAuto, dataPagamento) %>%  arrange(desc(dataPagamento))
 
