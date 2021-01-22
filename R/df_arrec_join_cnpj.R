@@ -1,36 +1,47 @@
 library(tidyverse)
 
-# setwd("D:/qsa_cnpj")
-
 # Base de dados liberada pela RFB no dia 05/09/2020 e Processada e disponibilizada
 # com a versão 0.2.1 do pacote qsacnpj:
 
-#
+# opção de carregar pelo arquivo .csv
 cnpj_dados_cadastrais_pj <- read.csv("cnpj_dados_cadastrais_pj.csv",
                                      sep = "#",
                                      fileEncoding = "UTF-8")
+# opção de carregar pelo arquivo .rda
+# load("cnpj_dados_cadastrais_pj.rda")
+
 
 #  Tabela de Classificação da Natureza Jurídica 2018
 tab_natureza_juridica <- read.csv("tab_natureza_juridica.csv",
                                   sep = "#",
                                   fileEncoding = "UTF-8")
+
+# opção de carregar pelo arquivo .rda
+# load("tab_natureza_juridica.rda")
+
 # Tabela de Classificação Nacional de Atividades Econômicas (CNAE) - Subclasses 2.3
 tab_cnae <- read.csv("tab_cnae.csv",
                      sep = "#",
                      fileEncoding = "UTF-8")
+
+# opcao de carregar pelo arquivo .rda
+# load("tab_cnae.rda")
 
 # Tabela de Classificação secundaria do CNAE
 cnpj_dados_cnae_secundario <- read.csv("cnpj_dados_cnae_secundario.csv",
                                        sep = "#",
                                        fileEncoding = "UTF-8") %>% plyr::create_progress_bar()
 
+# opcao de carregar pelo arquivo .rda
+# load("cnpj_dados_cnae_secundario.rda")
 
 ##############  JUNTANDO AS BASES
 
-# carregar dados
+
+# carregar dados da arrecadação
 load("C:/Users/User/Documents/Ibamam/df_arrec_leftjoin.rda")
 
-# APENAS NATUREZA JURIDICA - CNPJ
+# Criar DF filtrando por CNPJ
 df_arrec_cnpj <-
   df_arrec_leftjoin  %>%
   filter(enquadramentoJuridico == "CNPJ") %>%
@@ -71,4 +82,12 @@ df_arrec_cnpj_join_nat_jur_cnae %>%
 
 # Salvando base
 save(base_arrec_final, file = "base_arrec_final.rda")
+
+write_csv(base_arrec_final, "data-raw/base_arrec_final.csv")
+
+# usethis::use_data(base_arrec_final, overwrite = TRUE)
+
+# g <- df_arrec_leftjoin %>%
+#   filter(!is.na(enquadramentoJuridico)) %>%
+#   group_by(enquadramentoJuridico)
 
