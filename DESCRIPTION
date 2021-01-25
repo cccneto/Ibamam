@@ -26,4 +26,10 @@ Imports:
     tibble,
     geobr,
     stringr,
-    abjutils
+    abjutils,
+    deflateBR,
+    purrr,
+    tidyverse,
+    magrittr,
+    lubridate,
+    methods

@@ -11,7 +11,8 @@
 
 # carregar dados
 load("df_arrec.rda")
-
+library(dplyr)
+library(methods)
 # Função de conversão para a moeda do Plano Real
 
 converter <- function(moeda, valor){
