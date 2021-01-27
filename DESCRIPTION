@@ -13,7 +13,7 @@ Authors@R:
            email = "milz.bea@gmail.com",
            comment = c(ORCID = "0000-0002-3064-4486")))
 Description: This package provides the IBAMA database for environmental fines and fines.
-License: use_mit_license()
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
@@ -36,4 +36,5 @@ Imports:
     tidyverse,
     magrittr,
     lubridate,
-    methods
+    methods,
+    usethis
