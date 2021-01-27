@@ -6,7 +6,7 @@ library(methods)
 # carregando dataframe
 # load("df_multas.rda")
 
-file_url <- "https://github.com/cccneto/database/blob/main/df_multas.rda?raw=true"
+file_url <- "https://github.com/cccneto/Ibamam/blob/master/inst/dados/df_multas.rda?raw=true"
 load(url(file_url))
 
 

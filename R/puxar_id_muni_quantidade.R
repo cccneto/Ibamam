@@ -2,7 +2,7 @@ library(dplyr)
 library(methods)
 
 # load("df_multa_limpo.rda")
-file_url <- "https://github.com/cccneto/database/blob/main/df_multa_limpo.rda?raw=true"
+file_url <- "https://github.com/cccneto/Ibamam/blob/master/inst/dados/df_multa_limpo.rda?raw=true"
 load(url(file_url))
 
 # Baixando base do ibge para obtencao dos codigos municipais
