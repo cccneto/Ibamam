@@ -1,7 +1,10 @@
 library(dplyr)
 library(methods)
 
-load("df_arrec.rda")
+#load("df_arrec.rda")
+file_url <- "https://github.com/cccneto/Ibamam/blob/master/inst/dados/df_arrec.rda?raw=true"
+load(url(file_url))
+
 
 # Baixando base do ibge para obtencao dos codigos municipais
 
@@ -21,7 +24,7 @@ df_arrec_leftjoin <-
                    by = c("municipio" = "name_muni", "uf" = "abrev_state"))
 
 # salvando como RDa
-save(df_arrec_leftjoin, file = "df_arrec_leftjoin.rda")
+# save(df_arrec_leftjoin, file = "df_arrec_leftjoin.rda")
 
 # salvando em formato csv
 # write_csv(df_arrec_leftjoin, "data-raw/df_arrec_leftjoin.csv")

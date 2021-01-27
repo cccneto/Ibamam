@@ -10,7 +10,9 @@
 #' @return Retorna um valor único ou vetor convertido para Reais
 
 #' Carregar dados
-load("df_arrec.rda")
+file_url <- "https://github.com/cccneto/Ibamam/blob/master/inst/dados/df_arrec.rda?raw=true"
+load(url(file_url))
+
 library(dplyr)
 library(methods)
 #' Função de conversão para a moeda do Plano Real
@@ -41,7 +43,7 @@ converter <- function(moeda, valor){
 }
 
 #' @example # A função funciona para valores de comprimento 1.
-converter("UFIR", 10)
+#' converter("UFIR", 10)
 #'
 #'
 #' Pode ainda obter os resultados via purrr. Obs.: essa etapa demora pode demorar 5 minutos

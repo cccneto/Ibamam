@@ -45,6 +45,6 @@ df_arrecadacao <- purrr::map_dfr(ufs, obter_arquivos_arrec, path = "out.arrec/")
 df_arrecadacao <- df_arrecadacao$data %>% tibble::as_tibble()
 
 # Salvando dataframe, jogando na pasta Ibamam
-save(df_arrecadacao, file = "df_arrecadacao.rda")
+# save(df_arrecadacao, file = "df_arrecadacao.rda")
 
 

@@ -4,7 +4,11 @@ library(lubridate)
 library(methods)
 
 # carregando dataframe
-load("df_multas.rda")
+# load("df_multas.rda")
+
+file_url <- "https://github.com/cccneto/Ibamam/blob/master/inst/dados/df_multas.rda?raw=true"
+load(url(file_url))
+
 
 # AJustando e limpando base
 
@@ -109,4 +113,4 @@ df_multa_limpo <- df_multas %>%
 
 
 # Sobrescrevendo o novo arquivo na pasta
-save(df_multa_limpo, file = "df_multa_limpo.rda")
+# save(df_multa_limpo, file = "df_multa_limpo.rda")

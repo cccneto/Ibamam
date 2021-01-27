@@ -1,7 +1,9 @@
 library(dplyr)
 library(methods)
 
-load("df_multa_limpo.rda")
+# load("df_multa_limpo.rda")
+file_url <- "https://github.com/cccneto/Ibamam/blob/master/inst/dados/df_multa_limpo.rda?raw=true"
+load(url(file_url))
 
 # Baixando base do ibge para obtencao dos codigos municipais
 
@@ -21,7 +23,7 @@ df_multa_limpo_leftjoin <-
                    by = c("municipio" = "name_muni", "uf" = "abrev_state"))
 
 # salvando como arquivo rda
-save(df_multa_limpo_leftjoin, file = "df_multa_limpo_leftjoin.rda")
+# save(df_multa_limpo_leftjoin, file = "df_multa_limpo_leftjoin.rda")
 
 # salvando em formato csv
 # write_csv(df_multa_limpo_leftjoin, "data-raw/df_multa_limpo_leftjoin.csv")

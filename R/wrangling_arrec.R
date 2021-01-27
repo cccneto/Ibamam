@@ -6,7 +6,10 @@ library(methods)
 # ajustando variaveis de Data para o formato correto
 
 # carregando dataframe
-load("df_arrecadacao.rda")
+#load("df_arrecadacao.rda")
+
+file_url <- "https://github.com/cccneto/Ibamam/blob/master/inst/dados/df_arrecadacao.rda?raw=true"
+load(url(file_url))
 
 # AJustando e limpando base
 df_arrec <- df_arrecadacao %>%
@@ -110,4 +113,4 @@ df_arrec <- df_arrecadacao %>%
   )
 
 # Sobrescrevendo o novo arquivo na pasta
-save(df_arrec, file = "df_arrec.rda")
+# save(df_arrec, file = "df_arrec.rda")
