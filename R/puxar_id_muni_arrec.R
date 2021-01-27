@@ -2,7 +2,7 @@ library(dplyr)
 library(methods)
 
 #load("df_arrec.rda")
-file_url <- "https://github.com/cccneto/Ibamam/blob/master/inst/dados/df_arrec.rda?raw=true"
+file_url <- "https://github.com/cccneto/database/blob/main/df_arrec.rda?raw=true"
 load(url(file_url))
 
 

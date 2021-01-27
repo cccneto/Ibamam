@@ -1,0 +1,16 @@
+citHeader("To cite Ibamam in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = {Ibamam Package},
+  author   = {Cruz Neto, Claudiano C.},
+  journal  = ,
+  year     = {2021},
+  volume   = {1},
+  number   = ,
+  pages    = ,
+  url      = ,
+  textVersion = paste(
+
+  )
+)
