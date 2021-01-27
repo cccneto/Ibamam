@@ -8,7 +8,7 @@ library(methods)
 # carregando dataframe
 #load("df_arrecadacao.rda")
 
-file_url <- "https://github.com/cccneto/Ibamam/blob/master/inst/dados/df_arrecadacao.rda?raw=true"
+file_url <- "https://github.com/cccneto/database/blob/main/df_arrecadacao.rda?raw=true"
 load(url(file_url))
 
 # AJustando e limpando base
