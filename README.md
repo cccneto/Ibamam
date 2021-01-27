@@ -20,13 +20,6 @@ Abertos](https://dados.gov.br/) no repositóio do
 Caso você queira utilizar a base mais atual, sem que seja necessário
 instalar o pacote, recomendo que utilize o seguinte código:
 
-``` r
-
-# multas <- load("") readr::read_csv2("https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv")
-
-# autuacoes <- readr::read_csv2("https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv")
-```
-
 ## Como instalar?
 
 Este pacote pode ser instalado através do [GitHub](https://github.com/)
@@ -46,9 +39,6 @@ formato `.csv`, os mesmos podem ser acessados através dos links a
 seguir. Lembrete: o arquivo foi salvo em formato “separado por ponto e
 vírgula”, e com encoding “UTF-8”.
 
-  - `mananciais_consolidado` - 2000 à 2020 - [Baixar versão
-    `.csv`](https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais_consolidado.csv)
-
 Abaixo segue um exemplo das bases disponíveis:
 
 ``` r
@@ -56,20 +46,14 @@ Abaixo segue um exemplo das bases disponíveis:
 ```
 
 Caso queira saber o significado de cada variável, leia a [documentação
-da base de
-dados](https://beatrizmilz.github.io/mananciais/reference/mananciais.html)
-ou utilize a seguinte função:
-
-``` r
-?mananciais::mananciais
-```
+da base de dados]():
 
 ### Exemplo de tabela
 
 ``` r
 # library(magrittr)
-# mananciais %>% 
-#   dplyr::arrange(desc(data)) %>% 
+# multas %>% 
+#   dplyr::arrange(desc(ValorAuto)) %>% 
 #   head(7) %>%
 #   knitr::kable()
 ```
