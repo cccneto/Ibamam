@@ -109,4 +109,4 @@ df_multa_limpo <- df_multas %>%
 
 
 # Sobrescrevendo o novo arquivo na pasta
-# save(df_multa_limpo, file = "df_multa.rda")
+save(df_multa_limpo, file = "df_multa_limpo.rda")

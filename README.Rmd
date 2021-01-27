@@ -1,0 +1,79 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+
+**NOTE: This is a toy package created for expository purposes.**
+
+
+# Ibamam
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+O objetivo deste pacote é disponibilizar a base de dados sobre multas e autuações ambientais do Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis (IBAMA).
+
+Os dados foram obtidos no [Portal Brasileiro de Dados Abertos](https://dados.gov.br/) no repositóio do  [IBAMA](https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama).
+
+<!-- > __Caso você não utilize R__, é possível __fazer download da base de dados__ através [deste link](https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv).  -->
+
+Caso você queira utilizar a base mais atual, sem que seja necessário instalar o pacote, recomendo que utilize o seguinte código:
+
+```{r message=FALSE, warning=FALSE, include=TRUE}
+
+multas <- load("") readr::read_csv2("https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv")
+
+autuacoes <- readr::read_csv2("https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv")
+```
+
+## Como instalar? 
+
+Este pacote pode ser instalado através do  [GitHub](https://github.com/) utilizando o seguinte código em `R`:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("cccneto/Ibamam")
+library(Ibamam)
+```
+## Como usar?
+
+Existem dois arquivos disponíveis, em que a diferença é o período dos dados. Caso você não utilize `R` e queira ter acesso aos dados em formato `.csv`, os mesmos podem ser acessados através dos links a seguir. Lembrete: o arquivo foi salvo em formato "separado por ponto e vírgula", e com encoding "UTF-8".
+
+- `mananciais_consolidado` - 2000 à 2020 - [Baixar versão `.csv`](https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais_consolidado.csv)
+
+Abaixo segue um exemplo das bases disponíveis:
+
+```{r example}
+dplyr::glimpse(multas)
+```
+
+Caso queira saber o significado de cada variável, leia a [documentação da base de dados](https://beatrizmilz.github.io/mananciais/reference/mananciais.html) ou utilize a seguinte função:
+
+```r 
+?mananciais::mananciais
+```
+
+### Exemplo de tabela
+
+```{r eval=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+library(magrittr)
+mananciais %>% 
+  dplyr::arrange(desc(data)) %>% 
+  head(7) %>%
+  knitr::kable()
+```
+
+
+## Como citar o pacote
+

@@ -17,7 +17,7 @@ ibgecode <-
 # Left join das bases considerando nome de cidades e uf's.
 
 df_arrec_leftjoin <-
-  dplyr::left_join(df_arrec_limpo, ibgecode,
+  dplyr::left_join(df_arrec, ibgecode,
                    by = c("municipio" = "name_muni", "uf" = "abrev_state"))
 
 # salvando como RDa

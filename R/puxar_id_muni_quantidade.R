@@ -1,7 +1,7 @@
 library(dplyr)
 library(methods)
 
-load("df_multa.rda")
+load("df_multa_limpo.rda")
 
 # Baixando base do ibge para obtencao dos codigos municipais
 

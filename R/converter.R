@@ -1,19 +1,19 @@
-#' @title Currency converter
-#'
+#' Currency converter
+#
 #' @description Given the currency that was used, the function returns the values converted to Real (R$).
 #' Function was developed from the equations proposed at http://idealsoftwares.com.br/tabelas/tabela.php?id=351
-#'
+#
 #' @param moeda The .....  of currency.
 #' @param valor The... monetary values.
-#'
-#' @importFrom dplyr %>%
-#' @export
 
-# carregar dados
+#' @importFrom dplyr %>%
+#' @return Retorna um valor único ou vetor convertido para Reais
+
+#' Carregar dados
 load("df_arrec.rda")
 library(dplyr)
 library(methods)
-# Função de conversão para a moeda do Plano Real
+#' Função de conversão para a moeda do Plano Real
 
 converter <- function(moeda, valor){
   if(moeda == "UFIR"){
@@ -40,19 +40,19 @@ converter <- function(moeda, valor){
   return(new_valor)
 }
 
-#' @example
+#' @example # A função funciona para valores de comprimento 1.
 converter("UFIR", 10)
-#' # A função funciona para valores de comprimento 1.
 #'
-#' # Pode ainda obter os resultados via purrr. Obs.: essa etapa demora pode demorar 5 minutos
+#'
+#' Pode ainda obter os resultados via purrr. Obs.: essa etapa demora pode demorar 5 minutos
 convertido <- purrr::map2_dbl(df_arrec$moeda, df_arrec$valorAuto, converter)
 
-#' # E se quiser adicionar como coluna da sua tibble, você pode fazer. Obs.: essa etapa demora pode demorar 5 minutos
+#' E se quiser adicionar como coluna da sua tibble, você pode fazer. Obs.: essa etapa demora pode demorar 5 minutos
 df_arrec_convertido <- df_arrec %>%
   dplyr::mutate(convertido = purrr::map2_dbl(moeda, valorAuto, converter))
 
 
-#' # É possivel converter multiplos valores simultaneamente?
+#' É possivel converter multiplos valores simultaneamente?
 
 df_arrec_convertido <- df_arrec %>%
   dplyr::mutate(
