@@ -1,17 +1,16 @@
-#' Currency converter
+#' @title Currency converter
 #
 #' @description Given the currency that was used, the function returns the values converted to Real (R$).
-#' Function was developed from the equations proposed at http://idealsoftwares.com.br/tabelas/tabela.php?id=351
-#
+#'
 #' @param moeda The .....  of currency.
 #' @param valor The... monetary values.
 
 #' @importFrom dplyr %>%
 #' @return Retorna um valor único ou vetor convertido para Reais
 
-#' Carregar dados
-file_url <- "https://github.com/cccneto/Ibamam/blob/master/inst/dados/df_arrec.rda?raw=true"
-load(url(file_url))
+#' Carregar dados de multas para exemplo
+
+multas <- readr::read_csv("data/multas_teste.csv")
 
 library(dplyr)
 library(methods)
@@ -41,22 +40,18 @@ converter <- function(moeda, valor){
   }
   return(new_valor)
 }
+#' A função funciona para valores de comprimento 1.
+#' @example converter("UFIR", 10)
 
-#' @example # A função funciona para valores de comprimento 1.
-#' converter("UFIR", 10)
-#'
-#'
 #' Pode ainda obter os resultados via purrr. Obs.: essa etapa demora pode demorar 5 minutos
-convertido <- purrr::map2_dbl(df_arrec$moeda, df_arrec$valorAuto, converter)
+multas_convertido <- purrr::map2_dbl(multas$moeda, multas$valorAuto, converter)
 
 #' E se quiser adicionar como coluna da sua tibble, você pode fazer. Obs.: essa etapa demora pode demorar 5 minutos
-df_arrec_convertido <- df_arrec %>%
-  dplyr::mutate(convertido = purrr::map2_dbl(moeda, valorAuto, converter))
-
+df_multas_convertido <- multas %>%
+  dplyr::mutate(multas_convertido = purrr::map2_dbl(moeda, valorAuto, converter))
 
 #' É possivel converter multiplos valores simultaneamente?
-
-df_arrec_convertido <- df_arrec %>%
+df_multas_convertido <- multas %>%
   dplyr::mutate(
                 valorAutoConvertido = purrr::map2_dbl(moeda, valorAuto, converter),
                 valorbaseParcelaConvertido = purrr::map2_dbl(moeda, valorbaseParcela,

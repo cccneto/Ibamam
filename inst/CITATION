@@ -1,16 +1,14 @@
 citHeader("To cite Ibamam in publications use:")
 
 citEntry(
-  entry    = "Article",
-  title    = {Ibamam Package},
-  author   = {Cruz Neto, Claudiano C.},
-  journal  = ,
-  year     = {2021},
-  volume   = {1},
-  number   = ,
-  pages    = ,
-  url      = ,
+  entry    = "Manual",
+  title    = "Ibamam: Base de dados sobre multas e autuações ambientais do Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis - Brasil.",
+  author   = person("Claudiano Cruz Neto"),
+  year     = 2021,
+  note     = "R package version 0.0.0.9000",
+  url      = "https://cccneto.github.io/ibamam/",
   textVersion = paste(
-
+"Claudiano Cruz Neto (2021). Ibamam: Base de dados sobre multas e autuações ambientais do Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis - Brasil"
   )
 )
+
