@@ -23,18 +23,18 @@ BugReports: https://github.com/cccneto/Ibamam/issues
 Depends: 
     R (>= 3.6)
 Imports: 
-    dplyr,
-    glue,
-    httr,
-    jsonlite,
-    tibble,
-    geobr,
-    stringr,
     abjutils,
     deflateBR,
-    purrr,
-    tidyverse,
-    magrittr,
+    dplyr,
+    geobr,
+    glue,
+    httr,  
+    jsonlite,
     lubridate,
+    magrittr,
     methods,
+    purrr,
+    stringr,
+    tibble,
+    tidyverse,
     usethis
