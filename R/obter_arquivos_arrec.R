@@ -1,4 +1,4 @@
-#' @title Downloading data from Ibama database - Multas
+#' @title Downloading data from Ibama database - Multas arrecadadas
 #'
 #' @param ufs bla bla bla
 #' @param path Path where the jason files will be saved.
@@ -6,21 +6,21 @@
 #' @return a data frame
 #'
 #' @export
-obter_arquivos_arrec <- function() {
+obter_arquivos_arrecadacao <- function() {
   purrr::map_dfr(
     unique(geobr::grid_state_correspondence_table$code_state),
-    raspar_arquivos_arrec
+    raspar_arquivos_arrecadacao
   )
 
 }
 
-raspar_arquivos_arrec <- function(uf){
-  arrec <- jsonlite::fromJSON(
+raspar_arquivos_arrecadacao <- function(uf){
+  multas_arrecadadas <- jsonlite::fromJSON(
       paste0(
         "http://dadosabertos.ibama.gov.br/dados/SICAFI/", uf,
         "/Arrecadacao/arrecadacaobenstutelados.json"
       )
   )
 
-  dplyr::as_tibble(arrec$data)
+  dplyr::as_tibble(multas_arrecadadas$data)
 }

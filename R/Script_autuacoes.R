@@ -12,9 +12,7 @@ library(methods)
 
 obter_arquivos_multas <- function(uf, path) {
 
-  `%>%` <- magrittr::`%>%`  #  carregando apenas a funcao do pacote
-
-  uf_links <-
+    uf_links <-
     glue::glue(
       "http://dadosabertos.ibama.gov.br/dados/SICAFI/{uf}/Quantidade/multasDistribuidasBensTutelados.json"
     )

@@ -7,8 +7,7 @@
 #' @export
 
 # Criar uma funcao para ler os arquivos
-library(dplyr)
-library(methods)
+
 obter_arquivos_arrec <- function(uf, path) {
 
   uf_links <-
