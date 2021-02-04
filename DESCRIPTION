@@ -37,4 +37,5 @@ Imports:
     stringr,
     tibble,
     tidyverse,
-    usethis
+    usethis,
+    magrittr
