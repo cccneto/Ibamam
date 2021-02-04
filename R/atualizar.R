@@ -7,9 +7,15 @@
   # dates = vetor de datas
   # reference = "mm/aaaa"
 
-#
+# Buscando função para prover o dataframe
+# source("~/Ibamam/R/obter_arquivos_arrec.R")
+
+# Realizando o download dos dados
+# multas_arrecadadas <- obter_arquivos_arrecadacao()
+
+
 # #
-# df_arrec %>%
+# multas_arrecadadas %>%
 #    dplyr::mutate(
 #     valorAutoAtualizado = deflateBR::deflate(valorAuto, dataAuto, "01/2020", "ipc")
 #   ) %>%

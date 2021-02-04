@@ -12,8 +12,6 @@
 
 multas <- readr::read_csv("data/multas_teste.csv")
 
-library(dplyr)
-library(methods)
 #' Função de conversão para a moeda do Plano Real
 
 converter <- function(moeda, valor){
