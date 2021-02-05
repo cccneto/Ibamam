@@ -6,6 +6,11 @@
 \usage{
 juntar_bases(base_ibama, base_ibgecode)
 }
+\arguments{
+\item{base_ibama}{dados baixados do ibama}
+
+\item{base_ibgecode}{dados baixados do ibge}
+}
 \value{
 a data frame
 }

@@ -7,9 +7,7 @@
 limpar_dados(base)
 }
 \arguments{
-\item{base}{bla bla bla}
-
-\item{path}{Path where the jason files will be saved.}
+\item{base}{Base de dados que deverá ser limpa}
 }
 \value{
 a data frame

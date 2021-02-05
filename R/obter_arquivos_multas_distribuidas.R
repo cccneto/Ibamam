@@ -1,8 +1,5 @@
 #' @title Downloading data from Ibama database - multas distribuidas
 #'
-#' @param ufs bla bla bla
-#' @param path Path where the jason files will be saved.
-#'
 #' @return a data frame
 #'
 #' @export

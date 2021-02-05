@@ -1,7 +1,8 @@
 #' @title Realizar merging das bases
 #'
 #' @return a data frame
-#'
+#' @param base_ibama dados baixados do ibama
+#' @param base_ibgecode dados baixados do ibge
 #' @export
 juntar_bases <- function(base_ibama, base_ibgecode){
   base_merged <- dplyr::left_join(
@@ -10,14 +11,6 @@ juntar_bases <- function(base_ibama, base_ibgecode){
   )
   base_merged # salvando csv para realizar testes
 }
-
-# testando
-# base_neto <- juntar_bases(base_ibama = teste, base_ibgecode = ibge)
-
-# salvando em formato csv
-# write.csv(autuacoes_teste, "data/autuacoes_teste.csv")
-# write_csv(autuacoes, "data/autuacoes.csv")
-
 
 
 

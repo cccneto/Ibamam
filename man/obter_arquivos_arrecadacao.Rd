@@ -6,11 +6,6 @@
 \usage{
 obter_arquivos_arrecadacao()
 }
-\arguments{
-\item{ufs}{Siglas dos estados brasileiros}
-
-\item{path}{Path where the jason files will be saved.}
-}
 \value{
 a data frame
 }

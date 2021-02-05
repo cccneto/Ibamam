@@ -6,11 +6,6 @@
 \usage{
 obter_arquivos_multas_distribuidas()
 }
-\arguments{
-\item{ufs}{bla bla bla}
-
-\item{path}{Path where the jason files will be saved.}
-}
 \value{
 a data frame
 }

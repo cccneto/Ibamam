@@ -1,5 +1,6 @@
 #' @title Função de conversão para a moeda do Plano Real
 #'
+#' @name converter function's name
 #' @description Given the currency that was used, the function returns the values converted to Real (R$).
 #'
 #' @param moeda Moeda de base que será convertida
@@ -35,24 +36,4 @@ converter <- function(moeda, valor){
 }
 #' A função funciona para valores de comprimento 1.
 #' @example
-converter("UFIR", 10)
-
-#' Carregar dados de multas para exemplo
-multas <- readr::read_csv("data/multas_teste.csv")
-
-#' Pode ainda obter os resultados via purrr. Obs.: essa etapa demora pode demorar 5 minutos
-multas_convertido <- purrr::map2_dbl(multas$moeda, multas$valorAuto, converter)
-
-#' E se quiser adicionar como coluna da sua tibble, você pode fazer. Obs.: essa etapa demora pode demorar 5 minutos
-df_multas_convertido <- multas %>%
-  dplyr::mutate(multas_convertido = purrr::map2_dbl(moeda, valorAuto, converter))
-
-#' É possivel converter multiplos valores simultaneamente?
-df_multas_convertido <- multas %>%
-  dplyr::mutate(
-                valorAutoConvertido = purrr::map2_dbl(moeda, valorAuto, converter),
-                valorbaseParcelaConvertido = purrr::map2_dbl(moeda, valorbaseParcela,
-                converter)
-                )
-
-
+#' converter("UFIR", 10)

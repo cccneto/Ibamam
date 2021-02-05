@@ -1,7 +1,6 @@
 #' @title Limpeza das bases
 #'
-#' @param base bla bla bla
-#' @param path Path where the jason files will be saved.
+#' @param base Base de dados que deverá ser limpa
 #'
 #' @return a data frame
 #'
@@ -14,8 +13,7 @@ limpar_dados <- function(base){
     dplyr::mutate(tipoAuto = as.factor(tipoAuto)) %>%
     dplyr::mutate(moeda = as.factor(moeda)) %>%
     dplyr::mutate(enquadramentoLegal = as.factor(enquadramentoLegal)) %>%
-    dplyr::mutate(across(where(is.character), str_remove_all, pattern = fixed("  "))) %>%
-    dplyr::mutate(enquadramentoJuridico = as.factor(if_else(nchar(cpfCnpj) <= 14,"CPF","CNPJ"))) %>%
+    dplyr::mutate(enquadramentoJuridico = as.factor(dplyr::if_else(nchar(cpfCnpj) <= 14,"CPF","CNPJ"))) %>%
     dplyr::mutate(
       municipio = stringr::str_to_lower(municipio), # ajustando letras para maiuscula
       municipio = abjutils::rm_accent(municipio), # retirando acentos

@@ -99,10 +99,3 @@ multas  %>% head()
 autuacoes %>% head()
 ```
 
-## Salvando as bases com formato *CSV*
-
-```{r}
-# Salvando em formato csv
-write.csv(autuacoes, "data/autuacoes.csv")
-write_csv(multas, "data/multas.csv")
-´´´
