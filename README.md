@@ -16,12 +16,10 @@ Os dados foram obtidos no [Portal Brasileiro de Dados
 Abertos](https://dados.gov.br/) no repositóio do
 [IBAMA](https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama).
 
-<!-- > __Caso você não utilize R__, é possível __fazer download da base de dados__ através [deste link](https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv).  -->
-
 Caso você queira utilizar a base mais atual, sem que seja necessário
 instalar o pacote, recomendo que utilize o seguinte código:
 
-## Como instalar?
+# Como instalar?
 
 Este pacote pode ser instalado através do [GitHub](https://github.com/)
 utilizando o seguinte código em `R`:
@@ -32,31 +30,108 @@ devtools::install_github("cccneto/Ibamam")
 library(Ibamam)
 ```
 
-## Como usar?
+# Como usar?
 
-Existem dois arquivos disponíveis, em que a diferença é o período dos
-dados. Caso você não utilize `R` e queira ter acesso aos dados em
-formato `.csv`, os mesmos podem ser acessados através dos links a
-seguir. Lembrete: o arquivo foi salvo em formato “separado por ponto e
-vírgula”, e com encoding “UTF-8”.
+O pacote `{Ibamam}`possui 7 funções. Abaixo descrevemos as funções e
+como você pode utilizá-las.
 
-Abaixo segue um exemplo das bases disponíveis:
+### Função para `{obter_arquivos_multas_distribuidas}`
+
+Essa função permite que você efetue a raspagem dos dados referentes a
+Quantidade de Multas Ambientais Distribuídas por Bens Tutelados, por
+exemplo: Flora, Fauna, dentre outros. A função disponibiliza todos os AI
+lavrados com ou sem julgamento.
+
+### Exemplo
 
 ``` r
-# dplyr::glimpse(multas)
+# Realizando o download dos dados
+# multas_distribuidas <- obter_arquivos_multas_distribuidas()
+
+# visualizando somente as 100 primeiras linhas
+# multas_distribuidas %>% head(100)
 ```
 
-Caso queira saber o significado de cada variável, leia a [documentação
-da base de dados]():
+### Função para `{obter_arquivos_arrecadacao}`
 
-### Exemplo de tabela
+Depois de realizar o download das duas bases de dados com as funções
+`{obter_arquivos_multas_distribuidas}` e `{obter_arquivos_arrecadacao}`,
+agora você precisa fazer a limpeza dos dados. Para isso basta acionar a
+função conforme abaixo:
+
+### Exemplo
 
 ``` r
-# library(magrittr)
-# multas %>% 
-#   dplyr::arrange(desc(ValorAuto)) %>% 
-#   head(7) %>%
-#   knitr::kable()
+# Realizando o download dos dados
+# multas_arrecadadas <- obter_arquivos_arrecadacao()
+
+# visualizando somente as 100 primeiras linhas de dados
+# multas_arrecadadas %>% head(100)
+```
+
+### Função para`{limpar_dados}`
+
+Essa função permite que você realize a limpeza dos dados que você
+realizou o download com as funções `{obter_arquivos_arrecadacao}`efetue
+a raspagem dos dados referentes ao volume da arrecadação do Ibama com
+multas ambientais distribuídas por bem tutelado, exemplo: Flora, Fauna,
+dentre outros. Os valores das multas estão fixados em lei e aplicadas de
+acordo a tipificação da infração cometida dentre outros. A função
+disponibiliza todos os AI lavrados com ou sem julgamento.
+
+### Exemplo
+
+``` r
+# limpando base "multas_distribuidas"
+# multas_arrecadadas_limpo <- limpar_dados(multas_arrecadadas)
+
+# limpando base "multas_distribuidas"
+# multas_distribuidas_limpo <- limpar_dados(multas_distribuidas)
+```
+
+### Função para`{baixar_id_municipios}`
+
+Com os dados de multas distribuidas e multas arrecadadas você pode
+desejar realizar algumas análises que requeiram dados espaciais. Para
+isso precisamos antes configurar os dados. O primeiro passo é usar a
+função `{baixar_id_municipios}`para pegarmos os códigos da \[Tabela de
+Códigos de Municípios do
+IBGE\]{<https://www.ibge.gov.br/explica/codigos-dos-municipios.php>}. A
+função criará um novo dataframe contendo os codigos municipais, uf, e os
+nomes dos municipios brasileiros.
+
+### Exemplo
+
+``` r
+# Pegando códigos municipais
+# id_codigos <- baixar_id_municipios()
+```
+
+### Função para`{juntar_bases}`
+
+Agora precisamos unir as bases do Ibama (*multas\_arrecadadas\_limpo* e
+*multas\_distribuidas\_limpo*) com os codigos municipais do IBGE
+(*id\_codigos*). Para isso aplique a função conforme descrito abaixo:
+
+### Exemplo
+
+``` r
+# Juntando *multas_arrecadadas* com os codigos municipais
+# multas <- juntar_bases(base_ibama = multas_arrecadadas_limpo, base_ibgecode = id_codigos)
+
+# Juntando *multas_distribuidas* com os codigos municipais
+# autuacoes <- juntar_bases(base_ibama = multas_distribuidas_limpo, base_ibgecode = id_codigos)
+```
+
+Se você quiser visualizar as bases prontas, basta digitar os codigos
+abaixo:
+
+``` r
+# multas  %>% head()
+
+# ou 
+
+# autuacoes %>% head()
 ```
 
 ## Como citar o pacote
