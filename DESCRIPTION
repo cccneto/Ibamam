@@ -1,5 +1,5 @@
 Package: Ibamam
-Title: This package provides the IBAMA database for environmental fines
+Title: IBAMA database for environmental fines
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Claudiano", family = "Cruz Neto",role = c("aut", "cre"), email = "cneto@ufrb.edu.br",
@@ -7,7 +7,7 @@ Authors@R:
     person(given = "Beatriz", family = "Milz", role = c("aut"), email = "milz.bea@gmail.com",
            comment = c(ORCID = "0000-0002-3064-4486")),
     person(given = "Samuel", family = "Macêdo", role = c("aut")))
-Description: This package provides the IBAMA database for environmental fines and fines.
+Description: Provides the IBAMA database about environmental fines.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -33,3 +33,5 @@ Imports:
     tibble,
     tidyverse,
     usethis
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
