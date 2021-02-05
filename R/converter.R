@@ -1,19 +1,14 @@
-#' @title Currency converter
-#
+#' @title Função de conversão para a moeda do Plano Real
+#'
 #' @description Given the currency that was used, the function returns the values converted to Real (R$).
 #'
-#' @param moeda The .....  of currency.
-#' @param valor The... monetary values.
-
+#' @param moeda Moeda de base que será convertida
+#' @param valor Quantia monetária.
+#'
 #' @importFrom dplyr %>%
 #' @return Retorna um valor único ou vetor convertido para Reais
-
-#' Carregar dados de multas para exemplo
-
-multas <- readr::read_csv("data/multas_teste.csv")
-
-#' Função de conversão para a moeda do Plano Real
-
+#'
+#' @export
 converter <- function(moeda, valor){
   if(moeda == "UFIR"){
     new_valor <- valor * 1.0641
@@ -39,7 +34,11 @@ converter <- function(moeda, valor){
   return(new_valor)
 }
 #' A função funciona para valores de comprimento 1.
-#' @example converter("UFIR", 10)
+#' @example
+converter("UFIR", 10)
+
+#' Carregar dados de multas para exemplo
+multas <- readr::read_csv("data/multas_teste.csv")
 
 #' Pode ainda obter os resultados via purrr. Obs.: essa etapa demora pode demorar 5 minutos
 multas_convertido <- purrr::map2_dbl(multas$moeda, multas$valorAuto, converter)

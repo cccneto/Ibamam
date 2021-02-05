@@ -6,6 +6,14 @@
 \usage{
 converter(moeda, valor)
 }
+\arguments{
+\item{moeda}{Moeda de base que será convertida}
+
+\item{valor}{Quantia monetária.}
+}
+\value{
+Retorna um valor único ou vetor convertido para Reais
+}
 \description{
-Função de conversão para a moeda do Plano Real
+Given the currency that was used, the function returns the values converted to Real (R$).
 }

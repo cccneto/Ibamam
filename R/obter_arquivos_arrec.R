@@ -1,6 +1,6 @@
 #' @title Downloading data from Ibama database - Multas arrecadadas
 #'
-#' @param ufs bla bla bla
+#' @param ufs Siglas dos estados brasileiros
 #' @param path Path where the jason files will be saved.
 #'
 #' @return a data frame

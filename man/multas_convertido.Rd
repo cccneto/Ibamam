@@ -3,7 +3,7 @@
 \docType{data}
 \name{multas_convertido}
 \alias{multas_convertido}
-\title{A função funciona para valores de comprimento 1.}
+\title{Pode ainda obter os resultados via purrr. Obs.: essa etapa demora pode demorar 5 minutos}
 \format{
 An object of class \code{numeric} of length 1000.
 }
@@ -11,6 +11,6 @@ An object of class \code{numeric} of length 1000.
 multas_convertido
 }
 \description{
-A função funciona para valores de comprimento 1.
+Pode ainda obter os resultados via purrr. Obs.: essa etapa demora pode demorar 5 minutos
 }
 \keyword{datasets}

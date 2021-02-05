@@ -3,23 +3,14 @@
 \docType{data}
 \name{multas}
 \alias{multas}
-\title{Currency converter}
+\title{Carregar dados de multas para exemplo}
 \format{
 An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 1000 rows and 20 columns.
 }
 \usage{
 multas
 }
-\arguments{
-\item{moeda}{The .....  of currency.}
-
-\item{valor}{The... monetary values.}
-}
-\value{
-Retorna um valor único ou vetor convertido para Reais
-Carregar dados de multas para exemplo
-}
 \description{
-Given the currency that was used, the function returns the values converted to Real (R$).
+Carregar dados de multas para exemplo
 }
 \keyword{datasets}

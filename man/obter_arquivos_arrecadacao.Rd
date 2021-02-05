@@ -7,7 +7,7 @@
 obter_arquivos_arrecadacao()
 }
 \arguments{
-\item{ufs}{bla bla bla}
+\item{ufs}{Siglas dos estados brasileiros}
 
 \item{path}{Path where the jason files will be saved.}
 }
