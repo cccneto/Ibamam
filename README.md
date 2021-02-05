@@ -119,7 +119,7 @@ Agora precisamos unir as bases do Ibama (*multas\_arrecadadas\_limpo* e
 # Juntando *multas_arrecadadas* com os codigos municipais
 # multas <- juntar_bases(base_ibama = multas_arrecadadas_limpo, base_ibgecode = id_codigos)
 
-# Juntando *multas_distribuidas* com os codigos municipais
+# Juntando *multas_distribuidas* com os códigos municipais
 # autuacoes <- juntar_bases(base_ibama = multas_distribuidas_limpo, base_ibgecode = id_codigos)
 ```
 
