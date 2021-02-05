@@ -12,11 +12,10 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
- # fig.path = "man/figures/README-",
   out.width = "100%"
 )
 library(Ibamam)
-
+library(dplyr)
 ```
 
 This document introduces you to Ibamam's basic set of tools, and shows you how to apply them to data frames from Ibama Database. Em outras palavras, os dados utilizados pelo `{Ibamam}` são provenientes do [Portal Brasileiro de Dados Abertos](https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama). 

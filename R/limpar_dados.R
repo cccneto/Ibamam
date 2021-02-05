@@ -13,7 +13,6 @@ limpar_dados <- function(base){
     dplyr::mutate(uf = uf) %>%
     dplyr::mutate(tipoAuto = as.factor(tipoAuto)) %>%
     dplyr::mutate(moeda = as.factor(moeda)) %>%
-    # dplyr::mutate(situacaoDebito = as.factor(situacaoDebito)) %>%
     dplyr::mutate(enquadramentoLegal = as.factor(enquadramentoLegal)) %>%
     dplyr::mutate(across(where(is.character), str_remove_all, pattern = fixed("  "))) %>%
     dplyr::mutate(enquadramentoJuridico = as.factor(if_else(nchar(cpfCnpj) <= 14,"CPF","CNPJ"))) %>%
