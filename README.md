@@ -10,9 +10,9 @@
 
 <img src="./logos/logo.png" width="25%" />
 
-O objetivo deste pacote é disponibilizar a base de dados sobre multas e
-autuações ambientais do Instituto Brasileiro do Meio Ambiente e dos
-Recursos Naturais Renováveis (IBAMA).
+O objetivo deste pacote é disponibilizar a base de multas e autuações
+ambientais do Instituto Brasileiro do Meio Ambiente e dos Recursos
+Naturais Renováveis (IBAMA).
 
 Os dados foram obtidos no [Portal Brasileiro de Dados
 Abertos](https://dados.gov.br/) no repositóio do

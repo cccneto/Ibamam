@@ -20,10 +20,10 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 ```{r pressure, echo=FALSE, out.width = '25%'}
-knitr::include_graphics("logo.png")
+knitr::include_graphics("./logos/logo.png")
 ```
 
-O objetivo deste pacote é disponibilizar a base de dados sobre multas e autuações ambientais do Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis (IBAMA).
+O objetivo deste pacote é disponibilizar a base de multas e autuações ambientais do Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis (IBAMA).
 
 Os dados foram obtidos no [Portal Brasileiro de Dados Abertos](https://dados.gov.br/) no repositóio do  [IBAMA](https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama).
 
