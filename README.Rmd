@@ -19,6 +19,10 @@ knitr::opts_chunk$set(
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
 <!-- badges: end -->
 
+```{r pressure, echo=FALSE, out.width = '25%'}
+knitr::include_graphics("logo.png")
+```
+
 O objetivo deste pacote é disponibilizar a base de dados sobre multas e autuações ambientais do Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis (IBAMA).
 
 Os dados foram obtidos no [Portal Brasileiro de Dados Abertos](https://dados.gov.br/) no repositóio do  [IBAMA](https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama).
