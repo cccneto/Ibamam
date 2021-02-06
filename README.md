@@ -140,7 +140,8 @@ abaixo:
 
   - [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
 
-  - “**Cruz Neto, Claudiano C.** (2021). IBAMAM: Pacote para tratamento
-    da Base de dados para multas e autuações ambientais aplicadas pelo
-    Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais
-    Renováveis - Brasil, <https://doi.org/10.5281/zenodo.4509344>”.
+  - “**CRUZ NETO, Claudiano C., MILZ, Beatriz., MACEDO, Samuel** (2021).
+    Ibamam: Pacote para tratamento da Base de dados para multas e
+    autuações ambientais aplicadas pelo Instituto Brasileiro do Meio
+    Ambiente e dos Recursos Naturais Renováveis - Brasil.
+    <https://doi.org/10.5281/zenodo.4509344>”".
