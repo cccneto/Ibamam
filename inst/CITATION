@@ -10,7 +10,7 @@ citEntry(
   year     = 2021,
   note     = "R package version 1.0",
   doi      = "10.5281/zenodo.4509343",
-  url      = "<https://github.com/cccneto/Ibamam/>",
+  url      = "https://github.com/cccneto/Ibamam/",
   textVersion = paste(
 "CRUZ NETO, Claudiano C., MILZ, Beatriz., MACEDO, Samuel (2021). Ibamam: Pacote para tratamento da Base de dados para multas e autuações ambientais aplicadas pelo Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis - Brasil. <https://doi.org/10.5281/zenodo.4509344>"
   )

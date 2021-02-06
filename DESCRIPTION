@@ -1,5 +1,5 @@
 Package: Ibamam
-Title: IBAMA Database For Environmental Fines
+Title: IBAMA Database for Environmental Fines
 Version: 1.0.0
 Authors@R: 
     c(person(given = "Claudiano", family = "Cruz Neto",role = c("aut", "cre"), email = "cneto@ufrb.edu.br",
@@ -15,7 +15,7 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-URL: <https://cccneto.github.io/Ibamam/>
+URL: https://cccneto.github.io/Ibamam/
 BugReports: https://github.com/cccneto/Ibamam/issues
 Depends: 
     R (>= 3.6)
