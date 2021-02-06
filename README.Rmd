@@ -25,13 +25,13 @@ knitr::include_graphics("./logos/logo.png")
 
 O objetivo deste pacote é disponibilizar a base de multas e autuações ambientais do Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis (IBAMA).
 
-Os dados foram obtidos no [Portal Brasileiro de Dados Abertos](https://dados.gov.br/) no repositóio do  [IBAMA](https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama).
+Os dados foram obtidos no [Portal Brasileiro de Dados Abertos](<https://dados.gov.br/>) no repositóio do  [IBAMA](<https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama>).
 
 Caso você queira utilizar a base mais atual, sem que seja necessário instalar o pacote, recomendo que utilize o seguinte código:
 
 # Como instalar? 
 
-Este pacote pode ser instalado através do  [GitHub](https://github.com/) utilizando o seguinte código em `R`:
+Este pacote pode ser instalado através do[GitHub](<https://github.com/>) utilizando o seguinte código em `R`:
 
 ``` r
 # install.packages("devtools")
@@ -84,7 +84,7 @@ Essa função permite que você realize a limpeza dos dados que você realizou o
 
 ### Função para`{baixar_id_municipios}`
 
-Com os dados de multas distribuidas e multas arrecadadas você pode desejar realizar algumas análises que requeiram dados espaciais. Para isso precisamos antes configurar os dados. O primeiro passo é usar a função `{baixar_id_municipios}`para pegarmos os códigos da [Tabela de Códigos de Municípios do IBGE]{https://www.ibge.gov.br/explica/codigos-dos-municipios.php}. A função criará um novo dataframe contendo os codigos municipais, uf, e os nomes dos municipios brasileiros.
+Com os dados de multas distribuidas e multas arrecadadas você pode desejar realizar algumas análises que requeiram dados espaciais. Para isso precisamos antes configurar os dados. O primeiro passo é usar a função `{baixar_id_municipios}`para pegarmos os códigos da [Tabela de Códigos de Municípios do IBGE](<https://www.ibge.gov.br/explica/codigos-dos-municipios.php>). A função criará um novo dataframe contendo os codigos municipais, uf, e os nomes dos municipios brasileiros.
 
 ### Exemplo
 ```{r, message=FALSE, warning=FALSE}
@@ -95,7 +95,7 @@ Com os dados de multas distribuidas e multas arrecadadas você pode desejar real
 
 ### Função para`{juntar_bases}`
 
-Agora precisamos unir as bases do Ibama (*multas_arrecadadas_limpo* e *multas_distribuidas_limpo*) com os codigos municipais do IBGE (*id_codigos*).
+Agora precisamos unir as bases do Ibama (*multas_arrecadadas_limpo* **e** *multas_distribuidas_limpo*) com os codigos municipais do IBGE (*id_codigos*).
 Para isso aplique a função conforme descrito abaixo:
 
 ### Exemplo
@@ -120,6 +120,6 @@ Se você quiser visualizar as bases prontas, basta digitar os codigos abaixo:
 
 ## Como citar o pacote
 
-* [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
+* [![DOI](<https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg>)](<https://doi.org/10.5281/zenodo.4509344>)
 
-* "**CRUZ NETO, Claudiano C., MILZ, Beatriz., MACEDO, Samuel** (2021). Ibamam: Pacote para tratamento da Base de dados para multas e autuações ambientais aplicadas pelo Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis - Brasil. https://doi.org/10.5281/zenodo.4509344"".
+* "**CRUZ NETO, Claudiano C., MILZ, Beatriz., MACEDO, Samuel** (2021). Ibamam: Pacote para tratamento da Base de dados para multas e autuações ambientais aplicadas pelo Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis - Brasil. <https://doi.org/10.5281/zenodo.4509344>".

@@ -23,7 +23,7 @@ instalar o pacote, recomendo que utilize o seguinte código:
 
 # Como instalar?
 
-Este pacote pode ser instalado através do [GitHub](https://github.com/)
+Este pacote pode ser instalado através do[GitHub](https://github.com/)
 utilizando o seguinte código em `R`:
 
 ``` r
@@ -96,11 +96,11 @@ disponibiliza todos os AI lavrados com ou sem julgamento.
 Com os dados de multas distribuidas e multas arrecadadas você pode
 desejar realizar algumas análises que requeiram dados espaciais. Para
 isso precisamos antes configurar os dados. O primeiro passo é usar a
-função `{baixar_id_municipios}`para pegarmos os códigos da \[Tabela de
+função `{baixar_id_municipios}`para pegarmos os códigos da [Tabela de
 Códigos de Municípios do
-IBGE\]{<https://www.ibge.gov.br/explica/codigos-dos-municipios.php>}. A
-função criará um novo dataframe contendo os codigos municipais, uf, e os
-nomes dos municipios brasileiros.
+IBGE](https://www.ibge.gov.br/explica/codigos-dos-municipios.php). A
+função criará um novo dataframe contendo os codigos municipais, uf, e
+os nomes dos municipios brasileiros.
 
 ### Exemplo
 
@@ -111,8 +111,8 @@ nomes dos municipios brasileiros.
 
 ### Função para`{juntar_bases}`
 
-Agora precisamos unir as bases do Ibama (*multas\_arrecadadas\_limpo* e
-*multas\_distribuidas\_limpo*) com os codigos municipais do IBGE
+Agora precisamos unir as bases do Ibama (*multas\_arrecadadas\_limpo*
+**e** *multas\_distribuidas\_limpo*) com os codigos municipais do IBGE
 (*id\_codigos*). Para isso aplique a função conforme descrito abaixo:
 
 ### Exemplo
@@ -144,4 +144,4 @@ abaixo:
     Ibamam: Pacote para tratamento da Base de dados para multas e
     autuações ambientais aplicadas pelo Instituto Brasileiro do Meio
     Ambiente e dos Recursos Naturais Renováveis - Brasil.
-    <https://doi.org/10.5281/zenodo.4509344>”".
+    <https://doi.org/10.5281/zenodo.4509344>”.

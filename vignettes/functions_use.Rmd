@@ -18,7 +18,7 @@ library(Ibamam)
 library(dplyr)
 ```
 
-This document introduces you to Ibamam's basic set of tools, and shows you how to apply them to data frames from Ibama Database. Em outras palavras, os dados utilizados pelo `{Ibamam}` são provenientes do [Portal Brasileiro de Dados Abertos](https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama). 
+This document introduces you to Ibamam's basic set of tools, and shows you how to apply them to data frames from Ibama Database. Em outras palavras, os dados utilizados pelo `{Ibamam}` são provenientes do [Portal Brasileiro de Dados Abertos](<https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama>). 
 
 # Functions
 
@@ -66,7 +66,7 @@ multas_distribuidas_limpo <- limpar_dados(multas_distribuidas)
 
 ##`{baixar_id_municipios}`
 
-Com os dados de multas distribuidas e multas arrecadadas você pode desejar realizar algumas análises que requeiram dados espaciais. Para isso precisamos antes configurar os dados. O primeiro passo é usar a função `{baixar_id_municipios}`para pegarmos os códigos da [Tabela de Códigos de Municípios do IBGE]{https://www.ibge.gov.br/explica/codigos-dos-municipios.php}. A função criará um novo dataframe contendo os codigos municipais, uf, e os nomes dos municipios brasileiros.
+Com os dados de multas distribuidas e multas arrecadadas você pode desejar realizar algumas análises que requeiram dados espaciais. Para isso precisamos antes configurar os dados. O primeiro passo é usar a função `{baixar_id_municipios}`para pegarmos os códigos da [Tabela de Códigos de Municípios do IBGE](<https://www.ibge.gov.br/explica/codigos-dos-municipios.php>). A função criará um novo dataframe contendo os codigos municipais, uf, e os nomes dos municipios brasileiros.
 
 ### Exemplo
 ```{r, message=FALSE, warning=FALSE}
@@ -77,7 +77,7 @@ id_codigos <- baixar_id_municipios()
 
 ##`{juntar_bases}`
 
-Agora precisamos unir as bases do Ibama (*multas_arrecadadas_limpo* e *multas_distribuidas_limpo*) com os codigos municipais do IBGE (*id_codigos*).
+Agora precisamos unir as bases do Ibama (*multas_arrecadadas_limpo* **e** *multas_distribuidas_limpo*) com os codigos municipais do IBGE (*id_codigos*).
 Para isso aplique a função conforme descrito abaixo:
 
 ### Exemplo
