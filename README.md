@@ -8,7 +8,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
 <!-- badges: end -->
 
-<img src="logo.png" width="25%" />
+<img src="./logos/logo.png" width="25%" />
 
 O objetivo deste pacote é disponibilizar a base de dados sobre multas e
 autuações ambientais do Instituto Brasileiro do Meio Ambiente e dos

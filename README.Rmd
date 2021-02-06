@@ -116,7 +116,7 @@ Se você quiser visualizar as bases prontas, basta digitar os codigos abaixo:
 
 # autuacoes %>% head()
 ```
-
+  
 
 ## Como citar o pacote
 
