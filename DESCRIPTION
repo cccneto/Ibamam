@@ -6,8 +6,9 @@ Authors@R:
     comment = c(ORCID = "0000-0003-4307-570X")),
     person(given = "Beatriz", family = "Milz", role = c("aut"), email = "milz.bea@gmail.com",
     comment = c(ORCID = "0000-0002-3064-4486")),
-    person(given = "Samuel", family = "Macêdo", role = c("aut"), email = "samuelmacedo@recife.ifpe.edu.br", 
+    person(given = "Samuel", family = "Macedo", role = c("aut"), email = "samuelmacedo@recife.ifpe.edu.br", 
     comment = c(ORCID = "0000-0002-7968-7866")))
+Maintainer: Claudiano Cruz Neto <cneto@ufrb.edu.br>
 Description: Provides the IBAMA Database about environmental fines.
 License: MIT + file LICENSE
 Encoding: UTF-8
