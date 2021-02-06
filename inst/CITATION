@@ -6,7 +6,7 @@ citEntry(
   author   =  c(person(given = "Claudiano", family = "Cruz Neto",role = c("aut", "cre"), email = "cneto@ufrb.edu.br", comment = c(ORCID = "0000-0003-4307-570X")),
     person(given = "Beatriz", family = "Milz", role = c("aut"), email = "milz.bea@gmail.com",
            comment = c(ORCID = "0000-0002-3064-4486")),
-     person(given = "Samuel", family = "Macêdo", role = c("aut"), email = "samuelmacedo@recife.ifpe.edu.br", comment = c(ORCID = "0000-0002-7968-7866"))),
+     person(given = "Samuel", family = "Macedo", role = c("aut"), email = "samuelmacedo@recife.ifpe.edu.br", comment = c(ORCID = "0000-0002-7968-7866"))),
   year     = 2021,
   note     = "R package version 1.0",
   doi      = "10.5281/zenodo.4509344"
