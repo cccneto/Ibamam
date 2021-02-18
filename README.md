@@ -8,23 +8,25 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
 <!-- badges: end -->
 
-<img src="./logos/logo.png" width="25%" />
+<img src="./logos/logo.png" width="25%" /> **Read this in other
+languages: [Portuguese](README.port.md)**
 
-O objetivo deste pacote é disponibilizar a base de multas e autuações
-ambientais do Instituto Brasileiro do Meio Ambiente e dos Recursos
-Naturais Renováveis (IBAMA).
+This package aims to provide the basis for environmental fines and
+notices from the Brazilian Institute for the Environment and Renewable
+Natural Resources (IBAMA).
 
-Os dados foram obtidos no [Portal Brasileiro de Dados
-Abertos](https://dados.gov.br/) no repositóio do
+You can visit the Brazilian Open Data Portal in the IBAMA repository at
+[Portal Brasileiro de Dados Abertos](https://dados.gov.br/) no
+repositóio do
 [IBAMA](https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama).
 
-Caso você queira utilizar a base mais atual, sem que seja necessário
-instalar o pacote, recomendo que utilize o seguinte código:
+If you want to use the most current database without having to install
+the package, I recommend that you use the following code:
 
-# Como instalar?
+# How to install?
 
-Este pacote pode ser instalado através do[GitHub](https://github.com/)
-utilizando o seguinte código em `R`:
+This package can be installed via \[GitHub\] (<https://github.com/>)
+using the following code in `R`:
 
 ``` r
 # install.packages("devtools")
@@ -32,168 +34,186 @@ devtools::install_github("cccneto/Ibamam")
 library(Ibamam)
 ```
 
-# Quais dados poderei acessar?
+# How to use **Ibamam**?
 
-# Como usar?
+The `{Ibamam}` package has seven functions. Below we describe the tasks
+and how you can use them.
 
-O pacote `{Ibamam}`possui 7 funções. Abaixo descrevemos as funções e
-como você pode utilizá-las.
+### Function to `{obter_arquivos_multas_distribuidas}`
 
-### Função para `{obter_arquivos_multas_distribuidas}`
+This function allows you to scrape the data related to **Quantity of
+Environmental Fines Distributed by Protected Property**, for example,
+Flora, Fauna, among others. The function makes available all AI drawn up
+with or without judgment. Its update is daily, with a daily temporal
+scope and having a National geopolitical content.
 
-Essa função permite que você efetue a raspagem dos dados referentes a
-**Quantidade de Multas Ambientais Distribuídas por Bens Tutelados**, por
-exemplo: Flora, Fauna, dentre outros. A função disponibiliza todos os AI
-lavrados com ou sem julgamento. Sua atualização é diária, com escopo
-temporal diário, e tendo escopo geopolítico Nacional.
-
-### Exemplo
+### Examples
 
 ``` r
-# Realizando o download dos dados
-# multas_distribuidas <- obter_arquivos_multas_distribuidas()
+# Downloading data
+# env_fines_distributed <- obter_arquivos_multas_distribuidas()
 
-# visualizando somente as 100 primeiras linhas
-# multas_distribuidas %>% head(100)
+# To view only the first 100 lines
+# env_fines_distributed %>% head(100)
 ```
 
-## Quais dados poderei acessar com a função `{obter_arquivos_multas_distribuidas}`?
+## What data can I access with the function `{obter_arquivos_multas_distribuidas}`?
 
-  - **dataAuto**: data de emissão do auto de infração.
-  - **dataPagamento**: data de pagamento do auto.
-  - **municipio**: municipio/cidade.
-  - **numAI**: número de identificação do auto de infração.
-  - **tipoInfracao**: tipo de infração cometida.
-  - **ultimaAtualizacaoRelatorio**: Informa quando foi a última atualiza
-    dos dados.
-  - **uf**: Unidade federativa
-  - **tipoAuto**: tipo de auto define a categoria da ocorrência -
-    exemplos: multa, multa diária, advertência.
-  - **moeda**: informa qual a moeda no auto.
-  - **situacaoDebito**: informa a situação (status) do débito do auto
-  - **enquadramentoLegal**: informa qual o dispositivo legal utilizado
-    para enquadrar o auto de infração.
-  - **nomeRazaoSocial**: identifica o nome da pessoa ou empresa autuado.
-  - **cpfCnpj**: informa CPF ou CNPJ do autuado.
-  - **valorAuto**: informa a quantia monetária do auto de infração.
+  - **dataAuto **: date of issue of the tax assessment notice.
+  - **dataPagamento **: date of payment of the infraction.
+  - **municipio **: municipality / city.
+  - **numAI **: identification number of the infraction notice.
+  - **tipoInfracao**: type of infraction committed.
+  - **ultimaAtualizacaoRelatorio **: Informs when the data was last
+    updated.
+  - **uf **: state of the federation
+  - **tipoAuto**: auto type defines the category of the occurrence -
+    examples: fine, daily fine, warning.
+  - **moeda**: informs which currency.
+  - **situacaoDebito **: monetary status of the infraction.
+  - **enquadramentoLegal**: informs which legal device framing the
+    infraction notice.
+  - **nomeRazaoSocial**: identifies the name of the person or company
+    assessed.
+  - **cpfCnpj **: informs the CPF or CNPJ of the assessed taxpayer.
+  - **valorAuto **: informs the monetary amount of the tax assessment
+    notice.
 
-### Função para `{obter_arquivos_arrecadacao}`
+### Function to `{obter_arquivos_arrecadacao}`
 
-Essa função permite que você efetue a raspagem dos dados referentes a
-**Arrecadação de Multas Ambientais Distribuídas por Bens Tutelados**,
-por exemplo: Flora, Fauna, dentre outros. A função disponibiliza todos
-os AI lavrados com ou sem julgamento. A base de dados integra
-informações sobre volumes de multas ambientais pagas, consolidados por
-bens juridicamente tutelados. Sua atualização é diária, com escopo
-temporal diário, e tendo escopo geopolítico Nacional.
+This function allows you to scrape data related to **Collection of
+Environmental Fines Distributed by Protected Property**, for example,
+Flora, Fauna, among others. The function makes available all AI drawn up
+with or without judgment. The database includes information on volumes
+of paid environmental fines, consolidated by legally protected assets.
+Its update is daily, with a daily temporal scope and having a National
+geopolitical content.
 
-## Quais dados poderei acessar com a função `{obter_arquivos_arrecadacao}`?
+## What data can I access with the function `{obter_arquivos_arrecadacao}`?
 
-  - **dataAuto**:data de emissão do auto de infração
-  - **dataPagamento**: data de pagamento do auto.
-  - **municipio**: municipio/cidade.
-  - **numAI**: número de identificação do auto de infração.
-  - **valorPago**: valor pago até a data da ultima atualização do
-    relatório.
-  - **tipoInfracao**: tipo de infração cometida.
-  - **ultimaAtualizacaoRelatorio**: Informa quando foi a última atualiza
-    dos dados.
-  - **parcela**: número da parcela
-  - **quantidadeParcela**: comprimento do parcelamento.
-  - **uf**: Unidade federativa
-  - **tipoAuto**: tipo de auto define a categoria da ocorrência -
-    exemplos: multa, multa diária, advertência.
-  - **moeda**: informa qual a moeda no auto.
-  - **statusDebito**: situação do débito.
-  - **enquadramentoLegal**:informa qual o dispositivo legal utilizado
-    para enquadrar o auto de infração.
-  - **nomeRazaoSocial**: identifica o nome da pessoa ou empresa autuada.
-  - **cpfCnpj**: informa CPF ou CNPJ do autuado.
-  - **valorbaseParcela**: informa o valor das parcelas para pagamento do
-    valor do auto.
-  - **valorAuto**:informa a quantia monetária do auto de infração.
+  - **dataAuto **: date of issue of the tax assessment notice.
 
-Depois de realizar o download das duas bases de dados com as funções
-`{obter_arquivos_multas_distribuidas}` e `{obter_arquivos_arrecadacao}`,
-agora você precisa fazer a limpeza dos dados. Para isso basta acionar a
-função conforme abaixo:
+  - **dataPagamento **: date of payment of the infraction.
 
-### Exemplo
+  - **municipio **: municipality / city.
+
+  - **numAI**: identification number of the infraction notice.
+
+  - **valorPago**: amount paid up to the date of the last update of the
+    report.
+
+  - **tipoInfracao**: type of infraction committed.
+    
+      - **ultimaAtualizacaoRelatorio **: Informs when the data was last
+        updated.
+
+  - **parcela**: installment number
+
+  - **quantidadeParcela**: number of payments in installments.
+
+  - **uf**: state of the federation
+
+  - **tipoAuto**: auto type defines the category of the occurrence -
+    examples: fine, daily fine, warning.
+
+  - **moeda**: informs which currency.
+
+  - **situacaoDebito **: monetary status of the infraction.
+
+  - **enquadramentoLegal**: informs which legal device framing the
+    infraction notice.
+
+  - **nomeRazaoSocial**: identifies the name of the person or company
+    assessed.
+
+  - **cpfCnpj**: informs the CPF or CNPJ of the assessed taxpayer.
+
+  - **valorAuto**: informs the monetary amount of the tax assessment
+    notice.
+
+  - **valorbaseParcela**: informs the value of the installments for
+    payment of the auto value.
+
+After downloading the two databases with the functions
+`{obt_arquivos_multas_distribuidas}` and `{obt_arquivos_arrecadacao}`,
+now you need to clean the data. To do so, activate the function as
+follows:
+
+### Example
 
 ``` r
-# Realizando o download dos dados
-# multas_arrecadadas <- obter_arquivos_arrecadacao()
+# Downloading data
+# fines_collected <- obter_arquivos_arrecadacao()
 
-# visualizando somente as 100 primeiras linhas de dados
-# multas_arrecadadas %>% head(100)
+# To view only the first 100 lines
+# fines_collected %>% head(100)
 ```
 
-### Função para`{limpar_dados}`
+### Function to`{limpar_dados}` - wrangling data\!
 
-Essa função permite que você realize a limpeza dos dados que você
-realizou o download com as funções `{obter_arquivos_arrecadacao}`efetue
-a raspagem dos dados referentes ao volume da arrecadação do Ibama com
-multas ambientais distribuídas por bem tutelado, exemplo: Flora, Fauna,
-dentre outros. Os valores das multas estão fixados em lei e aplicadas de
-acordo a tipificação da infração cometida dentre outros. A função
-disponibiliza todos os AI lavrados com ou sem julgamento.
+This function allows you to wrangling the data that you downloaded with
+the functions `{obtain_arquivos_arrecadacao}` scrape the data referring
+to the volume of the collection of Ibama with environmental fines
+distributed by well guarded, example: Flora, Fauna, among others. The
+penalties were fixed by law and applied according to the classification
+of the infraction committed, among others. The function makes available
+all AI drawn up with or without judgment.
 
-### Exemplo
+### Examplo
 
 ``` r
+# wrangling database "fines_collected"
+# fines_collected_clear <- limpar_dados(env_fines_distributed)
+
 # limpando base "multas_distribuidas"
-# multas_arrecadadas_limpo <- limpar_dados(multas_arrecadadas)
-
-# limpando base "multas_distribuidas"
-# multas_distribuidas_limpo <- limpar_dados(multas_distribuidas)
+# env_fines_distributed_clear <- limpar_dados(env_fines_distributed)
 ```
 
-### Função para`{baixar_id_municipios}`
+### Function to`{baixar_id_municipios}`
 
-Com os dados de multas distribuidas e multas arrecadadas você pode
-desejar realizar algumas análises que requeiram dados espaciais. Para
-isso precisamos antes configurar os dados. O primeiro passo é usar a
-função `{baixar_id_municipios}`para pegarmos os códigos da [Tabela de
-Códigos de Municípios do
-IBGE](https://www.ibge.gov.br/explica/codigos-dos-municipios.php). A
-função criará um novo dataframe contendo os codigos municipais, uf, e
-os nomes dos municipios brasileiros.
+With the data from fines distributed and fines collected, you may wish
+to carry out some analyses requiring spatial data. For that, we need to
+configure the data first. The first step is to use the function
+`{baix_id_municipios}` to get the codes from the \[IBGE Municipality
+Code Table\]
+(<https://www.ibge.gov.br/explica/codigos-dos-municipios.php> ). The
+function will create a new data frame containing the municipal id codes,
+id state (uf), and Brazilian municipalities’ names.
 
-### Exemplo
+### Example
 
 ``` r
-# Pegando códigos municipais
-# id_codigos <- baixar_id_municipios()
+# get municipalities id codes 
+# id_codes <- baixar_id_municipios()
 ```
 
 ### Função para`{juntar_bases}`
 
 Agora precisamos unir as bases do Ibama (*multas\_arrecadadas\_limpo*
 **e** *multas\_distribuidas\_limpo*) com os codigos municipais do IBGE
-(*id\_codigos*). Para isso aplique a função conforme descrito abaixo:
+(*id\_codes*). Para isso aplique a função conforme descrito abaixo:
 
 ### Exemplo
 
 ``` r
-# Juntando *multas_arrecadadas* com os codigos municipais
-# multas <- juntar_bases(base_ibama = multas_arrecadadas_limpo, base_ibgecode = id_codigos)
+# Join  *fines_colecteds* com os codigos municipais
+# fines <- juntar_bases(base_ibama = fines_collected_clear, base_ibgecode = id_codes)
 
-# Juntando *multas_distribuidas* com os códigos municipais
-# autuacoes <- juntar_bases(base_ibama = multas_distribuidas_limpo, base_ibgecode = id_codigos)
+# Join  *multas_distribuidas* com os códigos municipais
+# fines_autos <- juntar_bases(base_ibama = env_fines_distributed_clear, base_ibgecode = id_codes)
 ```
 
-Se você quiser visualizar as bases prontas, basta digitar os codigos
-abaixo:
+If you want to see the ready bases, enter the codes below:
 
 ``` r
-# multas  %>% head()
+# fines  %>% head()
 
 # ou 
 
-# autuacoes %>% head()
+# fines_autos %>% head()
 ```
 
-## Como citar o pacote
+## How to quote the package
 
   - [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
 
