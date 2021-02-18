@@ -38,13 +38,19 @@ Este pacote pode ser instalado através do[GitHub](<https://github.com/>) utiliz
 devtools::install_github("cccneto/Ibamam")
 library(Ibamam)
 ```
+# Quais dados poderei acessar?
+
+
+
+
+
 # Como usar?
 
 O pacote `{Ibamam}`possui 7 funções. Abaixo descrevemos as funções e como você pode utilizá-las.
 
 ### Função para `{obter_arquivos_multas_distribuidas}`
 
-Essa função permite que você efetue a raspagem dos dados referentes a Quantidade de Multas Ambientais Distribuídas por Bens Tutelados, por exemplo: Flora, Fauna, dentre outros. A função disponibiliza todos os AI lavrados com ou sem julgamento.
+Essa função permite que você efetue a raspagem dos dados referentes a **Quantidade de Multas Ambientais Distribuídas por Bens Tutelados**, por exemplo: Flora, Fauna, dentre outros. A função disponibiliza todos os AI lavrados com ou sem julgamento. Sua atualização é diária, com escopo temporal diário, e tendo escopo geopolítico Nacional.
 
 ### Exemplo
 ```{r, message=FALSE, warning=FALSE}
@@ -55,7 +61,49 @@ Essa função permite que você efetue a raspagem dos dados referentes a Quantid
 # multas_distribuidas %>% head(100)
 ```
 
+## Quais dados poderei acessar com a função `{obter_arquivos_multas_distribuidas}`?
+
+ * **dataAuto**: data de emissão do auto de infração. 
+ * **dataPagamento**: data de pagamento do auto.
+ * **municipio**: municipio/cidade.
+ * **numAI**: número de identificação do auto de infração.
+ * **tipoInfracao**: tipo de infração cometida.
+ * **ultimaAtualizacaoRelatorio**: Informa quando foi a última atualiza dos dados. 
+ * **uf**: Unidade federativa 
+ * **tipoAuto**: tipo de auto define a categoria da ocorrência - exemplos:  multa, multa diária, advertência.
+ * **moeda**: informa qual a moeda no auto.
+ * **situacaoDebito**: informa a situação (status) do débito do auto
+ * **enquadramentoLegal**: informa qual o dispositivo legal utilizado para enquadrar o auto de infração.
+ * **nomeRazaoSocial**: identifica o nome da pessoa ou empresa autuado.
+ * **cpfCnpj**: informa CPF ou CNPJ do autuado.
+ * **valorAuto**: informa a quantia monetária do auto de infração.
+
+
 ### Função para `{obter_arquivos_arrecadacao}`
+
+Essa função permite que você efetue a raspagem dos dados referentes a **Arrecadação de Multas Ambientais Distribuídas por Bens Tutelados**, por exemplo: Flora, Fauna, dentre outros. A função disponibiliza todos os AI lavrados com ou sem julgamento. A base de dados integra informações sobre volumes de multas ambientais pagas, consolidados por bens juridicamente tutelados. Sua atualização é diária, com escopo temporal diário, e tendo escopo geopolítico Nacional.
+
+## Quais dados poderei acessar com a função `{obter_arquivos_arrecadacao}`?
+
+* **dataAuto**:data de emissão do auto de infração
+* **dataPagamento**: data de pagamento do auto.
+* **municipio**: municipio/cidade.
+* **numAI**: número de identificação do auto de infração.
+* **valorPago**: valor pago até a data da ultima atualização do relatório.
+* **tipoInfracao**: tipo de infração cometida.
+* **ultimaAtualizacaoRelatorio**: Informa quando foi a última atualiza dos dados. 
+* **parcela**: número da parcela
+* **quantidadeParcela**: comprimento do parcelamento.
+* **uf**: Unidade federativa 
+* **tipoAuto**: tipo de auto define a categoria da ocorrência - exemplos:  multa, multa diária, advertência.
+* **moeda**: informa qual a moeda no auto.
+* **statusDebito**: situação do débito.
+* **enquadramentoLegal**:informa qual o dispositivo legal utilizado para enquadrar o auto de infração.
+* **nomeRazaoSocial**: identifica o nome da pessoa ou empresa autuada.
+* **cpfCnpj**: informa CPF ou CNPJ do autuado.
+* **valorbaseParcela**: informa o valor das parcelas para pagamento do valor do auto.
+* **valorAuto**:informa a quantia monetária do auto de infração.
+
 
 Depois de realizar o download das duas bases de dados com as funções `{obter_arquivos_multas_distribuidas}` e `{obter_arquivos_arrecadacao}`, agora você precisa fazer a limpeza dos dados. Para isso basta acionar a função conforme abaixo:
 
