@@ -23,6 +23,8 @@ knitr::opts_chunk$set(
 knitr::include_graphics("./logos/logo.png")
 ```
 
+**Read this in other languages**: [English](README.eng.md)
+ 
 O objetivo deste pacote é disponibilizar a base de multas e autuações ambientais do Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis (IBAMA).
 
 Os dados foram obtidos no [Portal Brasileiro de Dados Abertos](<https://dados.gov.br/>) no repositóio do  [IBAMA](<https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama>).
@@ -38,12 +40,6 @@ Este pacote pode ser instalado através do[GitHub](<https://github.com/>) utiliz
 devtools::install_github("cccneto/Ibamam")
 library(Ibamam)
 ```
-# Quais dados poderei acessar?
-
-
-
-
-
 # Como usar?
 
 O pacote `{Ibamam}`possui 7 funções. Abaixo descrevemos as funções e como você pode utilizá-las.
