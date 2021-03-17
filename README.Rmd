@@ -42,11 +42,39 @@ library(Ibamam)
 
 # How to use **Ibamam**?
 
-The `{Ibamam}` package has seven functions. Below we describe the tasks and how you can use them.
+The `{Ibamam}` package has **nine functions**. Below we describe the tasks and how you can use them.
 
-### Function to `{obter_arquivos_multas_distribuidas}`
+### Function to `download_multas_arrecadadas()`
 
-This function allows you to scrape the data related to **Quantity of Environmental Fines Distributed by Protected Property**, for example, Flora, Fauna, among others. The function makes available all AI drawn up with or without judgment. Its update is daily, with a daily temporal scope and having a National geopolitical content.
+This function allows you to scrape the data related to **Quantity of Environmental Fines Collected by Protected Property**, for example, Flora, Fauna, among others. Futhermore the functions make all the data wrangling process needed. In the other words, you can use the data as you want.
+
+### Examples
+```{r, message=FALSE, warning=FALSE}
+# Downloading data
+# env_fines_collected <- download_multas_arrecadadas()
+
+# To view only the first 100 lines
+# env_fines_collected %>% head(100)
+```
+
+### Function to `download_multas_distribuidas()`
+
+As the prior function, the function `download_multas_distribuidas()` allows you to scrape the data related to **Quantity of Environmental Fines distributed by Protected Property**, for example, Flora, Fauna, among others. Futhermore the functions make all the data wrangling process needed. In the other words, you can use the data as you want.
+
+* **Ps.: The above functions can take a few minutes to finish, between 5-10 minutes.**.
+
+### Examples
+```{r, message=FALSE, warning=FALSE}
+# Downloading data
+# env_fines_distributed <- download_multas_distribuidas()
+
+# To view only the first 100 lines
+# env_fines_distributed %>% head(100)
+```
+
+### Function to `obter_arquivos_multas_distribuidas()`
+
+This function allows you to scrape the data related to **Quantity of Environmental Fines Distributed by Protected Property**, for example, Flora, Fauna, among others. The function makes available all drawn up with or without judgment. Its update is daily, with a daily temporal scope and having a National geopolitical content.
 
 ### Examples
 ```{r, message=FALSE, warning=FALSE}
@@ -153,7 +181,7 @@ Para isso aplique a função conforme descrito abaixo:
 # fines_autos <- juntar_bases(base_ibama = env_fines_distributed_clear, base_ibgecode = id_codes)
 ```
 
-If you want to see the ready bases, enter the codes below:
+Se você quiser ver as bases prontas, rode os códigos abaixo:
 
 ```{r, message=FALSE, warning=FALSE}
 # fines  %>% head()
@@ -164,7 +192,7 @@ If you want to see the ready bases, enter the codes below:
 ```
   
 
-## How to quote the package
+## Como citar o Ibamam Package
 
 * [![DOI](<https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg>)](<https://doi.org/10.5281/zenodo.4509344>)
 
