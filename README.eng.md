@@ -8,7 +8,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
 <!-- badges: end -->
 
-<img src="./logos/logo.png" width="25%" /> **Read this in other
+<img src="ibamam_logo.png" width="25%" /> **Read this in other
 languages: [Portuguese](README.port.md)**
 
 This package aims to provide the basis for environmental fines and

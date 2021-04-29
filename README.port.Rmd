@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 ```{r pressure, echo=FALSE, out.width = '25%'}
-knitr::include_graphics("./logos/logo.png")
+knitr::include_graphics("ibamam_logo.png")
 ```
 
 **Read this in other languages**: [English](README.eng.md)
