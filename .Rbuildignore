@@ -6,3 +6,13 @@
 ^doc$
 ^Meta$
 ^CRAN-RELEASE$
+^\.github$
+^draft\.R$
+^mapas\.R$
+^README\.eng\.md$
+^README\.port\.md$
+^README\.port\.Rmd$
+^docs$
+^ibamam_logo\.png$
+
+
