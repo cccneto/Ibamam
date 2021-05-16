@@ -7,7 +7,7 @@
 obter_arquivos_arrecadacao()
 }
 \value{
-a data frame
+A tibble
 }
 \description{
 Downloading data from Ibama database - Multas arrecadadas
