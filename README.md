@@ -1,16 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Ibamam
+# Ibamam <img src="man/figures/hexlogo.png" align="right" width = "120px"/>
 
 <!-- badges: start -->
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
-[![R-CMD-check](https://github.com/cccneto/Ibamam/workflows/R-CMD-check/badge.svg)](https://github.com/cccneto/Ibamam/actions)
+[![R-ubuntu](https://github.com/cccneto/Ibamam/actions/workflows/R-CMD-check-ubuntu.yaml/badge.svg)](https://github.com/cccneto/Ibamam/actions/workflows/R-CMD-check-ubuntu.yaml)
 <!-- badges: end -->
 
-<img src="ibamam_logo.png" width="25%" /> **Read this in other
-languages: [Portuguese](README.port.md)**
+**Read this in other languages:
+[Portuguese](https://cccneto.github.io/Ibamam/articles/README.port.html)**
 
 This package aims to provide the basis for environmental fines and
 notices from the Brazilian Institute for the Environment and Renewable
@@ -66,7 +66,7 @@ Fines distributed by Protected Property**, for example, Flora, Fauna,
 among others. Futhermore the functions make all the data wrangling
 process needed. In the other words, you can use the data as you want.
 
-  - **Ps.: The above functions can take a few minutes to finish, between
+-   **Ps.: The above functions can take a few minutes to finish, between
     5-10 minutes.**.
 
 ### Examples
@@ -99,24 +99,24 @@ scope and having a National geopolitical content.
 
 ## What data can I access with the function `{obter_arquivos_multas_distribuidas}`?
 
-  - **dataAuto **: date of issue of the tax assessment notice.
-  - **dataPagamento **: date of payment of the infraction.
-  - **municipio **: municipality / city.
-  - **numAI **: identification number of the infraction notice.
-  - **tipoInfracao**: type of infraction committed.
-  - **ultimaAtualizacaoRelatorio **: Informs when the data was last
+-   **dataAuto **: date of issue of the tax assessment notice.
+-   **dataPagamento **: date of payment of the infraction.
+-   **municipio **: municipality / city.
+-   **numAI **: identification number of the infraction notice.
+-   **tipoInfracao**: type of infraction committed.
+-   **ultimaAtualizacaoRelatorio **: Informs when the data was last
     updated.
-  - **uf **: state of the federation
-  - **tipoAuto**: auto type defines the category of the occurrence -
+-   **uf **: state of the federation
+-   **tipoAuto**: auto type defines the category of the occurrence -
     examples: fine, daily fine, warning.
-  - **moeda**: informs which currency.
-  - **situacaoDebito **: monetary status of the infraction.
-  - **enquadramentoLegal**: informs which legal device framing the
+-   **moeda**: informs which currency.
+-   **situacaoDebito **: monetary status of the infraction.
+-   **enquadramentoLegal**: informs which legal device framing the
     infraction notice.
-  - **nomeRazaoSocial**: identifies the name of the person or company
+-   **nomeRazaoSocial**: identifies the name of the person or company
     assessed.
-  - **cpfCnpj **: informs the CPF or CNPJ of the assessed taxpayer.
-  - **valorAuto **: informs the monetary amount of the tax assessment
+-   **cpfCnpj **: informs the CPF or CNPJ of the assessed taxpayer.
+-   **valorAuto **: informs the monetary amount of the tax assessment
     notice.
 
 ### Function to `{obter_arquivos_arrecadacao}`
@@ -131,47 +131,47 @@ geopolitical content.
 
 ## What data can I access with the function `{obter_arquivos_arrecadacao}`?
 
-  - **dataAuto **: date of issue of the tax assessment notice.
+-   **dataAuto **: date of issue of the tax assessment notice.
 
-  - **dataPagamento **: date of payment of the infraction.
+-   **dataPagamento **: date of payment of the infraction.
 
-  - **municipio **: municipality / city.
+-   **municipio **: municipality / city.
 
-  - **numAI**: identification number of the infraction notice.
+-   **numAI**: identification number of the infraction notice.
 
-  - **valorPago**: amount paid up to the date of the last update of the
+-   **valorPago**: amount paid up to the date of the last update of the
     report.
 
-  - **tipoInfracao**: type of infraction committed.
-    
-      - **ultimaAtualizacaoRelatorio **: Informs when the data was last
+-   **tipoInfracao**: type of infraction committed.
+
+    -   **ultimaAtualizacaoRelatorio **: Informs when the data was last
         updated.
 
-  - **parcela**: installment number
+-   **parcela**: installment number
 
-  - **quantidadeParcela**: number of payments in installments.
+-   **quantidadeParcela**: number of payments in installments.
 
-  - **uf**: state of the federation
+-   **uf**: state of the federation
 
-  - **tipoAuto**: auto type defines the category of the occurrence -
+-   **tipoAuto**: auto type defines the category of the occurrence -
     examples: fine, daily fine, warning.
 
-  - **moeda**: informs which currency.
+-   **moeda**: informs which currency.
 
-  - **situacaoDebito **: monetary status of the infraction.
+-   **situacaoDebito **: monetary status of the infraction.
 
-  - **enquadramentoLegal**: informs which legal device framing the
+-   **enquadramentoLegal**: informs which legal device framing the
     infraction notice.
 
-  - **nomeRazaoSocial**: identifies the name of the person or company
+-   **nomeRazaoSocial**: identifies the name of the person or company
     assessed.
 
-  - **cpfCnpj**: informs the CPF or CNPJ of the assessed taxpayer.
+-   **cpfCnpj**: informs the CPF or CNPJ of the assessed taxpayer.
 
-  - **valorAuto**: informs the monetary amount of the tax assessment
+-   **valorAuto**: informs the monetary amount of the tax assessment
     notice.
 
-  - **valorbaseParcela**: informs the value of the installments for
+-   **valorbaseParcela**: informs the value of the installments for
     payment of the auto value.
 
 After downloading the two databases with the functions
@@ -189,7 +189,7 @@ follows:
 # fines_collected %>% head(100)
 ```
 
-### Function to`{limpar_dados}` - wrangling data\!
+### Function to`{limpar_dados}` - wrangling data!
 
 This function allows you to wrangling the data that you downloaded with
 the functions `{obtain_arquivos_arrecadacao}` scrape the data referring
@@ -255,9 +255,9 @@ Se você quiser ver as bases prontas, rode os códigos abaixo:
 
 ## Como citar o Ibamam Package
 
-  - [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
+-   [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
 
-  - “**CRUZ NETO, Claudiano C., MILZ, Beatriz., MACEDO, Samuel** (2021).
+-   “**CRUZ NETO, Claudiano C., MILZ, Beatriz., MACEDO, Samuel** (2021).
     Ibamam: Pacote para tratamento da Base de dados para multas e
     autuações ambientais aplicadas pelo Instituto Brasileiro do Meio
     Ambiente e dos Recursos Naturais Renováveis - Brasil.

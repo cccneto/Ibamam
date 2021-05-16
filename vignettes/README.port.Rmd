@@ -1,26 +1,18 @@
 ---
-output: github_document
+title: "README (em Português)"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{README (em Português)}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+  comment = "#>"
 )
 ```
-
-# Ibamam <img src="man/figures/hexlogo.png" align="right" width = "120px"/>
-
-<!-- badges: start -->
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
-[![R-ubuntu](https://github.com/cccneto/Ibamam/actions/workflows/R-CMD-check-ubuntu.yaml/badge.svg)](https://github.com/cccneto/Ibamam/actions/workflows/R-CMD-check-ubuntu.yaml)
-<!-- badges: end -->
-
-**Read this in other languages: [Portuguese](https://cccneto.github.io/Ibamam/articles/README.port.html)**    
 
 This package aims to provide the basis for environmental fines and notices from the Brazilian Institute for the Environment and Renewable Natural Resources (IBAMA).
 
