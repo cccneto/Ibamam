@@ -4,7 +4,7 @@
 #'
 #' @export
 download_multas_distribuidas <- function(){
-  id_codigos <- baixar_id_municipios()
+  id_codigos <- Ibamam::ibge_code
 
   obter_arquivos_multas_distribuidas() %>%
     limpar_dados() %>%

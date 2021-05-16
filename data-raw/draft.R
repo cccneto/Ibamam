@@ -6,14 +6,14 @@ fines_collected <- obter_arquivos_arrecadacao()
 env_fines_distributed_clear <- limpar_dados(env_fines_distributed)
 fines_collected_clear <- limpar_dados(env_fines_collected)
 
-id_codes <- baixar_id_municipios()
+id_codes <- Ibamam::ibge_code
 
 fines <- juntar_bases(base_ibama = fines_collected_clear, base_ibgecode = id_codes)
 
 fines_autos <- juntar_bases(base_ibama = env_fines_distributed_clear, base_ibgecode = id_codes)
 
 
-id_codes <- baixar_id_municipios()
+id_codes <- Ibamam::ibge_code
 
 # fines
 fines_collected <- obter_arquivos_arrecadacao() %>%

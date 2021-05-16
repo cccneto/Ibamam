@@ -21,7 +21,7 @@
 #   )
 #
 # # pegando codigos municipais
-# id_codigos <- baixar_id_municipios()
+# id_codigos <- Ibamam::ibge_code
 #
 # # Join base ambiental e os codigos municipais
 # arrecadadas <- juntar_bases(base_ibama = multas_arrecadadas_limpo, base_ibgecode = id_codigos)

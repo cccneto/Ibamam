@@ -5,7 +5,7 @@
 #' @importFrom dplyr %>%
 #' @export
 download_multas_arrecadadas <- function(){
-  id_codigos <- baixar_id_municipios()
+  id_codigos <- Ibamam::ibge_code
 
   obter_arquivos_arrecadacao() %>%
     limpar_dados() %>%
