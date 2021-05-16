@@ -3,18 +3,58 @@
 #' @return a data frame
 #'
 #' @export
-obter_arquivos_multas_distribuidas <- function() {
+obter_multas_distribuidas_brasil <- function() {
+
+  estados_abrev <- c(
+    "AC",
+    "AL",
+    "AP",
+    "AM",
+    "BA",
+    "CE",
+    "DF",
+    "ES",
+    "GO",
+    "MA",
+    "MT",
+    "MS",
+    "MG",
+    "PA",
+    "PB",
+    "PR",
+    "PE",
+    "PI",
+    "RJ",
+    "RN",
+    "RS",
+    "RO",
+    "RR",
+    "SC",
+    "SP",
+    "SE",
+    "TO"
+  )
+
   purrr::map_dfr(
-    unique(geobr::grid_state_correspondence_table$code_state),
-    raspar_arquivos_multas_distribuidas
+    estados_abrev,
+    obter_multas_distribuidas_estado
   )
 
 }
 
-raspar_arquivos_multas_distribuidas <- function(uf){
+#' Obter dados de multas distribuidas para um estado
+#'
+#' @param uf Abreviation of the name of the state (two letters in lower case)
+#'
+#' @return A tibble
+#'
+#' @export
+#' @examples obter_multas_distribuidas_estado("SP")
+obter_multas_distribuidas_estado <- function(uf) {
   multas_distribuidas <- jsonlite::fromJSON(
     paste0(
-      "http://dadosabertos.ibama.gov.br/dados/SICAFI/", uf,
+      "http://dadosabertos.ibama.gov.br/dados/SICAFI/",
+      uf,
       "/Quantidade/multasDistribuidasBensTutelados.json"
     )
   )

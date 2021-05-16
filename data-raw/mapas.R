@@ -2,7 +2,7 @@
 # library(dplyr)
 #
 # # baixando dados
-# multas_distribuidas <- obter_arquivos_multas_distribuidas()
+# multas_distribuidas <- obter_multas_distribuidas_brasil()
 # multas_arrecadadas <- obter_arrecadacao_brasil()
 #
 # # limpando base "multas_distribuidas"
