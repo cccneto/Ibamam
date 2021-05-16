@@ -7,7 +7,7 @@
 download_multas_arrecadadas <- function(){
   id_codigos <- Ibamam::ibge_code
 
-  obter_arquivos_arrecadacao() %>%
+  obter_arrecadacao_brasil() %>%
     limpar_dados() %>%
     juntar_bases(base_ibgecode = id_codigos)
 }

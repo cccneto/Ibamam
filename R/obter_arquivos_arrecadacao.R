@@ -3,7 +3,9 @@
 #' @return A tibble
 #'
 #' @export
-obter_arquivos_arrecadacao <- function() {
+obter_arrecadacao_brasil <- function() {
+  # essa funcao era obter_arquivos_arrecadacao(),
+  # virou obter_arrecadacao_brasil()
   estados_abrev <- c(
     "AC",
     "AL",

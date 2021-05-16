@@ -5,7 +5,7 @@
   # reference = "mm/aaaa"
 
 # Realizando o download dos dados
-# multas_arrecadadas <- obter_arquivos_arrecadacao()
+# multas_arrecadadas <- obter_arrecadacao_brasil()
 
 # multas_arrecadadas %>%
 #    dplyr::mutate(

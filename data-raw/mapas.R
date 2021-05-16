@@ -3,7 +3,7 @@
 #
 # # baixando dados
 # multas_distribuidas <- obter_arquivos_multas_distribuidas()
-# multas_arrecadadas <- obter_arquivos_arrecadacao()
+# multas_arrecadadas <- obter_arrecadacao_brasil()
 #
 # # limpando base "multas_distribuidas"
 # multas_arrecadadas_limpo <- limpar_dados(multas_arrecadadas)

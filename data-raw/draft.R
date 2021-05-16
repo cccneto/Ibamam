@@ -1,7 +1,7 @@
 
 #
 env_fines_distributed <- obter_arquivos_multas_distribuidas()
-fines_collected <- obter_arquivos_arrecadacao()
+fines_collected <- obter_arrecadacao_brasil()
 
 env_fines_distributed_clear <- limpar_dados(env_fines_distributed)
 fines_collected_clear <- limpar_dados(env_fines_collected)
@@ -16,7 +16,7 @@ fines_autos <- juntar_bases(base_ibama = env_fines_distributed_clear, base_ibgec
 id_codes <- Ibamam::ibge_code
 
 # fines
-fines_collected <- obter_arquivos_arrecadacao() %>%
+fines_collected <- obter_arrecadacao_brasil() %>%
   limpar_dados() %>%
   juntar_bases(base_ibgecode = id_codes)
 
