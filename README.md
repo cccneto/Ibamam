@@ -12,248 +12,173 @@
 **Read this in other languages:
 [Portuguese](https://cccneto.github.io/Ibamam/articles/README.port.html)**
 
-This package aims to provide the basis for environmental fines and
+This package aims to provide the dataset for environmental fines and
 notices from the Brazilian Institute for the Environment and Renewable
 Natural Resources (IBAMA).
 
-You can visit the Brazilian Open Data Portal in the IBAMA repository at
-[Portal Brasileiro de Dados Abertos](https://dados.gov.br/) no
-repositóio do
-[IBAMA](https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama).
+You can visit the [IBAMA
+repository](https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama)
+in the [Brazilian Open Data Portal](https://dados.gov.br/).
 
-If you want to use the most current database without having to install
-the package, I recommend that you use the following code:
+## How to install?
 
-# How to install?
-
-This package can be installed via \[GitHub\] (<https://github.com/>)
-using the following code in `R`:
+This package can be installed via [GitHub](https://github.com/) using
+the following code in `R`:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("cccneto/Ibamam")
+# install.packages("remotes")
+remotes::install_github("cccneto/Ibamam")
+```
+
+## How to use **Ibamam**?
+
+-   The `{Ibamam}` package has one function available:
+    `get_dataset_ibamam()`. This function has two arguments: `dataset`
+    and `uf`.
+
+    -   `dataset` can receive one of the two values: ‘arrecadadas’ or
+        ‘distribuidas’. Use ‘distribuidas’ to get data of the
+        environmental fines applied by Ibama. Use ‘arrecadadas’ to get
+        data of the environmental fines collected by Ibama (which means
+        that the fine has been paid).
+
+    -   `uf` is the abreviation of the name of the states (two letters
+        in lower case) that data will be obtained. The default value is
+        “all”, so all data from all the states of Brazil will be
+        returned by default. Please notice that, If you use the default
+        value, it might take several minutes to execute.
+
+Examples on how to use this function:
+
+``` r
 library(Ibamam)
+
+# get fines applied by IBAMA in Pará
+fines_applied_Para <- get_dataset_ibamam(dataset = "distribuidas", uf = "PA")
+
+dplyr::glimpse(fines_applied_Para)
+#> Rows: 59,612
+#> Columns: 16
+#> $ dataAuto                   <date> 2021-04-23, 2020-09-28, 2021-02-10, 2020-0…
+#> $ nomeMunicipio              <chr> "PLACAS", "RUROPOLIS", "MARAPANIM", "PRAINH…
+#> $ nomeMunicipio_geobr        <chr> "Placas", "Rurópolis", "Marapanim", "Prainh…
+#> $ codigoMunicipio            <chr> "1505650", "1506195", "1504406", "1506005",…
+#> $ numAI                      <chr> "ABYX5X27 - ", "AB1FQ5MJ - ", "AD6DF079 - "…
+#> $ tipoInfracao               <fct> Outras, Flora, Unidades de conservação, Flo…
+#> $ ultimaAtualizacaoRelatorio <dttm> 2017-05-20 21:19:14, 2017-05-20 21:19:14, …
+#> $ uf                         <chr> "PA", "PA", "PA", "PA", "PA", "PA", "PA", "…
+#> $ situacaoDebito             <chr> "Para homologação/prazo de defesa", "Para h…
+#> $ tipoAuto                   <fct> Multa, Multa, Multa, Multa, Multa, Multa, M…
+#> $ moeda                      <fct> Real, Real, Real, Real, Real, Real, Real, R…
+#> $ enquadramentoLegal         <fct> "Decreto 6514/2008 - Artigo 79", "Decreto 6…
+#> $ nomeRazaoSocial            <chr> "ILSON ALVES DE FARIA", "ABIDIEL CELESTINO …
+#> $ cpfCnpj                    <chr> "651.179.132-72", "516.819.352-87", "667.55…
+#> $ valorAuto                  <dbl> 10000.0, 8000.0, 2000.0, 180729.9, 2015000.…
+#> $ enquadramentoJuridico      <fct> CPF, CPF, CPF, CNPJ, CPF, CPF, CPF, CNPJ, C…
+
+# get fines collected by IBAMA in Pará
+fines_collected_Para <- get_dataset_ibamam(dataset = "arrecadadas", uf = "PA")
+
+dplyr::glimpse(fines_collected_Para)
+#> Rows: 73,596
+#> Columns: 21
+#> $ dataAuto                   <date> 2019-12-01, 2020-03-20, 2020-03-10, 2020-0…
+#> $ nomeMunicipio              <chr> "PACAJA", "ANANINDEUA", "ANANINDEUA", "ANAN…
+#> $ nomeMunicipio_geobr        <chr> "Pacajá", "Ananindeua", "Ananindeua", "Anan…
+#> $ codigoMunicipio            <chr> "1505486", "1500800", "1500800", "1500800",…
+#> $ dataPagamento              <date> 2020-12-16, 2021-02-17, 2021-02-22, 2021-0…
+#> $ valorPago                  <dbl> 8400.32, 863.86, 866.96, 863.86, 863.86, 10…
+#> $ numAI                      <chr> "C7AZB2I8 - ", "DB3W3QKR - ", "GUN4XIPO - "…
+#> $ tipoInfracao               <fct> Flora, Outras, Outras, Outras, Outras, Flor…
+#> $ ultimaAtualizacaoRelatorio <dttm> 2017-05-20 21:19:25, 2017-05-20 21:19:25, …
+#> $ parcela                    <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3…
+#> $ quantidadeParcela          <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 30, 30,…
+#> $ uf                         <chr> "PA", "PA", "PA", "PA", "PA", "PA", "PA", "…
+#> $ tipoAuto                   <fct> Multa, Multa, Multa, Multa, Multa, Multa, M…
+#> $ moeda                      <fct> Real, Real, Real, Real, Real, Real, Real, R…
+#> $ statusDebito               <chr> "Quitado. Baixa automática", "Quitado. Baix…
+#> $ enquadramentoLegal         <fct> "Decreto 6514/2008 - Artigo 47", "Decreto 6…
+#> $ nomeRazaoSocial            <chr> "SIMONE SOUZA MORAES", "JATEX TRANSPORTES L…
+#> $ cpfCnpj                    <chr> "019.077.525-44", "39.124.797/0004-17", "43…
+#> $ valorbaseParcela           <dbl> 11524.50, 1200.00, 1200.00, 1200.00, 1200.0…
+#> $ valorAuto                  <dbl> 11524.5, 1200.0, 1200.0, 1200.0, 1200.0, 15…
+#> $ enquadramentoJuridico      <fct> CPF, CNPJ, CNPJ, CNPJ, CNPJ, CPF, CNPJ, CNP…
 ```
 
-# How to use **Ibamam**?
-
-The `{Ibamam}` package has **nine functions**. Below we describe the
-tasks and how you can use them.
-
-### Function to `download_multas_arrecadadas()`
-
-This function allows you to scrape the data related to **Quantity of
-Environmental Fines Collected by Protected Property**, for example,
-Flora, Fauna, among others. Futhermore the functions make all the data
-wrangling process needed. In the other words, you can use the data as
-you want.
-
-### Examples
+If you want to get the data for the whole country (Brazil), do not write
+anything in the argument uf.
 
 ``` r
-# Downloading data
-# env_fines_collected <- download_multas_arrecadadas()
+# get fines applied by IBAMA in Brazil
+fines_applied_Brasil <- get_dataset_ibamam(dataset = "distribuidas")
 
-# To view only the first 100 lines
-# env_fines_collected %>% head(100)
+# get fines collected by IBAMA in Brazil
+fines_collected_Brasil <- get_dataset_ibamam(dataset = "arrecadadas")
 ```
 
-### Function to `download_multas_distribuidas()`
-
-As the prior function, the function `download_multas_distribuidas()`
-allows you to scrape the data related to **Quantity of Environmental
-Fines distributed by Protected Property**, for example, Flora, Fauna,
-among others. Futhermore the functions make all the data wrangling
-process needed. In the other words, you can use the data as you want.
-
--   **Ps.: The above functions can take a few minutes to finish, between
-    5-10 minutes.**.
-
-### Examples
+If you want to get the data for more than one state, but not for the
+whole country, use a vector in the argument uf with the abbreviations of
+the name of the states.
 
 ``` r
-# Downloading data
-# env_fines_distributed <- download_multas_distribuidas()
+# get fines applied by IBAMA in Southeast of Brazil
+fines_applied_southeast <- get_dataset_ibamam(dataset = "distribuidas", uf = c("SP", "RJ", "ES", "MG"))
 
-# To view only the first 100 lines
-# env_fines_distributed %>% head(100)
+# get fines collected by IBAMA in Southeast of Brazil
+fines_collected_southeast <- get_dataset_ibamam(dataset = "arrecadadas", uf = c("SP", "RJ", "ES", "MG"))
 ```
 
-### Function to `obter_arquivos_multas_distribuidas()`
+#### What data can I access with the argument `dataset = distribuidas`?
 
-This function allows you to scrape the data related to **Quantity of
-Environmental Fines Distributed by Protected Property**, for example,
-Flora, Fauna, among others. The function makes available all drawn up
-with or without judgment. Its update is daily, with a daily temporal
-scope and having a National geopolitical content.
-
-### Examples
-
-``` r
-# Downloading data
-# env_fines_distributed <- obter_arquivos_multas_distribuidas()
-
-# To view only the first 100 lines
-# env_fines_distributed %>% head(100)
-```
-
-## What data can I access with the function `{obter_arquivos_multas_distribuidas}`?
-
--   **dataAuto **: date of issue of the tax assessment notice.
--   **dataPagamento **: date of payment of the infraction.
--   **municipio **: municipality / city.
--   **numAI **: identification number of the infraction notice.
--   **tipoInfracao**: type of infraction committed.
--   **ultimaAtualizacaoRelatorio **: Informs when the data was last
-    updated.
--   **uf **: state of the federation
--   **tipoAuto**: auto type defines the category of the occurrence -
-    examples: fine, daily fine, warning.
--   **moeda**: informs which currency.
--   **situacaoDebito **: monetary status of the infraction.
--   **enquadramentoLegal**: informs which legal device framing the
-    infraction notice.
--   **nomeRazaoSocial**: identifies the name of the person or company
-    assessed.
--   **cpfCnpj **: informs the CPF or CNPJ of the assessed taxpayer.
--   **valorAuto **: informs the monetary amount of the tax assessment
-    notice.
-
-### Function to `{obter_arquivos_arrecadacao}`
-
-This function allows you to scrape data related to **Collection of
-Environmental Fines Distributed by Protected Property**, for example,
-Flora, Fauna, among others. The function makes available all AI drawn up
-with or without judgment. The database includes information on volumes
-of paid environmental fines, consolidated by legally protected assets.
-Its update is daily, with a daily temporal scope and having a National
-geopolitical content.
-
-## What data can I access with the function `{obter_arquivos_arrecadacao}`?
-
--   **dataAuto **: date of issue of the tax assessment notice.
-
--   **dataPagamento **: date of payment of the infraction.
-
--   **municipio **: municipality / city.
-
+-   **dataAuto**: date of issue of the tax assessment notice.
+-   **dataPagamento**: date of payment of the infraction.
+-   **municipio**: municipality / city.
 -   **numAI**: identification number of the infraction notice.
-
--   **valorPago**: amount paid up to the date of the last update of the
-    report.
-
 -   **tipoInfracao**: type of infraction committed.
-
-    -   **ultimaAtualizacaoRelatorio **: Informs when the data was last
-        updated.
-
--   **parcela**: installment number
-
--   **quantidadeParcela**: number of payments in installments.
-
+-   **ultimaAtualizacaoRelatorio**: Informs when the data was last
+    updated.
 -   **uf**: state of the federation
-
 -   **tipoAuto**: auto type defines the category of the occurrence -
     examples: fine, daily fine, warning.
-
 -   **moeda**: informs which currency.
-
--   **situacaoDebito **: monetary status of the infraction.
-
+-   **situacaoDebito**: monetary status of the infraction.
 -   **enquadramentoLegal**: informs which legal device framing the
     infraction notice.
-
 -   **nomeRazaoSocial**: identifies the name of the person or company
     assessed.
-
 -   **cpfCnpj**: informs the CPF or CNPJ of the assessed taxpayer.
-
 -   **valorAuto**: informs the monetary amount of the tax assessment
     notice.
 
+#### What data can I access with the argument `dataset = arrecadadas`?
+
+-   **dataAuto**: date of issue of the tax assessment notice.
+-   **dataPagamento**: date of payment of the infraction.
+-   **municipio**: municipality / city.
+-   **numAI**: identification number of the infraction notice.
+-   **valorPago**: amount paid up to the date of the last update of the
+    report.
+-   **tipoInfracao**: type of infraction committed.
+-   **ultimaAtualizacaoRelatorio**: Informs when the data was last
+    updated.
+-   **parcela**: installment number
+-   **quantidadeParcela**: number of payments in installments.
+-   **uf**: state of the federation
+-   **tipoAuto**: auto type defines the category of the occurrence -
+    examples: fine, daily fine, warning.
+-   **moeda**: informs which currency.
+-   **situacaoDebito**: monetary status of the infraction.
+-   **enquadramentoLegal**: informs which legal device framing the
+    infraction notice.
+-   **nomeRazaoSocial**: identifies the name of the person or company
+    assessed.
+-   **cpfCnpj**: informs the CPF or CNPJ of the assessed taxpayer.
+-   **valorAuto**: informs the monetary amount of the tax assessment
+    notice.
 -   **valorbaseParcela**: informs the value of the installments for
     payment of the auto value.
 
-After downloading the two databases with the functions
-`{obt_arquivos_multas_distribuidas}` and `{obt_arquivos_arrecadacao}`,
-now you need to clean the data. To do so, activate the function as
-follows:
-
-### Example
-
-``` r
-# Downloading data
-# fines_collected <- obter_arquivos_arrecadacao()
-
-# To view only the first 100 lines
-# fines_collected %>% head(100)
-```
-
-### Function to`{limpar_dados}` - wrangling data!
-
-This function allows you to wrangling the data that you downloaded with
-the functions `{obtain_arquivos_arrecadacao}` scrape the data referring
-to the volume of the collection of Ibama with environmental fines
-distributed by well guarded, example: Flora, Fauna, among others. The
-penalties were fixed by law and applied according to the classification
-of the infraction committed, among others. The function makes available
-all AI drawn up with or without judgment.
-
-### Examplo
-
-``` r
-# wrangling database "fines_collected"
-# fines_collected_clear <- limpar_dados(env_fines_distributed)
-
-# limpando base "multas_distribuidas"
-# env_fines_distributed_clear <- limpar_dados(env_fines_distributed)
-```
-
-### Function to`{baixar_id_municipios}`
-
-With the data from fines distributed and fines collected, you may wish
-to carry out some analyses requiring spatial data. For that, we need to
-configure the data first. The first step is to use the function
-`{baix_id_municipios}` to get the codes from the \[IBGE Municipality
-Code Table\]
-(<https://www.ibge.gov.br/explica/codigos-dos-municipios.php> ). The
-function will create a new data frame containing the municipal id codes,
-id state (uf), and Brazilian municipalities’ names.
-
-### Example
-
-``` r
-# get municipalities id codes 
-# id_codes <- baixar_id_municipios()
-```
-
-### Função para`{juntar_bases}`
-
-Agora precisamos unir as bases do Ibama (*multas\_arrecadadas\_limpo*
-**e** *multas\_distribuidas\_limpo*) com os codigos municipais do IBGE
-(*id\_codes*). Para isso aplique a função conforme descrito abaixo:
-
-### Exemplo
-
-``` r
-# Join  *fines_colecteds* com os codigos municipais
-# fines <- juntar_bases(base_ibama = fines_collected_clear, base_ibgecode = id_codes)
-
-# Join  *multas_distribuidas* com os códigos municipais
-# fines_autos <- juntar_bases(base_ibama = env_fines_distributed_clear, base_ibgecode = id_codes)
-```
-
-Se você quiser ver as bases prontas, rode os códigos abaixo:
-
-``` r
-# fines  %>% head()
-
-# ou 
-
-# fines_autos %>% head()
-```
-
-## Como citar o Ibamam Package
+## How to cite Ibamam Package
 
 -   [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
 
