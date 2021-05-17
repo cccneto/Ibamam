@@ -1,7 +1,7 @@
 
 #
-env_fines_distributed <- obter_multas_distribuidas_brasil()
-fines_collected <- obter_arrecadacao_brasil()
+env_fines_distributed <- get_data_of_brazil(estados = "all", tipo_multa = "distribuidas")
+fines_collected <- get_data_of_brazil(estados = "all", tipo_multa = "arrecadadas")
 
 env_fines_distributed_clear <- limpar_dados(env_fines_distributed)
 fines_collected_clear <- limpar_dados(env_fines_collected)
@@ -21,6 +21,6 @@ fines_collected <- obter_arrecadacao_brasil() %>%
   juntar_bases(base_ibgecode = id_codes)
 
 # env_fines
-env_fines_distributed <- obter_multas_distribuidas_brasil() %>%
+env_fines_distributed <- get_data_of_brazil(estados = "all", tipo_multa = "distribuidas") %>%
   limpar_dados() %>%
   juntar_bases(base_ibgecode = id_codes)

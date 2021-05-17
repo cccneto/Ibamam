@@ -2,8 +2,8 @@
 # library(dplyr)
 #
 # # baixando dados
-# multas_distribuidas <- obter_multas_distribuidas_brasil()
-# multas_arrecadadas <- obter_arrecadacao_brasil()
+# multas_distribuidas <-  get_data_of_brazil(estados = "all", tipo_multa = "distribuidas")
+# multas_arrecadadas <-  get_data_of_brazil(estados = "all", tipo_multa = "arrecadadas")
 #
 # # limpando base "multas_distribuidas"
 # multas_arrecadadas_limpo <- limpar_dados(multas_arrecadadas)

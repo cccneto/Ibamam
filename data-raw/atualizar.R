@@ -5,7 +5,7 @@
   # reference = "mm/aaaa"
 
 # Realizando o download dos dados
-# multas_arrecadadas <- obter_arrecadacao_brasil()
+# multas_arrecadadas <- get_data_of_brazil(estados = "all", tipo_multa = "arrecadadas")
 
 # multas_arrecadadas %>%
 #    dplyr::mutate(

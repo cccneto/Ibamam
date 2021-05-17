@@ -6,7 +6,7 @@
 download_multas_distribuidas <- function(){
   id_codigos <- Ibamam::ibge_code
 
-  obter_multas_distribuidas_brasil() %>%
+  get_data_of_brazil(estados = "all", tipo_multa = "distribuidas") %>%
     limpar_dados() %>%
     juntar_bases(base_ibgecode = id_codigos)
 }

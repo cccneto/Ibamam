@@ -1,6 +1,7 @@
 test_that("juntar_bases() works", {
   # multas distribuidas ------------------------------
-  multas_distribuidas <- obter_multas_distribuidas_estado("CE")
+  multas_distribuidas <- get_data_of_state("SP", "distribuidas")
+
   multas_distribuidas_limpas <-
     multas_distribuidas %>% limpar_dados()
 
@@ -40,7 +41,7 @@ test_that("juntar_bases() works", {
 
 
   # multas arrecadacao
-  multas_arrecadacao <- obter_arrecadacao_estado("CE")
+  multas_arrecadacao <- get_data_of_state("CE", "arrecadadas")
   multas_arrecadacao_limpas <-
     multas_arrecadacao %>% limpar_dados()
 
@@ -86,3 +87,6 @@ test_that("juntar_bases() works", {
 
 
 })
+
+
+
