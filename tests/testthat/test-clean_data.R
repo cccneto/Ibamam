@@ -6,11 +6,14 @@ test_that("clean_dataset() works", {
   )
   arrecadacao_limpo <- clean_dataset(arrecadacao)
 
-  expect_equal(names(arrecadacao_limpo),
-               c("dataAuto", "dataPagamento", "municipio", "valorPago", "numAI", "tipoInfracao",
-                 "ultimaAtualizacaoRelatorio", "parcela", "quantidadeParcela", "uf", "tipoAuto",
-                 "moeda", "statusDebito", "enquadramentoLegal", "nomeRazaoSocial", "cpfCnpj",
-                 "valorbaseParcela", "valorAuto", "enquadramentoJuridico", "nomeMunicipio")
+  expect_equal(
+    names(arrecadacao_limpo),
+    c(
+      "dataAuto", "dataPagamento", "municipio", "valorPago", "numAI", "tipoInfracao",
+      "ultimaAtualizacaoRelatorio", "parcela", "quantidadeParcela", "uf", "tipoAuto",
+      "moeda", "statusDebito", "enquadramentoLegal", "nomeRazaoSocial", "cpfCnpj",
+      "valorbaseParcela", "valorAuto", "enquadramentoJuridico", "nomeMunicipio"
+    )
   )
 
   multas_distribuidas <- read.csv(
@@ -18,11 +21,13 @@ test_that("clean_dataset() works", {
   )
   multas_distribuidas_limpo <- clean_dataset(multas_distribuidas)
 
-  expect_equal(names(multas_distribuidas_limpo),
-               c("dataAuto", "municipio", "numAI", "tipoInfracao",
-                 "ultimaAtualizacaoRelatorio", "uf", "situacaoDebito", "tipoAuto",
-                 "moeda", "enquadramentoLegal", "nomeRazaoSocial", "cpfCnpj",
-                 "valorAuto", "enquadramentoJuridico", "nomeMunicipio")
+  expect_equal(
+    names(multas_distribuidas_limpo),
+    c(
+      "dataAuto", "municipio", "numAI", "tipoInfracao",
+      "ultimaAtualizacaoRelatorio", "uf", "situacaoDebito", "tipoAuto",
+      "moeda", "enquadramentoLegal", "nomeRazaoSocial", "cpfCnpj",
+      "valorAuto", "enquadramentoJuridico", "nomeMunicipio"
+    )
   )
-
 })

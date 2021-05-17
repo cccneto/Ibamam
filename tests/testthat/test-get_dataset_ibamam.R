@@ -18,8 +18,10 @@ test_that("get_dataset_ibamam() works", {
   expect_equal(class(multas_distribuidas$codigoMunicipio), "character")
   expect_equal(class(multas_distribuidas$numAI), "character")
   expect_equal(class(multas_distribuidas$tipoInfracao), "factor")
-  expect_equal(class(multas_distribuidas$ultimaAtualizacaoRelatorio),
-               c("POSIXct", "POSIXt"))
+  expect_equal(
+    class(multas_distribuidas$ultimaAtualizacaoRelatorio),
+    c("POSIXct", "POSIXt")
+  )
   expect_equal(class(multas_distribuidas$uf), "character")
   expect_equal(class(multas_distribuidas$situacaoDebito), "character")
   expect_equal(class(multas_distribuidas$tipoAuto), "factor")
@@ -52,8 +54,10 @@ test_that("get_dataset_ibamam() works", {
   expect_equal(class(multas_arrecadadas$valorPago), "numeric")
   expect_equal(class(multas_arrecadadas$numAI), "character")
   expect_equal(class(multas_arrecadadas$tipoInfracao), "factor")
-  expect_equal(class(multas_arrecadadas$ultimaAtualizacaoRelatorio),
-               c("POSIXct", "POSIXt"))
+  expect_equal(
+    class(multas_arrecadadas$ultimaAtualizacaoRelatorio),
+    c("POSIXct", "POSIXt")
+  )
   expect_equal(class(multas_arrecadadas$parcela), "integer")
   expect_equal(class(multas_arrecadadas$quantidadeParcela), "integer")
   expect_equal(class(multas_arrecadadas$uf), "character")
@@ -66,7 +70,4 @@ test_that("get_dataset_ibamam() works", {
   expect_equal(class(multas_arrecadadas$valorbaseParcela), "numeric")
   expect_equal(class(multas_arrecadadas$valorAuto), "numeric")
   expect_equal(class(multas_arrecadadas$enquadramentoJuridico), "factor")
-
-
-
 })

@@ -95,5 +95,4 @@ testthat::test_that("get_data_of_state() works", {
   # escreve teste para gerar erro quando usar algum valor nao
   # aceito no segundo argumento
   testthat::expect_error(get_data_of_state("SP", "MULTA"))
-
 })

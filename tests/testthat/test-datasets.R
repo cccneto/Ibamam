@@ -15,6 +15,4 @@ testthat::test_that("ibge_code is working", {
   expect_equal(class(dados$code_muni), "numeric")
   expect_equal(class(dados$name_muni), "character")
   expect_equal(class(dados$abrev_state), "character")
-
-
 })

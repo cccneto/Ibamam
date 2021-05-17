@@ -10,7 +10,7 @@
 #'
 #' @export
 get_dataset_ibamam <- function(dataset, uf = "all") {
-  get_data_of_brazil(estados = uf, tipo_multa = dataset)  %>%
+  get_data_of_brazil(estados = uf, tipo_multa = dataset) %>%
     clean_dataset() %>%
     unite_with_ibge_code()
 }

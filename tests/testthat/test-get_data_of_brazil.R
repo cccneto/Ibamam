@@ -81,6 +81,4 @@ testthat::test_that("get_data_of_brazil () works", {
 
   # abreviacao que nao existe
   testthat::expect_error(get_data_of_brazil("xx"))
-
-
 })

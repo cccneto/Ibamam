@@ -4,41 +4,40 @@
 #'
 #' @keywords internal
 get_data_of_brazil <- function(estados = "all", tipo_multa) {
-
   suppressWarnings(
-  if(estados[1] == "all") {
-    estados_abrev <- c(
-      "AC",
-      "AL",
-      "AP",
-      "AM",
-      "BA",
-      "CE",
-      "DF",
-      "ES",
-      "GO",
-      "MA",
-      "MT",
-      "MS",
-      "MG",
-      "PA",
-      "PB",
-      "PR",
-      "PE",
-      "PI",
-      "RJ",
-      "RN",
-      "RS",
-      "RO",
-      "RR",
-      "SC",
-      "SP",
-      "SE",
-      "TO"
-    )
-  } else {
-    estados_abrev <- estados
-  }
+    if (estados[1] == "all") {
+      estados_abrev <- c(
+        "AC",
+        "AL",
+        "AP",
+        "AM",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MT",
+        "MS",
+        "MG",
+        "PA",
+        "PB",
+        "PR",
+        "PE",
+        "PI",
+        "RJ",
+        "RN",
+        "RS",
+        "RO",
+        "RR",
+        "SC",
+        "SP",
+        "SE",
+        "TO"
+      )
+    } else {
+      estados_abrev <- estados
+    }
   )
 
   purrr::map2_dfr(
@@ -46,7 +45,6 @@ get_data_of_brazil <- function(estados = "all", tipo_multa) {
     .y = tipo_multa,
     .f = get_data_of_state
   )
-
 }
 
 
@@ -60,12 +58,10 @@ get_data_of_brazil <- function(estados = "all", tipo_multa) {
 #'
 #' @keywords internal
 #' @examples Ibamam:::get_data_of_state("SP", "arrecadadas")
-
 get_data_of_state <- function(uf, tipo_multa) {
-
-  if(tipo_multa == "arrecadadas"){
+  if (tipo_multa == "arrecadadas") {
     texto_link <- "Arrecadacao/arrecadacaobenstutelados"
-  } else if(tipo_multa == "distribuidas"){
+  } else if (tipo_multa == "distribuidas") {
     texto_link <- "Quantidade/multasDistribuidasBensTutelados"
   } else {
     stop("The argument 'tipo_multa' can receive one of the values:
