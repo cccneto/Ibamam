@@ -8,12 +8,11 @@
 limpar_dados <- function(base){
   base_limpa <- base %>%
     dplyr::mutate(dataAuto = lubridate::dmy(dataAuto)) %>%
-    dplyr::mutate(tipoInfracao = as.factor(tipoInfracao)) %>%
-    dplyr::mutate(uf = uf) %>%
-    dplyr::mutate(tipoAuto = as.factor(tipoAuto)) %>%
-    dplyr::mutate(moeda = as.factor(moeda)) %>%
-    dplyr::mutate(enquadramentoLegal = as.factor(enquadramentoLegal)) %>%
+    dplyr::mutate(dplyr::across(.cols = c(tipoInfracao, tipoAuto, moeda, enquadramentoLegal), .fns = as.factor)) %>%
     dplyr::mutate(enquadramentoJuridico = as.factor(dplyr::if_else(nchar(cpfCnpj) <= 14,"CPF","CNPJ"))) %>%
+    dplyr::mutate(nomeMunicipio = municipio) %>%
+    dplyr::mutate(dplyr::across(dplyr::matches(c("ultimaAtualizacaoRelatorio")), lubridate::as_datetime)) %>%
+   dplyr::mutate(dplyr::across(dplyr::matches(c("dataPagamento")), lubridate::dmy)) %>%
     dplyr::mutate(
       municipio = stringr::str_to_lower(municipio), # ajustando letras para maiuscula
       municipio = abjutils::rm_accent(municipio), # retirando acentos

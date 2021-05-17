@@ -6,7 +6,7 @@ testthat::test_that("ibge_code is working", {
   expect_s3_class(dados, "tbl_df")
 
   # Testar numero de colunas
-  expect_equal(ncol(dados), 3)
+  expect_equal(ncol(dados), 4)
 
   # Testar numero de linhas
   expect_gt(nrow(dados), 5500)

@@ -4,16 +4,13 @@
 #' @param base_ibama dados baixados do ibama
 #' @param base_ibgecode dados baixados do ibge
 #' @export
-juntar_bases <- function(base_ibama, base_ibgecode){
-  base_merged <- dplyr::left_join(
-    base_ibama, base_ibgecode, by = c(
-      "municipio" = "name_muni", "uf" = "abrev_state")
-  )
-  base_merged # salvando csv para realizar testes
+juntar_bases <- function(base_ibama, base_ibgecode) {
+  dplyr::left_join(base_ibama,
+                   base_ibgecode,
+                   by = c("municipio" = "name_muni", "uf" = "abrev_state")) %>%
+    dplyr::rename("codigoMunicipio" = code_muni) %>%
+    dplyr::mutate(codigoMunicipio = as.character(codigoMunicipio)) %>%
+    dplyr::relocate(nomeMunicipio, nomeMunicipio_geobr, codigoMunicipio, .after = dataAuto) %>%
+    dplyr::select(-municipio)
+
 }
-
-
-
-
-
-

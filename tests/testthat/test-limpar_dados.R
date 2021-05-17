@@ -10,7 +10,7 @@ test_that("limpar_dados works", {
                c("dataAuto", "dataPagamento", "municipio", "valorPago", "numAI", "tipoInfracao",
                  "ultimaAtualizacaoRelatorio", "parcela", "quantidadeParcela", "uf", "tipoAuto",
                  "moeda", "statusDebito", "enquadramentoLegal", "nomeRazaoSocial", "cpfCnpj",
-                 "valorbaseParcela", "valorAuto", "enquadramentoJuridico")
+                 "valorbaseParcela", "valorAuto", "enquadramentoJuridico", "nomeMunicipio")
   )
 
   multas_distribuidas <- read.csv(
@@ -22,7 +22,7 @@ test_that("limpar_dados works", {
                c("dataAuto", "municipio", "numAI", "tipoInfracao",
                  "ultimaAtualizacaoRelatorio", "uf", "situacaoDebito", "tipoAuto",
                  "moeda", "enquadramentoLegal", "nomeRazaoSocial", "cpfCnpj",
-                 "valorAuto", "enquadramentoJuridico")
+                 "valorAuto", "enquadramentoJuridico", "nomeMunicipio")
   )
 
 })
