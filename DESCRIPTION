@@ -20,24 +20,17 @@ BugReports: https://github.com/cccneto/Ibamam/issues
 Depends: 
     R (>= 3.6)
 Imports: 
-    abjutils,
-    deflateBR,
+    magrittr,
     dplyr,
-    geobr,
-    glue,
-    httr,  
+    abjutils,
     jsonlite,
     lubridate,
-    magrittr,
-    methods,
     purrr,
-    stringr,
-    tibble,
-    tidyverse,
-    usethis
+    stringr
 Suggests: 
     testthat (>= 3.0.0),
     knitr,
-    rmarkdown
+    rmarkdown,
+    geobr
 VignetteBuilder: knitr
 Config/testthat/edition: 3
