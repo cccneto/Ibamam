@@ -3,7 +3,7 @@ test_that("juntar_bases() works", {
   multas_distribuidas <- get_data_of_state("SP", "distribuidas")
 
   multas_distribuidas_limpas <-
-    multas_distribuidas %>% limpar_dados()
+    multas_distribuidas %>% clean_dataset()
 
   bases_unidas_md <-
     juntar_bases(multas_distribuidas_limpas, Ibamam::ibge_code)
@@ -43,7 +43,7 @@ test_that("juntar_bases() works", {
   # multas arrecadacao
   multas_arrecadacao <- get_data_of_state("CE", "arrecadadas")
   multas_arrecadacao_limpas <-
-    multas_arrecadacao %>% limpar_dados()
+    multas_arrecadacao %>% clean_dataset()
 
   bases_unidas_a <-
     juntar_bases(multas_arrecadacao_limpas, Ibamam::ibge_code)

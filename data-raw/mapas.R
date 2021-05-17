@@ -6,8 +6,8 @@
 # multas_arrecadadas <-  get_data_of_brazil(estados = "all", tipo_multa = "arrecadadas")
 #
 # # limpando base "multas_distribuidas"
-# multas_arrecadadas_limpo <- limpar_dados(multas_arrecadadas)
-# multas_distribuidas_limpo <- limpar_dados(multas_distribuidas)
+# multas_arrecadadas_limpo <- clean_dataset(multas_arrecadadas)
+# multas_distribuidas_limpo <- clean_dataset(multas_distribuidas)
 #
 # # codigos
 # aux_muni <- abjData::muni %>%

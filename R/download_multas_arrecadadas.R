@@ -7,6 +7,6 @@ download_multas_arrecadadas <- function(){
   id_codigos <- Ibamam::ibge_code
 
   get_data_of_brazil(estados = "all", tipo_multa = "arrecadadas")  %>%
-    limpar_dados() %>%
+    clean_dataset() %>%
     juntar_bases(base_ibgecode = id_codigos)
 }

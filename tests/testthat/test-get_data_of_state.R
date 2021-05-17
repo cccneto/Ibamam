@@ -35,14 +35,24 @@ testthat::test_that("get_data_of_state() works", {
 
 
   # erro!
-  # nome do estado em minúsculo
+  # nome do estado em minusculo
   testthat::expect_error(get_data_of_state("sp", "arrecadadas"))
+
 
   # abreviacao que nao existe
   testthat::expect_error(get_data_of_state("xx", "arrecadadas"))
 
   # testar sem usar o segundo argumento
-  testthat::expect_error(get_data_of_state("sp"))
+  testthat::expect_error(get_data_of_state("SP"))
+
+
+
+  # escreve teste para gerar erro quando usar algum valor nao
+  # aceito no segundo argumento
+  testthat::expect_error(get_data_of_state("SP", "MULTA"))
+
+
+
 
   # multas distribuidas ------------------------
   # Executar a funcao uma vez
@@ -76,11 +86,14 @@ testthat::test_that("get_data_of_state() works", {
 
 
   # erro!
-  # nome do estado em minúsculo
-  testthat::expect_error(get_data_of_state("sp"))
+  # nome do estado em minusculo
+  testthat::expect_error(get_data_of_state("sp", "distribuidas"))
 
   # abreviacao que nao existe
-  testthat::expect_error(get_data_of_state("xx"))
+  testthat::expect_error(get_data_of_state("xx", "distribuidas"))
 
+  # escreve teste para gerar erro quando usar algum valor nao
+  # aceito no segundo argumento
+  testthat::expect_error(get_data_of_state("SP", "MULTA"))
 
 })

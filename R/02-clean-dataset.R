@@ -4,7 +4,7 @@
 #'
 #' @keywords internal
 #' @return a data frame
-limpar_dados <- function(base){
+clean_dataset <- function(base){
   base_limpa <- base %>%
     dplyr::mutate(dataAuto = lubridate::dmy(dataAuto)) %>%
     dplyr::mutate(dplyr::across(.cols = c(tipoInfracao, tipoAuto, moeda, enquadramentoLegal), .fns = as.factor)) %>%
