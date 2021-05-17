@@ -26,7 +26,8 @@ Imports:
     jsonlite,
     lubridate,
     purrr,
-    stringr
+    stringr,
+    curl
 Suggests: 
     testthat (>= 3.0.0),
     knitr,
