@@ -4,41 +4,12 @@
 #'
 #' @keywords internal
 get_data_of_brazil <- function(estados = "all", tipo_multa) {
-  suppressWarnings(
-    if (estados[1] == "all") {
-      estados_abrev <- c(
-        "AC",
-        "AL",
-        "AP",
-        "AM",
-        "BA",
-        "CE",
-        "DF",
-        "ES",
-        "GO",
-        "MA",
-        "MT",
-        "MS",
-        "MG",
-        "PA",
-        "PB",
-        "PR",
-        "PE",
-        "PI",
-        "RJ",
-        "RN",
-        "RS",
-        "RO",
-        "RR",
-        "SC",
-        "SP",
-        "SE",
-        "TO"
-      )
-    } else {
-      estados_abrev <- estados
-    }
-  )
+  if (estados[1] == "all") {
+    estados_abrev <- Ibamam::uf_abrev
+  } else {
+    estados_abrev <- estados
+  }
+
 
   purrr::map2_dfr(
     .x = estados_abrev,

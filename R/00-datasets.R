@@ -13,3 +13,11 @@
 #' @source Adaptado do pacote geobr - \url{https://github.com/ipeaGIT/geobr}
 #' @examples head(ibge_code)
 "ibge_code"
+
+#' Vetor de siglas de estados brasileiros
+#'
+#' @name uf_abrev
+#' @keywords internal
+#' @source Adaptado do pacote geobr - \url{https://github.com/ipeaGIT/geobr}
+#' @examples uf_abrev
+"uf_abrev"

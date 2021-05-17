@@ -50,7 +50,7 @@ test_that("get_dataset_ibamam() works", {
   expect_equal(class(multas_arrecadadas$nomeMunicipio), "character")
   expect_equal(class(multas_arrecadadas$nomeMunicipio_geobr), "character")
   expect_equal(class(multas_arrecadadas$codigoMunicipio), "character")
-  expect_equal(class(multas_arrecadadas$dataPagamento), "Date") # arrumar na limpeza
+  expect_equal(class(multas_arrecadadas$dataPagamento), "Date")
   expect_equal(class(multas_arrecadadas$valorPago), "numeric")
   expect_equal(class(multas_arrecadadas$numAI), "character")
   expect_equal(class(multas_arrecadadas$tipoInfracao), "factor")

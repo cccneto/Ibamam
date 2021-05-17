@@ -67,7 +67,7 @@ test_that("unite_with_ibge_code() works", {
   expect_equal(class(bases_unidas_a$nomeMunicipio), "character")
   expect_equal(class(bases_unidas_a$nomeMunicipio_geobr), "character")
   expect_equal(class(bases_unidas_a$codigoMunicipio), "character")
-  expect_equal(class(bases_unidas_a$dataPagamento), "Date") # arrumar na limpeza
+  expect_equal(class(bases_unidas_a$dataPagamento), "Date")
   expect_equal(class(bases_unidas_a$valorPago), "numeric")
   expect_equal(class(bases_unidas_a$numAI), "character")
   expect_equal(class(bases_unidas_a$tipoInfracao), "factor")
