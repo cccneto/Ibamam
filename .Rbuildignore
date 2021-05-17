@@ -17,3 +17,4 @@
 ^data-raw$
 ^_pkgdown\.yml$
 ^pkgdown$
+^codecov\.yml$
