@@ -2,9 +2,8 @@
 #'
 #' @param base Base de dados que deverá ser limpa
 #'
+#' @keywords internal
 #' @return a data frame
-#'
-#' @export
 limpar_dados <- function(base){
   base_limpa <- base %>%
     dplyr::mutate(dataAuto = lubridate::dmy(dataAuto)) %>%

@@ -12,3 +12,4 @@ A tibble
 \description{
 Downloading data from Ibama database - Multas arrecadadas
 }
+\keyword{internal}

@@ -18,3 +18,4 @@ Retorna um valor único ou vetor convertido para Reais
 \description{
 Given the currency that was used, the function returns the values converted to Real (R$).
 }
+\keyword{internal}

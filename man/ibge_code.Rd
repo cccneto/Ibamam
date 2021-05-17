@@ -24,4 +24,4 @@ Base auxiliar contendo o codigo do municipio
 \examples{
 head(ibge_code)
 }
-\keyword{datasets}
+\keyword{internal}

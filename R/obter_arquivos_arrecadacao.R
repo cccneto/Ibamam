@@ -2,7 +2,7 @@
 #'
 #' @return A tibble
 #'
-#' @export
+#' @keywords internal
 obter_arrecadacao_brasil <- function() {
   # essa funcao era obter_arquivos_arrecadacao(),
   # virou obter_arrecadacao_brasil()
@@ -49,8 +49,8 @@ obter_arrecadacao_brasil <- function() {
 #'
 #' @return A tibble
 #'
-#' @export
-#' @examples obter_arrecadacao_estado("SP")
+#' @keywords internal
+#' @examples Ibamam:::obter_arrecadacao_estado("SP")
 obter_arrecadacao_estado <- function(uf) {
   multas_arrecadadas <- jsonlite::fromJSON(
     paste0(

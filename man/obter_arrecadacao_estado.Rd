@@ -16,5 +16,6 @@ A tibble
 Obter dados de arrecadacao para um estado
 }
 \examples{
-obter_arrecadacao_estado("SP")
+Ibamam:::obter_arrecadacao_estado("SP")
 }
+\keyword{internal}

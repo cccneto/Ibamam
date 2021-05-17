@@ -9,7 +9,7 @@
 #' @importFrom dplyr %>%
 #' @return Retorna um valor único ou vetor convertido para Reais
 #'
-#' @export
+#' @keywords internal
 converter <- function(moeda, valor){
   if(moeda == "UFIR"){
     new_valor <- valor * 1.0641

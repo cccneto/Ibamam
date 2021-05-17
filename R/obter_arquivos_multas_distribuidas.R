@@ -2,7 +2,7 @@
 #'
 #' @return a data frame
 #'
-#' @export
+#' @keywords internal
 obter_multas_distribuidas_brasil <- function() {
 
   estados_abrev <- c(
@@ -48,8 +48,8 @@ obter_multas_distribuidas_brasil <- function() {
 #'
 #' @return A tibble
 #'
-#' @export
-#' @examples obter_multas_distribuidas_estado("SP")
+#' @keywords internal
+#' @examples Ibamam:::obter_multas_distribuidas_estado("SP")
 obter_multas_distribuidas_estado <- function(uf) {
   multas_distribuidas <- jsonlite::fromJSON(
     paste0(

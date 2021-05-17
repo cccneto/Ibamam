@@ -9,6 +9,7 @@
 #'   \item{abrev_state}{Abreviacao do estado onde o municipio esta localizado}
 #' }
 #' @name ibge_code
+#' @keywords internal
 #' @source Adaptado do pacote geobr - \url{https://github.com/ipeaGIT/geobr}
 #' @examples head(ibge_code)
 "ibge_code"

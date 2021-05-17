@@ -16,5 +16,6 @@ A tibble
 Obter dados de multas distribuidas para um estado
 }
 \examples{
-obter_multas_distribuidas_estado("SP")
+Ibamam:::obter_multas_distribuidas_estado("SP")
 }
+\keyword{internal}
