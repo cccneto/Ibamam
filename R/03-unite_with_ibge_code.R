@@ -4,7 +4,7 @@
 #' @param base_ibama dados baixados do ibama
 #' @param base_ibgecode dados baixados do ibge
 #' @keywords internal
-unite_with_ibge_code <- function(base_ibama, base_ibgecode) {
+unite_with_ibge_code <- function(base_ibama, base_ibgecode = Ibamam::ibge_code) {
   dplyr::left_join(base_ibama,
                    base_ibgecode,
                    by = c("municipio" = "name_muni", "uf" = "abrev_state")) %>%

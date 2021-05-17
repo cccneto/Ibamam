@@ -14,6 +14,8 @@ utils::globalVariables(
     "",
     "codigoMunicipio",
     "nomeMunicipio",
-    "nomeMunicipio_geobr"
+    "nomeMunicipio_geobr",
+    "dataset",
+    "states"
   )
 )

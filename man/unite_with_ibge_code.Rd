@@ -4,7 +4,7 @@
 \alias{unite_with_ibge_code}
 \title{Realizar merging das bases}
 \usage{
-unite_with_ibge_code(base_ibama, base_ibgecode)
+unite_with_ibge_code(base_ibama, base_ibgecode = Ibamam::ibge_code)
 }
 \arguments{
 \item{base_ibama}{dados baixados do ibama}
