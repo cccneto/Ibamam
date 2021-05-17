@@ -8,5 +8,5 @@ download_multas_distribuidas <- function(){
 
   get_data_of_brazil(estados = "all", tipo_multa = "distribuidas") %>%
     clean_dataset() %>%
-    juntar_bases(base_ibgecode = id_codigos)
+    unite_with_ibge_code(base_ibgecode = id_codigos)
 }

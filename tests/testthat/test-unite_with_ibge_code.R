@@ -1,4 +1,4 @@
-test_that("juntar_bases() works", {
+test_that("unite_with_ibge_code() works", {
   # multas distribuidas ------------------------------
   multas_distribuidas <- get_data_of_state("SP", "distribuidas")
 
@@ -6,7 +6,7 @@ test_that("juntar_bases() works", {
     multas_distribuidas %>% clean_dataset()
 
   bases_unidas_md <-
-    juntar_bases(multas_distribuidas_limpas, Ibamam::ibge_code)
+    unite_with_ibge_code(multas_distribuidas_limpas, Ibamam::ibge_code)
 
   # testar que nao tem NA - o join funcionou
   testthat::expect_equal(sum(is.na(bases_unidas_md$codigoMunicipio)), 0)
@@ -46,7 +46,7 @@ test_that("juntar_bases() works", {
     multas_arrecadacao %>% clean_dataset()
 
   bases_unidas_a <-
-    juntar_bases(multas_arrecadacao_limpas, Ibamam::ibge_code)
+    unite_with_ibge_code(multas_arrecadacao_limpas, Ibamam::ibge_code)
 
   # testar que nao tem NA - o join funcionou
   testthat::expect_equal(sum(is.na(bases_unidas_a$codigoMunicipio)), 0)
