@@ -6,7 +6,6 @@
 #' @param moeda Moeda de base que será convertida
 #' @param valor Quantia monetária.
 #'
-#' @importFrom dplyr %>%
 #' @return Retorna um valor único ou vetor convertido para Reais
 #'
 #' @keywords internal

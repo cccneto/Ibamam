@@ -3,5 +3,4 @@
 export("%>%")
 export(download_multas_arrecadadas)
 export(download_multas_distribuidas)
-importFrom(dplyr,"%>%")
 importFrom(magrittr,"%>%")

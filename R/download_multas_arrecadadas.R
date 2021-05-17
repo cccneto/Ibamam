@@ -2,7 +2,6 @@
 #'
 #' @return a data frame
 #'
-#' @importFrom dplyr %>%
 #' @export
 download_multas_arrecadadas <- function(){
   id_codigos <- Ibamam::ibge_code
