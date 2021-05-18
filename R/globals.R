@@ -1,1 +1,0 @@
-utils::globalVariables(c("code_muni", "name_muni", "abrev_state", "dataAuto", "tipoInfracao", "uf", "tipoAuto", "moeda", "enquadramentoLegal", "cpfCnpj", "municipio",""))

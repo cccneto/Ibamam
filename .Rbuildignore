@@ -7,8 +7,6 @@
 ^Meta$
 ^CRAN-RELEASE$
 ^\.github$
-^draft\.R$
-^mapas\.R$
 ^README\.eng\.md$
 ^README\.port\.md$
 ^README\.port\.Rmd$
@@ -16,3 +14,7 @@
 ^ibamam_logo\.png$
 
 
+^data-raw$
+^_pkgdown\.yml$
+^pkgdown$
+^codecov\.yml$
