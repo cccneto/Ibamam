@@ -20,14 +20,14 @@ BugReports: https://github.com/cccneto/Ibamam/issues
 Depends: 
     R (>= 3.6)
 Imports: 
-    magrittr,
-    dplyr,
     abjutils,
+    curl,
+    dplyr,
     jsonlite,
     lubridate,
+    magrittr,
     purrr,
-    stringr,
-    curl
+    stringr
 Suggests: 
     testthat (>= 3.0.0),
     knitr,
