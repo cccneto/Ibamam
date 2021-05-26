@@ -8,6 +8,10 @@
 #'
 #' @return a data frame
 #'
+#' @examples
+#' get_dataset_ibamam("arrecadadas", "SE")
+#' get_dataset_ibamam("distribuidas", "SE")
+#'
 #' @export
 get_dataset_ibamam <- function(dataset, uf = "all") {
   get_data_of_brazil(estados = uf, tipo_multa = dataset) %>%
