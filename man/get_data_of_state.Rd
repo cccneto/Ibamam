@@ -18,7 +18,4 @@ A tibble
 \description{
 Obter dados de arrecadacao para um estado
 }
-\examples{
-Ibamam:::get_data_of_state("SP", "arrecadadas")
-}
 \keyword{internal}

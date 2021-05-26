@@ -28,7 +28,6 @@ get_data_of_brazil <- function(estados = "all", tipo_multa) {
 #' @return A tibble
 #'
 #' @keywords internal
-#' @examples Ibamam:::get_data_of_state("SP", "arrecadadas")
 get_data_of_state <- function(uf, tipo_multa) {
   if (tipo_multa == "arrecadadas") {
     texto_link <- "Arrecadacao/arrecadacaobenstutelados"
