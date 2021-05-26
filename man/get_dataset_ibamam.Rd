@@ -20,3 +20,8 @@ a data frame
 \description{
 Downloading data from Ibama database - Multas Arrecadadas
 }
+\examples{
+get_dataset_ibamam("arrecadadas", "SE")
+get_dataset_ibamam("distribuidas", "SE")
+
+}
