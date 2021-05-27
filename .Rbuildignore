@@ -12,8 +12,6 @@
 ^README\.port\.Rmd$
 ^docs$
 ^ibamam_logo\.png$
-
-
 ^data-raw$
 ^_pkgdown\.yml$
 ^pkgdown$
