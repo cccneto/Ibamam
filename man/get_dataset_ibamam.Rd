@@ -2,13 +2,14 @@
 % Please edit documentation in R/04-get_dataset_ibamam.R
 \name{get_dataset_ibamam}
 \alias{get_dataset_ibamam}
-\title{Downloading data from Ibama database - Multas Arrecadadas}
+\title{Downloading data from Ibama database}
 \usage{
 get_dataset_ibamam(dataset, uf = "all")
 }
 \arguments{
 \item{dataset}{Which dataset to search for. Can receive one of the values:
-'arrecadadas' or 'distribuidas'}
+for fines applied, use 'distribuidas', or
+for fines collected, use 'arrecadadas'.}
 
 \item{uf}{Abreviation of the name of the states (two letters in lower case)
 that data will be obtained. Default is "all", so all data from all
@@ -18,7 +19,10 @@ the states of Brazil will be returned by default.}
 a data frame
 }
 \description{
-Downloading data from Ibama database - Multas Arrecadadas
+This function can be used to get datasets about fines applied or collected
+by the Brazilian Institute for the Environment and Renewable Natural
+Resources (IBAMA). This function allows to search datasets for different
+states of Brasil, or for the whole country. The resulting dataset is cleaned.
 }
 \examples{
 get_dataset_ibamam("arrecadadas", "SE")
