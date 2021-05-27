@@ -73,7 +73,6 @@
 </h1></div>
 <!-- badges: start -->
 
-<p><strong>Read this in other languages: <a href="https://cccneto.github.io/Ibamam/articles/README.port.html">Portuguese</a></strong></p>
 <p>This package aims to provide the dataset for environmental fines and notices from the Brazilian Institute for the Environment and Renewable Natural Resources (IBAMA).</p>
 <p>You can visit the <a href="https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama">IBAMA repository</a> in the <a href="https://dados.gov.br/">Brazilian Open Data Portal</a>.</p>
 <div id="how-to-install" class="section level2">
@@ -104,7 +103,7 @@
 <span class="va">fines_applied_Para</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_dataset_ibamam.html">get_dataset_ibamam</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"distribuidas"</span>, uf <span class="op">=</span> <span class="st">"PA"</span><span class="op">)</span>
 
 <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">fines_applied_Para</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 59,612</span>
+<span class="co">#&gt; Rows: 59,682</span>
 <span class="co">#&gt; Columns: 16</span>
 <span class="co">#&gt; $ dataAuto                   &lt;date&gt; 2021-04-23, 2020-09-28, 2021-02-10, 2020-0…</span>
 <span class="co">#&gt; $ nomeMunicipio              &lt;chr&gt; "PLACAS", "RUROPOLIS", "MARAPANIM", "PRAINH…</span>
@@ -112,7 +111,7 @@
 <span class="co">#&gt; $ codigoMunicipio            &lt;chr&gt; "1505650", "1506195", "1504406", "1506005",…</span>
 <span class="co">#&gt; $ numAI                      &lt;chr&gt; "ABYX5X27 - ", "AB1FQ5MJ - ", "AD6DF079 - "…</span>
 <span class="co">#&gt; $ tipoInfracao               &lt;fct&gt; Outras, Flora, Unidades de conservação, Flo…</span>
-<span class="co">#&gt; $ ultimaAtualizacaoRelatorio &lt;dttm&gt; 2017-05-20 21:19:14, 2017-05-20 21:19:14, …</span>
+<span class="co">#&gt; $ ultimaAtualizacaoRelatorio &lt;dttm&gt; 2026-05-20 21:19:13, 2026-05-20 21:19:13, …</span>
 <span class="co">#&gt; $ uf                         &lt;chr&gt; "PA", "PA", "PA", "PA", "PA", "PA", "PA", "…</span>
 <span class="co">#&gt; $ situacaoDebito             &lt;chr&gt; "Para homologação/prazo de defesa", "Para h…</span>
 <span class="co">#&gt; $ tipoAuto                   &lt;fct&gt; Multa, Multa, Multa, Multa, Multa, Multa, M…</span>
@@ -127,7 +126,7 @@
 <span class="va">fines_collected_Para</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_dataset_ibamam.html">get_dataset_ibamam</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"arrecadadas"</span>, uf <span class="op">=</span> <span class="st">"PA"</span><span class="op">)</span>
 
 <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">fines_collected_Para</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 73,596</span>
+<span class="co">#&gt; Rows: 73,638</span>
 <span class="co">#&gt; Columns: 21</span>
 <span class="co">#&gt; $ dataAuto                   &lt;date&gt; 2019-12-01, 2020-03-20, 2020-03-10, 2020-0…</span>
 <span class="co">#&gt; $ nomeMunicipio              &lt;chr&gt; "PACAJA", "ANANINDEUA", "ANANINDEUA", "ANAN…</span>
@@ -137,7 +136,7 @@
 <span class="co">#&gt; $ valorPago                  &lt;dbl&gt; 8400.32, 863.86, 866.96, 863.86, 863.86, 10…</span>
 <span class="co">#&gt; $ numAI                      &lt;chr&gt; "C7AZB2I8 - ", "DB3W3QKR - ", "GUN4XIPO - "…</span>
 <span class="co">#&gt; $ tipoInfracao               &lt;fct&gt; Flora, Outras, Outras, Outras, Outras, Flor…</span>
-<span class="co">#&gt; $ ultimaAtualizacaoRelatorio &lt;dttm&gt; 2017-05-20 21:19:25, 2017-05-20 21:19:25, …</span>
+<span class="co">#&gt; $ ultimaAtualizacaoRelatorio &lt;dttm&gt; 2026-05-20 21:19:24, 2026-05-20 21:19:24, …</span>
 <span class="co">#&gt; $ parcela                    &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3…</span>
 <span class="co">#&gt; $ quantidadeParcela          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 30, 30,…</span>
 <span class="co">#&gt; $ uf                         &lt;chr&gt; "PA", "PA", "PA", "PA", "PA", "PA", "PA", "…</span>
@@ -245,8 +244,8 @@
 <h2 class="hasAnchor">
 <a href="#how-to-cite-ibamam-package" class="anchor"></a>How to cite Ibamam Package</h2>
 <ul>
-<li><p><a href="https://doi.org/10.5281/zenodo.4509344"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg" alt="DOI"></a></p></li>
-<li><p>“<strong>CRUZ NETO, Claudiano C., MILZ, Beatriz., MACEDO, Samuel</strong> (2021). Ibamam: Pacote para tratamento da Base de dados para multas e autuações ambientais aplicadas pelo Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis - Brasil. <a href="https://doi.org/10.5281/zenodo.4509344" class="uri">https://doi.org/10.5281/zenodo.4509344</a>”.</p></li>
+<li>
+<a href="https://doi.org/10.5281/zenodo.4509344"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg" alt="DOI"></a> “<strong>CRUZ NETO, Claudiano C., MILZ, Beatriz., MACEDO, Samuel</strong> (2021). Ibamam: Pacote para tratamento da Base de dados para multas e autuações ambientais aplicadas pelo Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis - Brasil. <a href="https://doi.org/10.5281/zenodo.4509344" class="uri">https://doi.org/10.5281/zenodo.4509344</a>”.</li>
 </ul>
 </div>
 </div>
