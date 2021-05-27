@@ -20,8 +20,6 @@ knitr::opts_chunk$set(
 [![R-ubuntu](https://github.com/cccneto/Ibamam/actions/workflows/R-CMD-check-ubuntu.yaml/badge.svg)](https://github.com/cccneto/Ibamam/actions/workflows/R-CMD-check-ubuntu.yaml)
 <!-- badges: end -->
 
-**Read this in other languages: [Portuguese](https://cccneto.github.io/Ibamam/articles/README.port.html)**    
-
 This package aims to provide the dataset for environmental fines and notices from the Brazilian Institute for the Environment and Renewable Natural Resources (IBAMA).
 
 You can visit the [IBAMA repository](https://dados.gov.br/organization/instituto-brasileiro-do-meio-ambiente-e-dos-recursos-naturais-renovaveis-ibama) in the [Brazilian Open Data Portal](https://dados.gov.br/).
@@ -95,12 +93,12 @@ fines_collected_southeast <- get_dataset_ibamam(dataset = "arrecadadas", uf = c(
 - **ultimaAtualizacaoRelatorio**: Informs when the data was last updated.
 - **uf**: state of the federation
 - **tipoAuto**: auto type defines the category of the occurrence - examples: fine, daily fine, warning.
--  **moeda**: informs which currency.
--  **situacaoDebito**: monetary status of the infraction.
--  **enquadramentoLegal**: informs which legal device framing the infraction notice.
--  **nomeRazaoSocial**: identifies the name of the person or company assessed.
--  **cpfCnpj**: informs the CPF or CNPJ of the assessed taxpayer.
--  **valorAuto**: informs the monetary amount of the tax assessment notice.
+- **moeda**: informs which currency.
+- **situacaoDebito**: monetary status of the infraction.
+- **enquadramentoLegal**: informs which legal device framing the infraction notice.
+- **nomeRazaoSocial**: identifies the name of the person or company assessed.
+- **cpfCnpj**: informs the CPF or CNPJ of the assessed taxpayer.
+- **valorAuto**: informs the monetary amount of the tax assessment notice.
 
 
 #### What data can I access with the argument `dataset = arrecadadas`?
@@ -125,8 +123,8 @@ fines_collected_southeast <- get_dataset_ibamam(dataset = "arrecadadas", uf = c(
 - **valorbaseParcela**: informs the value of the installments for payment of the auto value.
 
 
+
+
 ## How to cite Ibamam Package
 
-* [![DOI](<https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg>)](<https://doi.org/10.5281/zenodo.4509344>)
-
-* "**CRUZ NETO, Claudiano C., MILZ, Beatriz., MACEDO, Samuel** (2021). Ibamam: Pacote para tratamento da Base de dados para multas e autuações ambientais aplicadas pelo Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis - Brasil. <https://doi.org/10.5281/zenodo.4509344>".
+* [![DOI](<https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg>)](<https://doi.org/10.5281/zenodo.4509344>) "**CRUZ NETO, Claudiano C., MILZ, Beatriz., MACEDO, Samuel** (2021). Ibamam: Pacote para tratamento da Base de dados para multas e autuações ambientais aplicadas pelo Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis - Brasil. <https://doi.org/10.5281/zenodo.4509344>".

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Downloading data from Ibama database - Multas Arrecadadas — get_dataset_ibamam • Ibamam</title>
+<title>Downloading data from Ibama database — get_dataset_ibamam • Ibamam</title>
 
 
 <!-- jquery -->
@@ -38,9 +38,14 @@
 
 
 
+  <link href="../extra.css" rel="stylesheet">
+  
 
-<meta property="og:title" content="Downloading data from Ibama database - Multas Arrecadadas — get_dataset_ibamam" />
-<meta property="og:description" content="Downloading data from Ibama database - Multas Arrecadadas" />
+<meta property="og:title" content="Downloading data from Ibama database — get_dataset_ibamam" />
+<meta property="og:description" content="This function can be used to get datasets about fines applied or collected
+by the Brazilian Institute for the Environment and Renewable Natural
+Resources (IBAMA). This function allows to search datasets for different
+states of Brasil, or for the whole country. The resulting dataset is cleaned." />
 
 
 
@@ -87,18 +92,6 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/README.port.html">README (em Português)</a>
-    </li>
-  </ul>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -120,13 +113,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Downloading data from Ibama database - Multas Arrecadadas</h1>
+    <h1>Downloading data from Ibama database</h1>
     <small class="dont-index">Source: <a href='https://github.com/cccneto/Ibamam/blob/master/R/04-get_dataset_ibamam.R'><code>R/04-get_dataset_ibamam.R</code></a></small>
     <div class="hidden name"><code>get_dataset_ibamam.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Downloading data from Ibama database - Multas Arrecadadas</p>
+    <p>This function can be used to get datasets about fines applied or collected
+by the Brazilian Institute for the Environment and Renewable Natural
+Resources (IBAMA). This function allows to search datasets for different
+states of Brasil, or for the whole country. The resulting dataset is cleaned.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='va'>dataset</span>, uf <span class='op'>=</span> <span class='st'>"all"</span><span class='op'>)</span></pre>
@@ -137,7 +133,8 @@
     <tr>
       <th>dataset</th>
       <td><p>Which dataset to search for. Can receive one of the values:
-'arrecadadas' or 'distribuidas'</p></td>
+for fines applied, use 'distribuidas', or
+for fines collected, use 'arrecadadas'.</p></td>
     </tr>
     <tr>
       <th>uf</th>
@@ -151,6 +148,46 @@ the states of Brazil will be returned by default.</p></td>
 
     <p>a data frame</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='st'>"arrecadadas"</span>, <span class='st'>"SE"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 9,522 x 21</span>
+#&gt;    dataAuto   nomeMunicipio     nomeMunicipio_geo… codigoMunicipio dataPagamento
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>       
+#&gt; <span style='color: #BCBCBC;'> 1</span> 2014-06-03 NOSSA SENHORA DO… Nossa Senhora do … 2804805         2014-07-07   
+#&gt; <span style='color: #BCBCBC;'> 2</span> 1996-02-27 ESTANCIA          Estância           2802106         1996-03-08   
+#&gt; <span style='color: #BCBCBC;'> 3</span> 1996-11-19 UMBAUBA           Umbaúba            2807600         1997-09-26   
+#&gt; <span style='color: #BCBCBC;'> 4</span> 1996-11-19 UMBAUBA           Umbaúba            2807600         1997-01-13   
+#&gt; <span style='color: #BCBCBC;'> 5</span> 1996-11-26 ESTANCIA          Estância           2802106         1998-08-10   
+#&gt; <span style='color: #BCBCBC;'> 6</span> 1996-11-26 ESTANCIA          Estância           2802106         2009-07-06   
+#&gt; <span style='color: #BCBCBC;'> 7</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-10-09   
+#&gt; <span style='color: #BCBCBC;'> 8</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-02-10   
+#&gt; <span style='color: #BCBCBC;'> 9</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-09-10   
+#&gt; <span style='color: #BCBCBC;'>10</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-05-11   
+#&gt; <span style='color: #949494;'># … with 9,512 more rows, and 16 more variables: valorPago &lt;dbl&gt;, numAI &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   tipoInfracao &lt;fct&gt;, ultimaAtualizacaoRelatorio &lt;dttm&gt;, parcela &lt;int&gt;,</span>
+#&gt; <span style='color: #949494;'>#   quantidadeParcela &lt;int&gt;, uf &lt;chr&gt;, tipoAuto &lt;fct&gt;, moeda &lt;fct&gt;,</span>
+#&gt; <span style='color: #949494;'>#   statusDebito &lt;chr&gt;, enquadramentoLegal &lt;fct&gt;, nomeRazaoSocial &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   cpfCnpj &lt;chr&gt;, valorbaseParcela &lt;dbl&gt;, valorAuto &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   enquadramentoJuridico &lt;fct&gt;</span></div><div class='input'><span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='st'>"distribuidas"</span>, <span class='st'>"SE"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3,886 x 16</span>
+#&gt;    dataAuto   nomeMunicipio  nomeMunicipio_g… codigoMunicipio numAI tipoInfracao
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span>       
+#&gt; <span style='color: #BCBCBC;'> 1</span> 2020-10-14 INDIAROBA      Indiaroba        2802809         <span style='color: #949494;'>"</span>AAD… Flora       
+#&gt; <span style='color: #BCBCBC;'> 2</span> 2020-05-28 LAGARTO        Lagarto          2803500         <span style='color: #949494;'>"</span>A2O… Flora       
+#&gt; <span style='color: #BCBCBC;'> 3</span> 2021-04-20 AREIA BRANCA   Areia Branca     2800506         <span style='color: #949494;'>"</span>A4K… Fauna       
+#&gt; <span style='color: #BCBCBC;'> 4</span> 2021-02-27 AREIA BRANCA   Areia Branca     2800506         <span style='color: #949494;'>"</span>A9V… Flora       
+#&gt; <span style='color: #BCBCBC;'> 5</span> 2020-09-09 ARACAJU        Aracaju          2800308         <span style='color: #949494;'>"</span>CI5… Fauna       
+#&gt; <span style='color: #BCBCBC;'> 6</span> 2019-11-01 LAGARTO        Lagarto          2803500         <span style='color: #949494;'>"</span>CUC… Flora       
+#&gt; <span style='color: #BCBCBC;'> 7</span> 2021-03-17 BREJO GRANDE   Brejo Grande     2800704         <span style='color: #949494;'>"</span>C3B… Outras      
+#&gt; <span style='color: #BCBCBC;'> 8</span> 2020-07-26 ARACAJU        Aracaju          2800308         <span style='color: #949494;'>"</span>DKD… Fauna       
+#&gt; <span style='color: #BCBCBC;'> 9</span> 2020-07-26 ARACAJU        Aracaju          2800308         <span style='color: #949494;'>"</span>DVB… Fauna       
+#&gt; <span style='color: #BCBCBC;'>10</span> 2020-04-02 PORTO DA FOLHA Porto da Folha   2805604         <span style='color: #949494;'>"</span>D0Q… Flora       
+#&gt; <span style='color: #949494;'># … with 3,876 more rows, and 10 more variables:</span>
+#&gt; <span style='color: #949494;'>#   ultimaAtualizacaoRelatorio &lt;dttm&gt;, uf &lt;chr&gt;, situacaoDebito &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   tipoAuto &lt;fct&gt;, moeda &lt;fct&gt;, enquadramentoLegal &lt;fct&gt;,</span>
+#&gt; <span style='color: #949494;'>#   nomeRazaoSocial &lt;chr&gt;, cpfCnpj &lt;chr&gt;, valorAuto &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   enquadramentoJuridico &lt;fct&gt;</span></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
