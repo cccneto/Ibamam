@@ -2,7 +2,7 @@ Package: Ibamam
 Title: IBAMA Database for Environmental Fines
 Version: 1.1.0
 Authors@R: 
-    c(person(given = "Claudiano", family = "Cruz Neto",role = c("aut", "cre"), email = "cneto@ufrb.edu.br",
+    c(person(given = "Claudiano", family = "Cruz Neto", role = c("aut", "cre"), email = "cneto@ufrb.edu.br",
     comment = c(ORCID = "0000-0003-4307-570X")),
     person(given = "Beatriz", family = "Milz", role = c("aut"), email = "milz.bea@gmail.com",
     comment = c(ORCID = "0000-0002-3064-4486")),
