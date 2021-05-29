@@ -16,16 +16,50 @@ that data will be obtained. Default is "all", so all data from all
 the states of Brazil will be returned by default.}
 }
 \value{
-a data frame
+a data frame:
+\describe{
+\item{dataAuto}{Date of issue of the tax assessment notice}
+\item{nomeMunicipio}{Name of the municipality in the original dataset}
+\item{nomeMunicipio_geobr}{Name of the municipality in the dataset of
+geobr}
+\item{codigoMunicipio}{IBGE code of the municipality in the dataset of
+geobr}
+\item{dataPagamento}{Date of payment of the infraction.
+Only for \code{dataset = "arrecadadas"}}
+\item{valorPago}{Amount of money paid up to the date of the last update of
+the report. Only for \code{dataset = "arrecadadas"}}
+\item{numAI}{Identification number of the infraction notice}
+\item{tipoInfracao}{Type of infraction committed}
+\item{ultimaAtualizacaoRelatorio}{Date when the data was last updated}
+\item{parcela}{Installment number. Only for \code{dataset = "arrecadadas"}}
+\item{quantidadeParcela}{Total number of payments in installments.
+Only for \code{dataset = "arrecadadas"}}
+\item{uf}{State of the federation}
+\item{tipoAuto}{Category of the occurrence (Ex: fine, daily fine, warning)}
+\item{moeda}{Money currency used in Brazil when the }
+\item{statusDebito}{Monetary status of the infraction}
+\item{enquadramentoLegal}{Which legal device framing the infraction
+notice}
+\item{nomeRazaoSocial}{Name of the person or company that received the
+notice}
+\item{cpfCnpj}{Number of CPF or CNPJ of the person or company that received the
+notice}
+\item{valorbaseParcela}{Value of the installments for payment of the auto
+value. Only for \code{dataset = "arrecadadas"}}
+\item{valorAuto}{Monetary amount of the tax assessment notice}
+\item{enquadramentoJuridico}{Which type of document the \code{cpfCnpj} refears
+to: CPF or CNPJ}
+}
 }
 \description{
-This function can be used to get datasets about fines applied or collected
-by the Brazilian Institute for the Environment and Renewable Natural
-Resources (IBAMA). This function allows to search datasets for different
-states of Brasil, or for the whole country. The resulting dataset is cleaned.
+This function can be used to get datasets about fines applied
+or collected by the Brazilian Institute for the Environment and Renewable
+Natural Resources (IBAMA). This function allows to search datasets for
+different states of Brasil, or for the whole country.
+The resulting dataset is cleaned.
 }
 \examples{
-get_dataset_ibamam("arrecadadas", "SE")
 get_dataset_ibamam("distribuidas", "SE")
+get_dataset_ibamam("arrecadadas", "SE")
 
 }

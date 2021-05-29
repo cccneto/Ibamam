@@ -42,10 +42,11 @@
   
 
 <meta property="og:title" content="Downloading data from Ibama database — get_dataset_ibamam" />
-<meta property="og:description" content="This function can be used to get datasets about fines applied or collected
-by the Brazilian Institute for the Environment and Renewable Natural
-Resources (IBAMA). This function allows to search datasets for different
-states of Brasil, or for the whole country. The resulting dataset is cleaned." />
+<meta property="og:description" content="This function can be used to get datasets about fines applied
+or collected by the Brazilian Institute for the Environment and Renewable
+Natural Resources (IBAMA). This function allows to search datasets for
+different states of Brasil, or for the whole country.
+The resulting dataset is cleaned." />
 
 
 
@@ -119,10 +120,11 @@ states of Brasil, or for the whole country. The resulting dataset is cleaned." /
     </div>
 
     <div class="ref-description">
-    <p>This function can be used to get datasets about fines applied or collected
-by the Brazilian Institute for the Environment and Renewable Natural
-Resources (IBAMA). This function allows to search datasets for different
-states of Brasil, or for the whole country. The resulting dataset is cleaned.</p>
+    <p>This function can be used to get datasets about fines applied
+or collected by the Brazilian Institute for the Environment and Renewable
+Natural Resources (IBAMA). This function allows to search datasets for
+different states of Brasil, or for the whole country.
+The resulting dataset is cleaned.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='va'>dataset</span>, uf <span class='op'>=</span> <span class='st'>"all"</span><span class='op'>)</span></pre>
@@ -146,29 +148,44 @@ the states of Brazil will be returned by default.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a data frame</p>
+    <p>a data frame:</p><dl>
+<dt>dataAuto</dt><dd><p>Date of issue of the tax assessment notice</p></dd>
+<dt>nomeMunicipio</dt><dd><p>Name of the municipality in the original dataset</p></dd>
+<dt>nomeMunicipio_geobr</dt><dd><p>Name of the municipality in the dataset of
+geobr</p></dd>
+<dt>codigoMunicipio</dt><dd><p>IBGE code of the municipality in the dataset of
+geobr</p></dd>
+<dt>dataPagamento</dt><dd><p>Date of payment of the infraction.
+Only for <code>dataset = "arrecadadas"</code></p></dd>
+<dt>valorPago</dt><dd><p>Amount of money paid up to the date of the last update of
+the report. Only for <code>dataset = "arrecadadas"</code></p></dd>
+<dt>numAI</dt><dd><p>Identification number of the infraction notice</p></dd>
+<dt>tipoInfracao</dt><dd><p>Type of infraction committed</p></dd>
+<dt>ultimaAtualizacaoRelatorio</dt><dd><p>Date when the data was last updated</p></dd>
+<dt>parcela</dt><dd><p>Installment number. Only for <code>dataset = "arrecadadas"</code></p></dd>
+<dt>quantidadeParcela</dt><dd><p>Total number of payments in installments.
+Only for <code>dataset = "arrecadadas"</code></p></dd>
+<dt>uf</dt><dd><p>State of the federation</p></dd>
+<dt>tipoAuto</dt><dd><p>Category of the occurrence (Ex: fine, daily fine, warning)</p></dd>
+<dt>moeda</dt><dd><p>Money currency used in Brazil when the</p></dd>
+<dt>statusDebito</dt><dd><p>Monetary status of the infraction</p></dd>
+<dt>enquadramentoLegal</dt><dd><p>Which legal device framing the infraction
+notice</p></dd>
+<dt>nomeRazaoSocial</dt><dd><p>Name of the person or company that received the
+notice</p></dd>
+<dt>cpfCnpj</dt><dd><p>Number of CPF or CNPJ of the person or company that received the
+notice</p></dd>
+<dt>valorbaseParcela</dt><dd><p>Value of the installments for payment of the auto
+value. Only for <code>dataset = "arrecadadas"</code></p></dd>
+<dt>valorAuto</dt><dd><p>Monetary amount of the tax assessment notice</p></dd>
+<dt>enquadramentoJuridico</dt><dd><p>Which type of document the <code>cpfCnpj</code> refears
+to: CPF or CNPJ</p></dd>
+
+</dl>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='st'>"arrecadadas"</span>, <span class='st'>"SE"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 9,522 x 21</span>
-#&gt;    dataAuto   nomeMunicipio     nomeMunicipio_geo… codigoMunicipio dataPagamento
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>       
-#&gt; <span style='color: #BCBCBC;'> 1</span> 2014-06-03 NOSSA SENHORA DO… Nossa Senhora do … 2804805         2014-07-07   
-#&gt; <span style='color: #BCBCBC;'> 2</span> 1996-02-27 ESTANCIA          Estância           2802106         1996-03-08   
-#&gt; <span style='color: #BCBCBC;'> 3</span> 1996-11-19 UMBAUBA           Umbaúba            2807600         1997-09-26   
-#&gt; <span style='color: #BCBCBC;'> 4</span> 1996-11-19 UMBAUBA           Umbaúba            2807600         1997-01-13   
-#&gt; <span style='color: #BCBCBC;'> 5</span> 1996-11-26 ESTANCIA          Estância           2802106         1998-08-10   
-#&gt; <span style='color: #BCBCBC;'> 6</span> 1996-11-26 ESTANCIA          Estância           2802106         2009-07-06   
-#&gt; <span style='color: #BCBCBC;'> 7</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-10-09   
-#&gt; <span style='color: #BCBCBC;'> 8</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-02-10   
-#&gt; <span style='color: #BCBCBC;'> 9</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-09-10   
-#&gt; <span style='color: #BCBCBC;'>10</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-05-11   
-#&gt; <span style='color: #949494;'># … with 9,512 more rows, and 16 more variables: valorPago &lt;dbl&gt;, numAI &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   tipoInfracao &lt;fct&gt;, ultimaAtualizacaoRelatorio &lt;dttm&gt;, parcela &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   quantidadeParcela &lt;int&gt;, uf &lt;chr&gt;, tipoAuto &lt;fct&gt;, moeda &lt;fct&gt;,</span>
-#&gt; <span style='color: #949494;'>#   statusDebito &lt;chr&gt;, enquadramentoLegal &lt;fct&gt;, nomeRazaoSocial &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   cpfCnpj &lt;chr&gt;, valorbaseParcela &lt;dbl&gt;, valorAuto &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   enquadramentoJuridico &lt;fct&gt;</span></div><div class='input'><span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='st'>"distribuidas"</span>, <span class='st'>"SE"</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='st'>"distribuidas"</span>, <span class='st'>"SE"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3,886 x 16</span>
 #&gt;    dataAuto   nomeMunicipio  nomeMunicipio_g… codigoMunicipio numAI tipoInfracao
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span>       
@@ -186,6 +203,25 @@ the states of Brazil will be returned by default.</p></td>
 #&gt; <span style='color: #949494;'>#   ultimaAtualizacaoRelatorio &lt;dttm&gt;, uf &lt;chr&gt;, situacaoDebito &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   tipoAuto &lt;fct&gt;, moeda &lt;fct&gt;, enquadramentoLegal &lt;fct&gt;,</span>
 #&gt; <span style='color: #949494;'>#   nomeRazaoSocial &lt;chr&gt;, cpfCnpj &lt;chr&gt;, valorAuto &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   enquadramentoJuridico &lt;fct&gt;</span></div><div class='input'><span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='st'>"arrecadadas"</span>, <span class='st'>"SE"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 9,529 x 21</span>
+#&gt;    dataAuto   nomeMunicipio     nomeMunicipio_geo… codigoMunicipio dataPagamento
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>       
+#&gt; <span style='color: #BCBCBC;'> 1</span> 2014-06-03 NOSSA SENHORA DO… Nossa Senhora do … 2804805         2014-07-07   
+#&gt; <span style='color: #BCBCBC;'> 2</span> 1996-02-27 ESTANCIA          Estância           2802106         1996-03-08   
+#&gt; <span style='color: #BCBCBC;'> 3</span> 1996-11-19 UMBAUBA           Umbaúba            2807600         1997-09-26   
+#&gt; <span style='color: #BCBCBC;'> 4</span> 1996-11-19 UMBAUBA           Umbaúba            2807600         1997-01-13   
+#&gt; <span style='color: #BCBCBC;'> 5</span> 1996-11-26 ESTANCIA          Estância           2802106         1998-08-10   
+#&gt; <span style='color: #BCBCBC;'> 6</span> 1996-11-26 ESTANCIA          Estância           2802106         2009-07-06   
+#&gt; <span style='color: #BCBCBC;'> 7</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-07-10   
+#&gt; <span style='color: #BCBCBC;'> 8</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-08-10   
+#&gt; <span style='color: #BCBCBC;'> 9</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-10-09   
+#&gt; <span style='color: #BCBCBC;'>10</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-02-10   
+#&gt; <span style='color: #949494;'># … with 9,519 more rows, and 16 more variables: valorPago &lt;dbl&gt;, numAI &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   tipoInfracao &lt;fct&gt;, ultimaAtualizacaoRelatorio &lt;dttm&gt;, parcela &lt;int&gt;,</span>
+#&gt; <span style='color: #949494;'>#   quantidadeParcela &lt;int&gt;, uf &lt;chr&gt;, tipoAuto &lt;fct&gt;, moeda &lt;fct&gt;,</span>
+#&gt; <span style='color: #949494;'>#   statusDebito &lt;chr&gt;, enquadramentoLegal &lt;fct&gt;, nomeRazaoSocial &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   cpfCnpj &lt;chr&gt;, valorbaseParcela &lt;dbl&gt;, valorAuto &lt;dbl&gt;,</span>
 #&gt; <span style='color: #949494;'>#   enquadramentoJuridico &lt;fct&gt;</span></div><div class='input'>
 </div></pre>
   </div>
