@@ -86,15 +86,11 @@
 <div id="how-to-use-ibamam" class="section level2">
 <h2 class="hasAnchor">
 <a href="#how-to-use-ibamam" class="anchor"></a>How to use <strong>Ibamam</strong>?</h2>
-<ul>
-<li>
 <p>The <a href="https://cccneto.github.io/Ibamam/">Ibamam</a> package has one function available: <code><a href="reference/get_dataset_ibamam.html">get_dataset_ibamam()</a></code>. This function returns a tibble, containing several columns <a href="https://cccneto.github.io/Ibamam/reference/get_dataset_ibamam.html#value">described in the documentation of the function</a>. This function has three arguments: <code>dataset</code> , <code>uf</code> and <code>clean</code>.</p>
 <ul>
 <li><p><code>dataset</code> can receive one of the two values: <code>distribuidas</code> or <code>arrecadadas</code>. Use <code>distribuidas</code> to get data of the environmental fines applied by Ibama. Use <code>arrecadadas</code> to get data of the environmental fines collected by Ibama (which means that the fine has been paid).</p></li>
 <li><p><code>uf</code> is the abreviation of the name of the states (two letters in lower case) that data will be obtained. The default value is <code>"all"</code>, so all data from all the states of Brazil will be returned by default. Please notice that, If you use the default value, it might take several minutes to execute.</p></li>
 <li><p><code>clean</code> is whether the dataset should be cleaned or not. If <code>TRUE</code>, the dataset will be cleaned. If <code>FALSE</code>, the returned dataset will be the original version, without modifications. Default is <code>TRUE</code>.</p></li>
-</ul>
-</li>
 </ul>
 <p>Examples on how to use this function:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -187,13 +183,23 @@
 <span class="co">#&gt; $ valorAuto                  &lt;dbl&gt; 500, 500, 500, 45000, 1300, 1300, 400500, 5…</span></code></pre></div>
 <!-- Add cleaning steps here -->
 </div>
+<div id="data-cleaning" class="section level2">
+<h2 class="hasAnchor">
+<a href="#data-cleaning" class="anchor"></a>Data cleaning</h2>
+<p>By default, the function <code><a href="reference/get_dataset_ibamam.html">get_dataset_ibamam()</a></code> will use <code>clean = TRUE</code> and perform the following cleaning steps:</p>
+<ul>
+<li><p>Colunms <code>dataAuto</code>, <code>ultimaAtualizacaoRelatorio</code>, <code>dataPagamento</code> are transformed from class <code>character</code> to class <code>date</code>.</p></li>
+<li><p>Colunms <code>tipoInfracao</code>, <code>tipoAuto</code>, <code>moeda</code>, <code>enquadramentoLegal</code> are transformed from class <code>character</code> to class <code>factor</code>.</p></li>
+<li><p>Column <code>enquadramentoJuridico</code> is created from the <code>cpfCnpj</code>: if <code>cpfCnpj</code> has 14 characteres or less, is “CPF”, else is “CNPJ”.</p></li>
+<li><p>Column <code>municipio</code> is mutated into <code>nomeMunicipio</code>, and several cleanings is made in order to be possible to join with the names of municipalities in the package <code>geobr</code>.</p></li>
+<li><p>Join the dataset with the result of the package <code>geobr</code>, so the cleaned dataset has a column with the IBGE code of the municipality, called <code>codigoMunicipio</code>.</p></li>
+</ul>
+<p>If you want to access the original data (without the cleaning steps), use the argument <code>clean = FALSE</code>.</p>
+</div>
 <div id="how-to-cite-ibamam-package" class="section level2">
 <h2 class="hasAnchor">
 <a href="#how-to-cite-ibamam-package" class="anchor"></a>How to cite Ibamam Package</h2>
-<ul>
-<li>
-<a href="https://doi.org/10.5281/zenodo.4509344"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg" alt="DOI"></a> “<strong>CRUZ NETO, Claudiano C., MILZ, Beatriz., MACEDO, Samuel</strong> (2021). Ibamam: Pacote para tratamento da Base de dados para multas e autuações ambientais aplicadas pelo Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis - Brasil. <a href="https://doi.org/10.5281/zenodo.4509344" class="uri">https://doi.org/10.5281/zenodo.4509344</a>”.</li>
-</ul>
+<p><a href="https://doi.org/10.5281/zenodo.4509344"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg" alt="DOI"></a> “<strong>CRUZ NETO, Claudiano C., MILZ, Beatriz, MACEDO, Samuel</strong> (2021). Ibamam: Pacote para tratamento da Base de dados para multas e autuações ambientais aplicadas pelo Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis - Brasil. <a href="https://doi.org/10.5281/zenodo.4509344" class="uri">https://doi.org/10.5281/zenodo.4509344</a>”.</p>
 </div>
 </div>
   </div>

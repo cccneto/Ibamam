@@ -29,28 +29,27 @@ remotes::install_github("cccneto/Ibamam")
 
 ## How to use **Ibamam**?
 
--   The `{Ibamam}` package has one function available:
-    `get_dataset_ibamam()`. This function returns a tibble, containing
-    several columns [described in the documentation of the
-    function](https://cccneto.github.io/Ibamam/reference/get_dataset_ibamam.html#value).
-    This function has three arguments: `dataset` , `uf` and `clean`.
+The `{Ibamam}` package has one function available:
+`get_dataset_ibamam()`. This function returns a tibble, containing
+several columns [described in the documentation of the
+function](https://cccneto.github.io/Ibamam/reference/get_dataset_ibamam.html#value).
+This function has three arguments: `dataset` , `uf` and `clean`.
 
-    -   `dataset` can receive one of the two values: `distribuidas` or
-        `arrecadadas`. Use `distribuidas` to get data of the
-        environmental fines applied by Ibama. Use `arrecadadas` to get
-        data of the environmental fines collected by Ibama (which means
-        that the fine has been paid).
+-   `dataset` can receive one of the two values: `distribuidas` or
+    `arrecadadas`. Use `distribuidas` to get data of the environmental
+    fines applied by Ibama. Use `arrecadadas` to get data of the
+    environmental fines collected by Ibama (which means that the fine
+    has been paid).
 
-    -   `uf` is the abreviation of the name of the states (two letters
-        in lower case) that data will be obtained. The default value is
-        `"all"`, so all data from all the states of Brazil will be
-        returned by default. Please notice that, If you use the default
-        value, it might take several minutes to execute.
+-   `uf` is the abreviation of the name of the states (two letters in
+    lower case) that data will be obtained. The default value is
+    `"all"`, so all data from all the states of Brazil will be returned
+    by default. Please notice that, If you use the default value, it
+    might take several minutes to execute.
 
-    -   `clean` is whether the dataset should be cleaned or not. If
-        `TRUE`, the dataset will be cleaned. If `FALSE`, the returned
-        dataset will be the original version, without modifications.
-        Default is `TRUE`.
+-   `clean` is whether the dataset should be cleaned or not. If `TRUE`,
+    the dataset will be cleaned. If `FALSE`, the returned dataset will
+    be the original version, without modifications. Default is `TRUE`.
 
 Examples on how to use this function:
 
@@ -159,11 +158,36 @@ dplyr::glimpse(untidy_fines_applied_SP)
 
 <!-- Add cleaning steps here -->
 
+## Data cleaning
+
+By default, the function `get_dataset_ibamam()` will use `clean = TRUE`
+and perform the following cleaning steps:
+
+-   Colunms `dataAuto`, `ultimaAtualizacaoRelatorio`, `dataPagamento`
+    are transformed from class `character` to class `date`.
+
+-   Colunms `tipoInfracao`, `tipoAuto`, `moeda`, `enquadramentoLegal`
+    are transformed from class `character` to class `factor`.
+
+-   Column `enquadramentoJuridico` is created from the `cpfCnpj`: if
+    `cpfCnpj` has 14 characteres or less, is “CPF”, else is “CNPJ”.
+
+-   Column `municipio` is mutated into `nomeMunicipio`, and several
+    cleanings is made in order to be possible to join with the names of
+    municipalities in the package `geobr`.
+
+-   Join the dataset with the result of the package `geobr`, so the
+    cleaned dataset has a column with the IBGE code of the municipality,
+    called `codigoMunicipio`.
+
+If you want to access the original data (without the cleaning steps),
+use the argument `clean = FALSE`.
+
 ## How to cite Ibamam Package
 
--   [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
-    “**CRUZ NETO, Claudiano C., MILZ, Beatriz., MACEDO, Samuel** (2021).
-    Ibamam: Pacote para tratamento da Base de dados para multas e
-    autuações ambientais aplicadas pelo Instituto Brasileiro do Meio
-    Ambiente e dos Recursos Naturais Renováveis - Brasil.
-    <https://doi.org/10.5281/zenodo.4509344>”.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4509344.svg)](https://doi.org/10.5281/zenodo.4509344)
+“**CRUZ NETO, Claudiano C., MILZ, Beatriz, MACEDO, Samuel** (2021).
+Ibamam: Pacote para tratamento da Base de dados para multas e autuações
+ambientais aplicadas pelo Instituto Brasileiro do Meio Ambiente e dos
+Recursos Naturais Renováveis - Brasil.
+<https://doi.org/10.5281/zenodo.4509344>”.
