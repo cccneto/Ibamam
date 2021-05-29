@@ -30,20 +30,27 @@ remotes::install_github("cccneto/Ibamam")
 ## How to use **Ibamam**?
 
 -   The `{Ibamam}` package has one function available:
-    `get_dataset_ibamam()`. This function has two arguments: `dataset`
-    and `uf`.
+    `get_dataset_ibamam()`. This function returns a tibble, containing
+    several columns [described in the documentation of the
+    function](https://cccneto.github.io/Ibamam/reference/get_dataset_ibamam.html#value).
+    This function has three arguments: `dataset` , `uf` and `clean`.
 
-    -   `dataset` can receive one of the two values: ‘arrecadadas’ or
-        ‘distribuidas’. Use ‘distribuidas’ to get data of the
-        environmental fines applied by Ibama. Use ‘arrecadadas’ to get
+    -   `dataset` can receive one of the two values: `distribuidas` or
+        `arrecadadas`. Use `distribuidas` to get data of the
+        environmental fines applied by Ibama. Use `arrecadadas` to get
         data of the environmental fines collected by Ibama (which means
         that the fine has been paid).
 
     -   `uf` is the abreviation of the name of the states (two letters
         in lower case) that data will be obtained. The default value is
-        “all”, so all data from all the states of Brazil will be
+        `"all"`, so all data from all the states of Brazil will be
         returned by default. Please notice that, If you use the default
         value, it might take several minutes to execute.
+
+    -   `clean` is whether the dataset should be cleaned or not. If
+        `TRUE`, the dataset will be cleaned. If `FALSE`, the returned
+        dataset will be the original version, without modifications.
+        Default is `TRUE`.
 
 Examples on how to use this function:
 
@@ -54,7 +61,7 @@ library(Ibamam)
 fines_applied_Para <- get_dataset_ibamam(dataset = "distribuidas", uf = "PA")
 
 dplyr::glimpse(fines_applied_Para)
-#> Rows: 59,682
+#> Rows: 59,702
 #> Columns: 16
 #> $ dataAuto                   <date> 2021-04-23, 2020-09-28, 2021-02-10, 2020-0…
 #> $ nomeMunicipio              <chr> "PLACAS", "RUROPOLIS", "MARAPANIM", "PRAINH…
@@ -62,7 +69,7 @@ dplyr::glimpse(fines_applied_Para)
 #> $ codigoMunicipio            <chr> "1505650", "1506195", "1504406", "1506005",…
 #> $ numAI                      <chr> "ABYX5X27 - ", "AB1FQ5MJ - ", "AD6DF079 - "…
 #> $ tipoInfracao               <fct> Outras, Flora, Unidades de conservação, Flo…
-#> $ ultimaAtualizacaoRelatorio <dttm> 2026-05-20 21:19:13, 2026-05-20 21:19:13, …
+#> $ ultimaAtualizacaoRelatorio <dttm> 2028-05-20 21:19:14, 2028-05-20 21:19:14, …
 #> $ uf                         <chr> "PA", "PA", "PA", "PA", "PA", "PA", "PA", "…
 #> $ situacaoDebito             <chr> "Para homologação/prazo de defesa", "Para h…
 #> $ tipoAuto                   <fct> Multa, Multa, Multa, Multa, Multa, Multa, M…
@@ -77,7 +84,7 @@ dplyr::glimpse(fines_applied_Para)
 fines_collected_Para <- get_dataset_ibamam(dataset = "arrecadadas", uf = "PA")
 
 dplyr::glimpse(fines_collected_Para)
-#> Rows: 73,638
+#> Rows: 73,663
 #> Columns: 21
 #> $ dataAuto                   <date> 2019-12-01, 2020-03-20, 2020-03-10, 2020-0…
 #> $ nomeMunicipio              <chr> "PACAJA", "ANANINDEUA", "ANANINDEUA", "ANAN…
@@ -87,9 +94,9 @@ dplyr::glimpse(fines_collected_Para)
 #> $ valorPago                  <dbl> 8400.32, 863.86, 866.96, 863.86, 863.86, 10…
 #> $ numAI                      <chr> "C7AZB2I8 - ", "DB3W3QKR - ", "GUN4XIPO - "…
 #> $ tipoInfracao               <fct> Flora, Outras, Outras, Outras, Outras, Flor…
-#> $ ultimaAtualizacaoRelatorio <dttm> 2026-05-20 21:19:24, 2026-05-20 21:19:24, …
+#> $ ultimaAtualizacaoRelatorio <dttm> 2028-05-20 21:19:25, 2028-05-20 21:19:25, …
 #> $ parcela                    <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3…
-#> $ quantidadeParcela          <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 30, 30,…
+#> $ quantidadeParcela          <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 30, 1, 30,…
 #> $ uf                         <chr> "PA", "PA", "PA", "PA", "PA", "PA", "PA", "…
 #> $ tipoAuto                   <fct> Multa, Multa, Multa, Multa, Multa, Multa, M…
 #> $ moeda                      <fct> Real, Real, Real, Real, Real, Real, Real, R…
@@ -125,55 +132,32 @@ fines_applied_southeast <- get_dataset_ibamam(dataset = "distribuidas", uf = c("
 fines_collected_southeast <- get_dataset_ibamam(dataset = "arrecadadas", uf = c("SP", "RJ", "ES", "MG"))
 ```
 
-#### What data can I access with the argument `dataset = distribuidas`?
+If you want to access the original data, without the cleaning steps, use
+the argument `clean = FALSE`. Example:
 
--   **dataAuto**: date of issue of the tax assessment notice.
--   **dataPagamento**: date of payment of the infraction.
--   **municipio**: municipality / city.
--   **numAI**: identification number of the infraction notice.
--   **tipoInfracao**: type of infraction committed.
--   **ultimaAtualizacaoRelatorio**: Informs when the data was last
-    updated.
--   **uf**: state of the federation
--   **tipoAuto**: auto type defines the category of the occurrence -
-    examples: fine, daily fine, warning.
--   **moeda**: informs which currency.
--   **situacaoDebito**: monetary status of the infraction.
--   **enquadramentoLegal**: informs which legal device framing the
-    infraction notice.
--   **nomeRazaoSocial**: identifies the name of the person or company
-    assessed.
--   **cpfCnpj**: informs the CPF or CNPJ of the assessed taxpayer.
--   **valorAuto**: informs the monetary amount of the tax assessment
-    notice.
+``` r
+# get fines applied by IBAMA in São Paulo, without cleaning the dataset
+untidy_fines_applied_SP <- get_dataset_ibamam(dataset = "distribuidas", uf = "SP", clean = FALSE)
 
-#### What data can I access with the argument `dataset = arrecadadas`?
+dplyr::glimpse(untidy_fines_applied_SP)
+#> Rows: 34,598
+#> Columns: 13
+#> $ dataAuto                   <chr> "22/04/2020", "17/10/2019", "27/01/2020", "…
+#> $ municipio                  <chr> "SAO JOSE DO RIO PRETO", "MARILIA", "SAO JO…
+#> $ numAI                      <chr> "AC6FODNB - ", "ADX7F7IM - ", "AEGEYX7V - "…
+#> $ tipoInfracao               <chr> "Fauna", "Fauna", "Fauna", "Controle ambien…
+#> $ ultimaAtualizacaoRelatorio <chr> "28/05/2021 19:22", "28/05/2021 19:22", "28…
+#> $ uf                         <chr> "SP", "SP", "SP", "SP", "SP", "SP", "SP", "…
+#> $ situacaoDebito             <chr> "Quitado. Baixa automática", "Cancelado", "…
+#> $ tipoAuto                   <chr> "Multa", "Multa", "Multa", "Multa", "Multa"…
+#> $ moeda                      <chr> "Real", "Real", "Real", "Real", "Real", "Re…
+#> $ enquadramentoLegal         <chr> "Decreto 6514/2008 - Artigo 3º, Instrução N…
+#> $ nomeRazaoSocial            <chr> "JOSE ELIEZER DO PRADO DOS SANTOS", "VALTER…
+#> $ cpfCnpj                    <chr> "368.573.748-13", "063.360.978-11", "102.74…
+#> $ valorAuto                  <dbl> 500, 500, 500, 45000, 1300, 1300, 400500, 5…
+```
 
--   **dataAuto**: date of issue of the tax assessment notice.
--   **dataPagamento**: date of payment of the infraction.
--   **municipio**: municipality / city.
--   **numAI**: identification number of the infraction notice.
--   **valorPago**: amount paid up to the date of the last update of the
-    report.
--   **tipoInfracao**: type of infraction committed.
--   **ultimaAtualizacaoRelatorio**: Informs when the data was last
-    updated.
--   **parcela**: installment number
--   **quantidadeParcela**: number of payments in installments.
--   **uf**: state of the federation
--   **tipoAuto**: auto type defines the category of the occurrence -
-    examples: fine, daily fine, warning.
--   **moeda**: informs which currency.
--   **situacaoDebito**: monetary status of the infraction.
--   **enquadramentoLegal**: informs which legal device framing the
-    infraction notice.
--   **nomeRazaoSocial**: identifies the name of the person or company
-    assessed.
--   **cpfCnpj**: informs the CPF or CNPJ of the assessed taxpayer.
--   **valorAuto**: informs the monetary amount of the tax assessment
-    notice.
--   **valorbaseParcela**: informs the value of the installments for
-    payment of the auto value.
+<!-- Add cleaning steps here -->
 
 ## How to cite Ibamam Package
 

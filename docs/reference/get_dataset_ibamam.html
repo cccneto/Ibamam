@@ -127,7 +127,7 @@ different states of Brasil, or for the whole country.
 The resulting dataset is cleaned.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='va'>dataset</span>, uf <span class='op'>=</span> <span class='st'>"all"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='va'>dataset</span>, uf <span class='op'>=</span> <span class='st'>"all"</span>, clean <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -144,17 +144,26 @@ for fines collected, use 'arrecadadas'.</p></td>
 that data will be obtained. Default is "all", so all data from all
 the states of Brazil will be returned by default.</p></td>
     </tr>
+    <tr>
+      <th>clean</th>
+      <td><p>Whether the dataset should be cleaned or not. If TRUE, the
+dataset will be cleaned. If FALSE, the returned dataset will be the original
+version, without modifications. Default is TRUE.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>a data frame:</p><dl>
 <dt>dataAuto</dt><dd><p>Date of issue of the tax assessment notice</p></dd>
-<dt>nomeMunicipio</dt><dd><p>Name of the municipality in the original dataset</p></dd>
-<dt>nomeMunicipio_geobr</dt><dd><p>Name of the municipality in the dataset of
-geobr</p></dd>
+<dt>nomeMunicipio</dt><dd><p>Name of the municipality cleaned from the original
+dataset. Only for <code>clean = TRUE</code></p></dd>
+<dt>municipio</dt><dd><p>Name of the municipality in the original dataset. Only
+for <code>clean = FALSE</code></p></dd>
+<dt>nomeMunicipio_geobr</dt><dd><p>Name of the municipality used to join with the
+dataset of geobr. Only for <code>clean = TRUE</code></p></dd>
 <dt>codigoMunicipio</dt><dd><p>IBGE code of the municipality in the dataset of
-geobr</p></dd>
+geobr. Only for <code>clean = TRUE</code></p></dd>
 <dt>dataPagamento</dt><dd><p>Date of payment of the infraction.
 Only for <code>dataset = "arrecadadas"</code></p></dd>
 <dt>valorPago</dt><dd><p>Amount of money paid up to the date of the last update of
@@ -179,7 +188,7 @@ notice</p></dd>
 value. Only for <code>dataset = "arrecadadas"</code></p></dd>
 <dt>valorAuto</dt><dd><p>Monetary amount of the tax assessment notice</p></dd>
 <dt>enquadramentoJuridico</dt><dd><p>Which type of document the <code>cpfCnpj</code> refears
-to: CPF or CNPJ</p></dd>
+to: CPF or CNPJ. Only for <code>clean = TRUE</code></p></dd>
 
 </dl>
 

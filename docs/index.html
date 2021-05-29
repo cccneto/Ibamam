@@ -88,10 +88,11 @@
 <a href="#how-to-use-ibamam" class="anchor"></a>How to use <strong>Ibamam</strong>?</h2>
 <ul>
 <li>
-<p>The <a href="https://cccneto.github.io/Ibamam/">Ibamam</a> package has one function available: <code><a href="reference/get_dataset_ibamam.html">get_dataset_ibamam()</a></code>. This function has two arguments: <code>dataset</code> and <code>uf</code>.</p>
+<p>The <a href="https://cccneto.github.io/Ibamam/">Ibamam</a> package has one function available: <code><a href="reference/get_dataset_ibamam.html">get_dataset_ibamam()</a></code>. This function returns a tibble, containing several columns <a href="https://cccneto.github.io/Ibamam/reference/get_dataset_ibamam.html#value">described in the documentation of the function</a>. This function has three arguments: <code>dataset</code> , <code>uf</code> and <code>clean</code>.</p>
 <ul>
-<li><p><code>dataset</code> can receive one of the two values: ‘arrecadadas’ or ‘distribuidas’. Use ‘distribuidas’ to get data of the environmental fines applied by Ibama. Use ‘arrecadadas’ to get data of the environmental fines collected by Ibama (which means that the fine has been paid).</p></li>
-<li><p><code>uf</code> is the abreviation of the name of the states (two letters in lower case) that data will be obtained. The default value is “all”, so all data from all the states of Brazil will be returned by default. Please notice that, If you use the default value, it might take several minutes to execute.</p></li>
+<li><p><code>dataset</code> can receive one of the two values: <code>distribuidas</code> or <code>arrecadadas</code>. Use <code>distribuidas</code> to get data of the environmental fines applied by Ibama. Use <code>arrecadadas</code> to get data of the environmental fines collected by Ibama (which means that the fine has been paid).</p></li>
+<li><p><code>uf</code> is the abreviation of the name of the states (two letters in lower case) that data will be obtained. The default value is <code>"all"</code>, so all data from all the states of Brazil will be returned by default. Please notice that, If you use the default value, it might take several minutes to execute.</p></li>
+<li><p><code>clean</code> is whether the dataset should be cleaned or not. If <code>TRUE</code>, the dataset will be cleaned. If <code>FALSE</code>, the returned dataset will be the original version, without modifications. Default is <code>TRUE</code>.</p></li>
 </ul>
 </li>
 </ul>
@@ -103,7 +104,7 @@
 <span class="va">fines_applied_Para</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_dataset_ibamam.html">get_dataset_ibamam</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"distribuidas"</span>, uf <span class="op">=</span> <span class="st">"PA"</span><span class="op">)</span>
 
 <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">fines_applied_Para</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 59,682</span>
+<span class="co">#&gt; Rows: 59,702</span>
 <span class="co">#&gt; Columns: 16</span>
 <span class="co">#&gt; $ dataAuto                   &lt;date&gt; 2021-04-23, 2020-09-28, 2021-02-10, 2020-0…</span>
 <span class="co">#&gt; $ nomeMunicipio              &lt;chr&gt; "PLACAS", "RUROPOLIS", "MARAPANIM", "PRAINH…</span>
@@ -111,7 +112,7 @@
 <span class="co">#&gt; $ codigoMunicipio            &lt;chr&gt; "1505650", "1506195", "1504406", "1506005",…</span>
 <span class="co">#&gt; $ numAI                      &lt;chr&gt; "ABYX5X27 - ", "AB1FQ5MJ - ", "AD6DF079 - "…</span>
 <span class="co">#&gt; $ tipoInfracao               &lt;fct&gt; Outras, Flora, Unidades de conservação, Flo…</span>
-<span class="co">#&gt; $ ultimaAtualizacaoRelatorio &lt;dttm&gt; 2026-05-20 21:19:13, 2026-05-20 21:19:13, …</span>
+<span class="co">#&gt; $ ultimaAtualizacaoRelatorio &lt;dttm&gt; 2028-05-20 21:19:14, 2028-05-20 21:19:14, …</span>
 <span class="co">#&gt; $ uf                         &lt;chr&gt; "PA", "PA", "PA", "PA", "PA", "PA", "PA", "…</span>
 <span class="co">#&gt; $ situacaoDebito             &lt;chr&gt; "Para homologação/prazo de defesa", "Para h…</span>
 <span class="co">#&gt; $ tipoAuto                   &lt;fct&gt; Multa, Multa, Multa, Multa, Multa, Multa, M…</span>
@@ -126,7 +127,7 @@
 <span class="va">fines_collected_Para</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_dataset_ibamam.html">get_dataset_ibamam</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"arrecadadas"</span>, uf <span class="op">=</span> <span class="st">"PA"</span><span class="op">)</span>
 
 <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">fines_collected_Para</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 73,638</span>
+<span class="co">#&gt; Rows: 73,663</span>
 <span class="co">#&gt; Columns: 21</span>
 <span class="co">#&gt; $ dataAuto                   &lt;date&gt; 2019-12-01, 2020-03-20, 2020-03-10, 2020-0…</span>
 <span class="co">#&gt; $ nomeMunicipio              &lt;chr&gt; "PACAJA", "ANANINDEUA", "ANANINDEUA", "ANAN…</span>
@@ -136,9 +137,9 @@
 <span class="co">#&gt; $ valorPago                  &lt;dbl&gt; 8400.32, 863.86, 866.96, 863.86, 863.86, 10…</span>
 <span class="co">#&gt; $ numAI                      &lt;chr&gt; "C7AZB2I8 - ", "DB3W3QKR - ", "GUN4XIPO - "…</span>
 <span class="co">#&gt; $ tipoInfracao               &lt;fct&gt; Flora, Outras, Outras, Outras, Outras, Flor…</span>
-<span class="co">#&gt; $ ultimaAtualizacaoRelatorio &lt;dttm&gt; 2026-05-20 21:19:24, 2026-05-20 21:19:24, …</span>
+<span class="co">#&gt; $ ultimaAtualizacaoRelatorio &lt;dttm&gt; 2028-05-20 21:19:25, 2028-05-20 21:19:25, …</span>
 <span class="co">#&gt; $ parcela                    &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3…</span>
-<span class="co">#&gt; $ quantidadeParcela          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 30, 30,…</span>
+<span class="co">#&gt; $ quantidadeParcela          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 30, 1, 30,…</span>
 <span class="co">#&gt; $ uf                         &lt;chr&gt; "PA", "PA", "PA", "PA", "PA", "PA", "PA", "…</span>
 <span class="co">#&gt; $ tipoAuto                   &lt;fct&gt; Multa, Multa, Multa, Multa, Multa, Multa, M…</span>
 <span class="co">#&gt; $ moeda                      &lt;fct&gt; Real, Real, Real, Real, Real, Real, Real, R…</span>
@@ -163,82 +164,28 @@
 
 <span class="co"># get fines collected by IBAMA in Southeast of Brazil</span>
 <span class="va">fines_collected_southeast</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_dataset_ibamam.html">get_dataset_ibamam</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"arrecadadas"</span>, uf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"SP"</span>, <span class="st">"RJ"</span>, <span class="st">"ES"</span>, <span class="st">"MG"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div id="what-data-can-i-access-with-the-argument-dataset--distribuidas" class="section level4">
-<h4 class="hasAnchor">
-<a href="#what-data-can-i-access-with-the-argument-dataset--distribuidas" class="anchor"></a>What data can I access with the argument <code>dataset = distribuidas</code>?</h4>
-<ul>
-<li>
-<strong>dataAuto</strong>: date of issue of the tax assessment notice.</li>
-<li>
-<strong>dataPagamento</strong>: date of payment of the infraction.</li>
-<li>
-<strong>municipio</strong>: municipality / city.</li>
-<li>
-<strong>numAI</strong>: identification number of the infraction notice.</li>
-<li>
-<strong>tipoInfracao</strong>: type of infraction committed.</li>
-<li>
-<strong>ultimaAtualizacaoRelatorio</strong>: Informs when the data was last updated.</li>
-<li>
-<strong>uf</strong>: state of the federation</li>
-<li>
-<strong>tipoAuto</strong>: auto type defines the category of the occurrence - examples: fine, daily fine, warning.</li>
-<li>
-<strong>moeda</strong>: informs which currency.</li>
-<li>
-<strong>situacaoDebito</strong>: monetary status of the infraction.</li>
-<li>
-<strong>enquadramentoLegal</strong>: informs which legal device framing the infraction notice.</li>
-<li>
-<strong>nomeRazaoSocial</strong>: identifies the name of the person or company assessed.</li>
-<li>
-<strong>cpfCnpj</strong>: informs the CPF or CNPJ of the assessed taxpayer.</li>
-<li>
-<strong>valorAuto</strong>: informs the monetary amount of the tax assessment notice.</li>
-</ul>
-</div>
-<div id="what-data-can-i-access-with-the-argument-dataset--arrecadadas" class="section level4">
-<h4 class="hasAnchor">
-<a href="#what-data-can-i-access-with-the-argument-dataset--arrecadadas" class="anchor"></a>What data can I access with the argument <code>dataset = arrecadadas</code>?</h4>
-<ul>
-<li>
-<strong>dataAuto</strong>: date of issue of the tax assessment notice.</li>
-<li>
-<strong>dataPagamento</strong>: date of payment of the infraction.</li>
-<li>
-<strong>municipio</strong>: municipality / city.</li>
-<li>
-<strong>numAI</strong>: identification number of the infraction notice.</li>
-<li>
-<strong>valorPago</strong>: amount paid up to the date of the last update of the report.</li>
-<li>
-<strong>tipoInfracao</strong>: type of infraction committed.</li>
-<li>
-<strong>ultimaAtualizacaoRelatorio</strong>: Informs when the data was last updated.</li>
-<li>
-<strong>parcela</strong>: installment number</li>
-<li>
-<strong>quantidadeParcela</strong>: number of payments in installments.</li>
-<li>
-<strong>uf</strong>: state of the federation</li>
-<li>
-<strong>tipoAuto</strong>: auto type defines the category of the occurrence - examples: fine, daily fine, warning.</li>
-<li>
-<strong>moeda</strong>: informs which currency.</li>
-<li>
-<strong>situacaoDebito</strong>: monetary status of the infraction.</li>
-<li>
-<strong>enquadramentoLegal</strong>: informs which legal device framing the infraction notice.</li>
-<li>
-<strong>nomeRazaoSocial</strong>: identifies the name of the person or company assessed.</li>
-<li>
-<strong>cpfCnpj</strong>: informs the CPF or CNPJ of the assessed taxpayer.</li>
-<li>
-<strong>valorAuto</strong>: informs the monetary amount of the tax assessment notice.</li>
-<li>
-<strong>valorbaseParcela</strong>: informs the value of the installments for payment of the auto value.</li>
-</ul>
-</div>
+<p>If you want to access the original data, without the cleaning steps, use the argument <code>clean = FALSE</code>. Example:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># get fines applied by IBAMA in São Paulo, without cleaning the dataset</span>
+<span class="va">untidy_fines_applied_SP</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_dataset_ibamam.html">get_dataset_ibamam</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"distribuidas"</span>, uf <span class="op">=</span> <span class="st">"SP"</span>, clean <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+
+<span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">untidy_fines_applied_SP</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 34,598</span>
+<span class="co">#&gt; Columns: 13</span>
+<span class="co">#&gt; $ dataAuto                   &lt;chr&gt; "22/04/2020", "17/10/2019", "27/01/2020", "…</span>
+<span class="co">#&gt; $ municipio                  &lt;chr&gt; "SAO JOSE DO RIO PRETO", "MARILIA", "SAO JO…</span>
+<span class="co">#&gt; $ numAI                      &lt;chr&gt; "AC6FODNB - ", "ADX7F7IM - ", "AEGEYX7V - "…</span>
+<span class="co">#&gt; $ tipoInfracao               &lt;chr&gt; "Fauna", "Fauna", "Fauna", "Controle ambien…</span>
+<span class="co">#&gt; $ ultimaAtualizacaoRelatorio &lt;chr&gt; "28/05/2021 19:22", "28/05/2021 19:22", "28…</span>
+<span class="co">#&gt; $ uf                         &lt;chr&gt; "SP", "SP", "SP", "SP", "SP", "SP", "SP", "…</span>
+<span class="co">#&gt; $ situacaoDebito             &lt;chr&gt; "Quitado. Baixa automática", "Cancelado", "…</span>
+<span class="co">#&gt; $ tipoAuto                   &lt;chr&gt; "Multa", "Multa", "Multa", "Multa", "Multa"…</span>
+<span class="co">#&gt; $ moeda                      &lt;chr&gt; "Real", "Real", "Real", "Real", "Real", "Re…</span>
+<span class="co">#&gt; $ enquadramentoLegal         &lt;chr&gt; "Decreto 6514/2008 - Artigo 3º, Instrução N…</span>
+<span class="co">#&gt; $ nomeRazaoSocial            &lt;chr&gt; "JOSE ELIEZER DO PRADO DOS SANTOS", "VALTER…</span>
+<span class="co">#&gt; $ cpfCnpj                    &lt;chr&gt; "368.573.748-13", "063.360.978-11", "102.74…</span>
+<span class="co">#&gt; $ valorAuto                  &lt;dbl&gt; 500, 500, 500, 45000, 1300, 1300, 400500, 5…</span></code></pre></div>
+<!-- Add cleaning steps here -->
 </div>
 <div id="how-to-cite-ibamam-package" class="section level2">
 <h2 class="hasAnchor">

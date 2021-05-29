@@ -13,7 +13,7 @@
 #'  that data will be obtained. Default is "all", so all data from all
 #'  the states of Brazil will be returned by default.
 #' @param clean Whether the dataset should be cleaned or not. If TRUE, the
-#' dataset will be cleaned. If false, the returned dataset will be the original
+#' dataset will be cleaned. If FALSE, the returned dataset will be the original
 #' version, without modifications. Default is TRUE.
 #'
 #' @return a data frame:

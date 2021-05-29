@@ -36,12 +36,14 @@ remotes::install_github("cccneto/Ibamam")
 
 ## How to use **Ibamam**?
 
-- The `{Ibamam}` package has one function available: `get_dataset_ibamam()`.
-This function has two arguments: `dataset` and `uf`.
+- The `{Ibamam}` package has one function available: `get_dataset_ibamam()`. This function returns a tibble, containing several columns [described in the documentation of the function](https://cccneto.github.io/Ibamam/reference/get_dataset_ibamam.html#value).
+This function has three arguments: `dataset` , `uf` and `clean`. 
 
-  - `dataset` can receive one of the two values: 'arrecadadas' or 'distribuidas'. Use 'distribuidas' to get data of the environmental fines applied by Ibama. Use 'arrecadadas' to get data of the environmental fines collected by Ibama (which means that the fine has been paid).
+  - `dataset` can receive one of the two values: `distribuidas` or `arrecadadas`. Use `distribuidas` to get data of the environmental fines applied by Ibama. Use `arrecadadas` to get data of the environmental fines collected by Ibama (which means that the fine has been paid).
   
-  - `uf` is the abreviation of the name of the states (two letters in lower case) that data will be obtained. The default value is "all", so all data from all the states of Brazil will be returned by default. Please notice that, If you use the default value, it might take several minutes to execute.
+  - `uf` is the abreviation of the name of the states (two letters in lower case) that data will be obtained. The default value is `"all"`, so all data from all the states of Brazil will be returned by default. Please notice that, If you use the default value, it might take several minutes to execute.
+
+  - `clean` is whether the dataset should be cleaned or not. If `TRUE`, the dataset will be cleaned. If `FALSE`, the returned dataset will be the original version, without modifications. Default is `TRUE`.
 
 
 Examples on how to use this function:
@@ -81,49 +83,16 @@ fines_applied_southeast <- get_dataset_ibamam(dataset = "distribuidas", uf = c("
 fines_collected_southeast <- get_dataset_ibamam(dataset = "arrecadadas", uf = c("SP", "RJ", "ES", "MG"))
 ```
 
+If you want to access the original data, without the cleaning steps, use the argument `clean = FALSE`.  Example:
 
+```{r}
+# get fines applied by IBAMA in São Paulo, without cleaning the dataset
+untidy_fines_applied_SP <- get_dataset_ibamam(dataset = "distribuidas", uf = "SP", clean = FALSE)
 
-#### What data can I access with the argument `dataset = distribuidas`?
+dplyr::glimpse(untidy_fines_applied_SP)
 
-- **dataAuto**: date of issue of the tax assessment notice.
-- **dataPagamento**: date of payment of the infraction.
-- **municipio**: municipality / city.
-- **numAI**: identification number of the infraction notice.
-- **tipoInfracao**: type of infraction committed.
-- **ultimaAtualizacaoRelatorio**: Informs when the data was last updated.
-- **uf**: state of the federation
-- **tipoAuto**: auto type defines the category of the occurrence - examples: fine, daily fine, warning.
-- **moeda**: informs which currency.
-- **situacaoDebito**: monetary status of the infraction.
-- **enquadramentoLegal**: informs which legal device framing the infraction notice.
-- **nomeRazaoSocial**: identifies the name of the person or company assessed.
-- **cpfCnpj**: informs the CPF or CNPJ of the assessed taxpayer.
-- **valorAuto**: informs the monetary amount of the tax assessment notice.
-
-
-#### What data can I access with the argument `dataset = arrecadadas`?
-
-- **dataAuto**: date of issue of the tax assessment notice.
-- **dataPagamento**: date of payment of the infraction.
-- **municipio**: municipality / city.
-- **numAI**: identification number of the infraction notice.
-- **valorPago**: amount paid up to the date of the last update of the report.
-- **tipoInfracao**: type of infraction committed.
-- **ultimaAtualizacaoRelatorio**: Informs when the data was last updated.
-- **parcela**: installment number
-- **quantidadeParcela**: number of payments in installments.
-- **uf**: state of the federation
-- **tipoAuto**: auto type defines the category of the occurrence - examples: fine, daily fine, warning.
-- **moeda**: informs which currency.
-- **situacaoDebito**: monetary status of the infraction.
-- **enquadramentoLegal**: informs which legal device framing the infraction notice.
-- **nomeRazaoSocial**: identifies the name of the person or company assessed.
-- **cpfCnpj**: informs the CPF or CNPJ of the assessed taxpayer.
-- **valorAuto**: informs the monetary amount of the tax assessment notice.
-- **valorbaseParcela**: informs the value of the installments for payment of the auto value.
-
-
-
+```
+<!-- Add cleaning steps here -->
 
 ## How to cite Ibamam Package
 
