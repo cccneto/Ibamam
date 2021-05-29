@@ -4,7 +4,7 @@
 \alias{get_dataset_ibamam}
 \title{Downloading data from Ibama database}
 \usage{
-get_dataset_ibamam(dataset, uf = "all")
+get_dataset_ibamam(dataset, uf = "all", clean = TRUE)
 }
 \arguments{
 \item{dataset}{Which dataset to search for. Can receive one of the values:
@@ -14,16 +14,23 @@ for fines collected, use 'arrecadadas'.}
 \item{uf}{Abreviation of the name of the states (two letters in lower case)
 that data will be obtained. Default is "all", so all data from all
 the states of Brazil will be returned by default.}
+
+\item{clean}{Whether the dataset should be cleaned or not. If TRUE, the
+dataset will be cleaned. If false, the returned dataset will be the original
+version, without modifications. Default is TRUE.}
 }
 \value{
 a data frame:
 \describe{
 \item{dataAuto}{Date of issue of the tax assessment notice}
-\item{nomeMunicipio}{Name of the municipality in the original dataset}
-\item{nomeMunicipio_geobr}{Name of the municipality in the dataset of
-geobr}
+\item{nomeMunicipio}{Name of the municipality cleaned from the original
+dataset. Only for \code{clean = TRUE}}
+\item{municipio}{Name of the municipality in the original dataset. Only
+for \code{clean = FALSE}}
+\item{nomeMunicipio_geobr}{Name of the municipality used to join with the
+dataset of geobr. Only for \code{clean = TRUE}}
 \item{codigoMunicipio}{IBGE code of the municipality in the dataset of
-geobr}
+geobr. Only for \code{clean = TRUE}}
 \item{dataPagamento}{Date of payment of the infraction.
 Only for \code{dataset = "arrecadadas"}}
 \item{valorPago}{Amount of money paid up to the date of the last update of
@@ -48,7 +55,7 @@ notice}
 value. Only for \code{dataset = "arrecadadas"}}
 \item{valorAuto}{Monetary amount of the tax assessment notice}
 \item{enquadramentoJuridico}{Which type of document the \code{cpfCnpj} refears
-to: CPF or CNPJ}
+to: CPF or CNPJ. Only for \code{clean = TRUE}}
 }
 }
 \description{

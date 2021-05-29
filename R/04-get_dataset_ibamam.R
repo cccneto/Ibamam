@@ -12,15 +12,21 @@
 #' @param uf Abreviation of the name of the states (two letters in lower case)
 #'  that data will be obtained. Default is "all", so all data from all
 #'  the states of Brazil will be returned by default.
+#' @param clean Whether the dataset should be cleaned or not. If TRUE, the
+#' dataset will be cleaned. If false, the returned dataset will be the original
+#' version, without modifications. Default is TRUE.
 #'
 #' @return a data frame:
 #' \describe{
 #'   \item{dataAuto}{Date of issue of the tax assessment notice}
-#'   \item{nomeMunicipio}{Name of the municipality in the original dataset}
-#'   \item{nomeMunicipio_geobr}{Name of the municipality in the dataset of
-#'    geobr}
+#'   \item{nomeMunicipio}{Name of the municipality cleaned from the original
+#'    dataset. Only for `clean = TRUE`}
+#'   \item{municipio}{Name of the municipality in the original dataset. Only
+#'   for `clean = FALSE`}
+#'   \item{nomeMunicipio_geobr}{Name of the municipality used to join with the
+#'    dataset of geobr. Only for `clean = TRUE`}
 #'   \item{codigoMunicipio}{IBGE code of the municipality in the dataset of
-#'    geobr}
+#'    geobr. Only for `clean = TRUE`}
 #'   \item{dataPagamento}{Date of payment of the infraction.
 #'   Only for `dataset = "arrecadadas"`}
 #'   \item{valorPago}{Amount of money paid up to the date of the last update of
@@ -45,7 +51,7 @@
 #'   value. Only for `dataset = "arrecadadas"`}
 #'   \item{valorAuto}{Monetary amount of the tax assessment notice}
 #'   \item{enquadramentoJuridico}{Which type of document the `cpfCnpj` refears
-#'    to: CPF or CNPJ}
+#'    to: CPF or CNPJ. Only for `clean = TRUE`}
 #' }
 #'
 #' @examples
@@ -53,8 +59,14 @@
 #' get_dataset_ibamam("arrecadadas", "SE")
 #'
 #' @export
-get_dataset_ibamam <- function(dataset, uf = "all") {
-  get_data_of_brazil(estados = uf, tipo_multa = dataset) %>%
-    clean_dataset() %>%
-    unite_with_ibge_code()
+get_dataset_ibamam <- function(dataset, uf = "all", clean = TRUE) {
+  df <-  get_data_of_brazil(estados = uf, tipo_multa = dataset)
+
+  if(clean == TRUE){
+    df %>%
+      clean_dataset() %>%
+      unite_with_ibge_code()
+  } else {
+    df
+  }
 }
