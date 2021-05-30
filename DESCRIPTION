@@ -35,5 +35,4 @@ Suggests:
     knitr,
     rmarkdown,
     markdown
-VignetteBuilder: knitr
 Config/testthat/edition: 3
