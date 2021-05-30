@@ -1,5 +1,5 @@
 Package: Ibamam
-Title: IBAMA Database for Environmental Fines
+Title: Dataset for Environmental Fines by the Brazilian Institute of the Environment and Renewable Natural Resources
 Version: 1.1.0
 Authors@R: 
     c(person(given = "Claudiano", family = "Cruz Neto", role = c("aut", "cre"), email = "cneto@ufrb.edu.br",
@@ -9,7 +9,7 @@ Authors@R:
     person(given = "Samuel", family = "Macedo", role = c("aut"), email = "samuelmacedo@recife.ifpe.edu.br", 
     comment = c(ORCID = "0000-0002-7968-7866")))
 Maintainer: Claudiano Cruz Neto <cneto@ufrb.edu.br>
-Description: Provides the IBAMA Database about environmental fines.
+Description: Provides the Dataset about environmental fines by the by the Brazilian Institute of the Environment and Renewable Natural Resources.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -27,7 +27,9 @@ Imports:
     lubridate,
     magrittr,
     purrr,
-    stringr
+    tibble,
+    stringr,
+    readr
 Suggests: 
     testthat (>= 3.0.0),
     knitr,

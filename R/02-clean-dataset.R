@@ -6,37 +6,72 @@
 #' @return a data frame
 clean_dataset <- function(base) {
   base_limpa <- base %>%
+    # dates
     dplyr::mutate(dataAuto = lubridate::dmy(dataAuto)) %>%
-    dplyr::mutate(dplyr::across(.cols = c(tipoInfracao, tipoAuto, moeda, enquadramentoLegal), .fns = as.factor)) %>%
-    dplyr::mutate(enquadramentoJuridico = as.factor(dplyr::if_else(nchar(cpfCnpj) <= 14, "CPF", "CNPJ"))) %>%
-    dplyr::mutate(nomeMunicipio = municipio) %>%
-    dplyr::mutate(dplyr::across(dplyr::matches(c("ultimaAtualizacaoRelatorio")), lubridate::as_datetime)) %>%
-    dplyr::mutate(dplyr::across(dplyr::matches(c("dataPagamento")), lubridate::dmy)) %>%
     dplyr::mutate(
-      municipio = stringr::str_to_lower(municipio), # ajustando letras para maiuscula
-      municipio = abjutils::rm_accent(municipio), # retirando acentos
-      municipio = stringr::str_replace_all(municipio, "-", " "),
-      municipio = dplyr::case_when(municipio == "ponte alta do norte" ~ "ponte alta do tocantins", TRUE ~ municipio)
+      ultimaAtualizacaoRelatorio =
+        readr::parse_datetime(
+          ultimaAtualizacaoRelatorio,
+          format = "%d/%m/%Y %H:%M",
+          locale = readr::locale(date_names = "pt")
+        )
     ) %>%
-    dplyr::mutate(uf = dplyr::case_when(municipio == "ponte alta do tocantins" ~ "TO", TRUE ~ uf)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "presidente castelo branco" & uf == "SC" ~ "presidente castello branco", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "colinas de goiais" ~ "colinas do tocantins", TRUE ~ municipio)) %>%
-    dplyr::mutate(uf = dplyr::case_when(municipio == "colinas do tocantins" ~ "TO", TRUE ~ uf)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "governador edson lobao" ~ "governador edison lobao", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "campo de santana" ~ "tacima", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "sao domingos de pombal" ~ "sao domingos", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "lagoa do itaenga" ~ "lagoa de itaenga", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "belem de sao francisco" ~ "belem do sao francisco", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "parati" ~ "paraty", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "trajano de morais" ~ "trajano de moraes", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "assu" ~ "acu", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "santana do livramento" ~ "sant'ana do livramento", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "sao luiz do anuaa" ~ "sao luiz", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "picarras" ~ "balneario picarras", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "passos de torres" ~ "passo de torres", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "couto de magalhaes" ~ "couto magalhaes", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "pau d arco" ~ "pau d'arco", TRUE ~ municipio)) %>%
-    dplyr::mutate(municipio = dplyr::case_when(municipio == "sao valerio da natividade" ~ "sao valerio", TRUE ~ municipio))
+    dplyr::mutate(dplyr::across(dplyr::matches(c("dataPagamento")), lubridate::dmy)) %>%
+    # factors
+    dplyr::mutate(dplyr::across(
+      .cols = c(tipoInfracao, tipoAuto, moeda, enquadramentoLegal),
+      .fns = as.factor
+    )) %>%
+    dplyr::mutate(enquadramentoJuridico = as.factor(dplyr::if_else(nchar(cpfCnpj) <= 14, "CPF", "CNPJ"))) %>%
+    # name of municipality
+    dplyr::mutate(nomeMunicipio = municipio) %>%
+    dplyr::mutate(
+      municipio = stringr::str_to_lower(municipio),
+      # ajustando letras para maiuscula
+      municipio = abjutils::rm_accent(municipio),
+      # retirando acentos
+      municipio = stringr::str_replace_all(municipio, "-", " "),
+      municipio = dplyr::case_when(
+        municipio == "governador edson lobao" &
+          uf == "MA" ~ "governador edison lobao",
+        municipio == "justinopolis" &
+          uf == "MG"  ~ "ribeirao das neves",
+        municipio == "parati" & uf == "RJ"  ~ "paraty" ,
+        municipio == "trajano de morais" &
+          uf == "RJ" ~ "trajano de moraes",
+        municipio == "sao valerio da natividade" &
+          uf == "TO" ~ "sao valerio",
+        municipio == "pau d arco" &
+          uf == "TO" ~ "pau d'arco",
+        municipio == "couto de magalhaes" &
+          uf == "TO" ~ "couto magalhaes",
+        municipio == "passos de torres" &
+          uf == "SC" ~ "passo de torres",
+        municipio == "presidente castelo branco" &
+          uf == "SC" ~ "presidente castello branco",
+        municipio == "picarras" &
+          uf == "SC" ~ "balneario picarras",
+        municipio == "sao luiz do anuaa" &
+          uf == "RR" ~ "sao luiz",
+        municipio == "belem de sao francisco" &
+          uf == "PE" ~ "belem do sao francisco",
+        municipio == "assu" &
+          uf == "RN" ~ "acu",
+        municipio == "santana do livramento" &
+          uf == "RS" ~ "sant'ana do livramento",
+        municipio == "lagoa do itaenga" &
+          uf == "PE" ~ "lagoa de itaenga",
+
+        municipio == "campo de santana" &
+          uf == "PB" ~ "tacima",
+
+        municipio == "sao domingos de pombal" &
+          uf == "PB" ~ "sao domingos",
+
+        TRUE ~ municipio
+      )
+    )
+
 
   base_limpa
 }

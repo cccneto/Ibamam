@@ -1,6 +1,6 @@
 test_that("unite_with_ibge_code() works", {
   # multas distribuidas ------------------------------
-  multas_distribuidas <- get_data_of_state("SP", "distribuidas")
+  multas_distribuidas <- get_data_of_state("DF", "distribuidas")
 
   multas_distribuidas_limpas <-
     multas_distribuidas %>% clean_dataset()
@@ -8,8 +8,8 @@ test_that("unite_with_ibge_code() works", {
   bases_unidas_md <-
     unite_with_ibge_code(multas_distribuidas_limpas, Ibamam::ibge_code)
 
-  # testar que nao tem NA - o join funcionou
-  testthat::expect_equal(sum(is.na(bases_unidas_md$codigoMunicipio)), 0)
+  # testar os NAs, DF tem aqueles `municipio provisorio` entao tem NA
+  testthat::expect_gt(sum(is.na(bases_unidas_md$codigoMunicipio)), 200)
 
   # Testar a classe
   expect_s3_class(bases_unidas_md, "tbl_df")
@@ -18,7 +18,7 @@ test_that("unite_with_ibge_code() works", {
   expect_equal(ncol(bases_unidas_md), 16)
 
   # Testar numero de linhas
-  expect_gt(nrow(bases_unidas_md), 26000)
+  expect_gt(nrow(bases_unidas_md), 500)
 
   expect_equal(class(bases_unidas_md$dataAuto), "Date")
   expect_equal(class(bases_unidas_md$nomeMunicipio), "character")

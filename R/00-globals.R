@@ -16,6 +16,7 @@ utils::globalVariables(
     "nomeMunicipio",
     "nomeMunicipio_geobr",
     "dataset",
-    "states"
+    "states",
+    "ultimaAtualizacaoRelatorio"
   )
 )
