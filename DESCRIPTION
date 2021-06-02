@@ -1,6 +1,6 @@
 Package: Ibamam
 Title: Dataset for Environmental Fines by the Brazilian Institute of the Environment and Renewable Natural Resources
-Version: 1.1.0
+Version: 1.2.0
 Authors@R: 
     c(person(given = "Claudiano", family = "Cruz Neto", role = c("aut", "cre"), email = "cneto@ufrb.edu.br",
     comment = c(ORCID = "0000-0003-4307-570X")),
