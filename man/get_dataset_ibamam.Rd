@@ -66,7 +66,9 @@ different states of Brasil, or for the whole country.
 The resulting dataset is cleaned.
 }
 \examples{
+\dontrun{
 get_dataset_ibamam("distribuidas", "SE")
 get_dataset_ibamam("arrecadadas", "SE")
+}
 
 }
