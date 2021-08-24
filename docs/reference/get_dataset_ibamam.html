@@ -78,7 +78,7 @@ The resulting dataset is cleaned." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Ibamam</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
       </span>
     </div>
 
@@ -194,44 +194,11 @@ to: CPF or CNPJ. Only for <code>clean = TRUE</code></p></dd>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='st'>"distribuidas"</span>, <span class='st'>"SE"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3,886 x 16</span>
-#&gt;    dataAuto   nomeMunicipio  nomeMunicipio_g… codigoMunicipio numAI tipoInfracao
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span>       
-#&gt; <span style='color: #BCBCBC;'> 1</span> 2020-10-14 INDIAROBA      Indiaroba        2802809         <span style='color: #949494;'>"</span>AAD… Flora       
-#&gt; <span style='color: #BCBCBC;'> 2</span> 2020-05-28 LAGARTO        Lagarto          2803500         <span style='color: #949494;'>"</span>A2O… Flora       
-#&gt; <span style='color: #BCBCBC;'> 3</span> 2021-04-20 AREIA BRANCA   Areia Branca     2800506         <span style='color: #949494;'>"</span>A4K… Fauna       
-#&gt; <span style='color: #BCBCBC;'> 4</span> 2021-02-27 AREIA BRANCA   Areia Branca     2800506         <span style='color: #949494;'>"</span>A9V… Flora       
-#&gt; <span style='color: #BCBCBC;'> 5</span> 2020-09-09 ARACAJU        Aracaju          2800308         <span style='color: #949494;'>"</span>CI5… Fauna       
-#&gt; <span style='color: #BCBCBC;'> 6</span> 2019-11-01 LAGARTO        Lagarto          2803500         <span style='color: #949494;'>"</span>CUC… Flora       
-#&gt; <span style='color: #BCBCBC;'> 7</span> 2021-03-17 BREJO GRANDE   Brejo Grande     2800704         <span style='color: #949494;'>"</span>C3B… Outras      
-#&gt; <span style='color: #BCBCBC;'> 8</span> 2020-07-26 ARACAJU        Aracaju          2800308         <span style='color: #949494;'>"</span>DKD… Fauna       
-#&gt; <span style='color: #BCBCBC;'> 9</span> 2020-07-26 ARACAJU        Aracaju          2800308         <span style='color: #949494;'>"</span>DVB… Fauna       
-#&gt; <span style='color: #BCBCBC;'>10</span> 2020-04-02 PORTO DA FOLHA Porto da Folha   2805604         <span style='color: #949494;'>"</span>D0Q… Flora       
-#&gt; <span style='color: #949494;'># … with 3,876 more rows, and 10 more variables:</span>
-#&gt; <span style='color: #949494;'>#   ultimaAtualizacaoRelatorio &lt;dttm&gt;, uf &lt;chr&gt;, situacaoDebito &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   tipoAuto &lt;fct&gt;, moeda &lt;fct&gt;, enquadramentoLegal &lt;fct&gt;,</span>
-#&gt; <span style='color: #949494;'>#   nomeRazaoSocial &lt;chr&gt;, cpfCnpj &lt;chr&gt;, valorAuto &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   enquadramentoJuridico &lt;fct&gt;</span></div><div class='input'><span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='st'>"arrecadadas"</span>, <span class='st'>"SE"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 9,531 x 21</span>
-#&gt;    dataAuto   nomeMunicipio     nomeMunicipio_geo… codigoMunicipio dataPagamento
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>       
-#&gt; <span style='color: #BCBCBC;'> 1</span> 2014-06-03 NOSSA SENHORA DO… Nossa Senhora do … 2804805         2014-07-07   
-#&gt; <span style='color: #BCBCBC;'> 2</span> 1996-02-27 ESTANCIA          Estância           2802106         1996-03-08   
-#&gt; <span style='color: #BCBCBC;'> 3</span> 1996-11-19 UMBAUBA           Umbaúba            2807600         1997-01-13   
-#&gt; <span style='color: #BCBCBC;'> 4</span> 1996-11-19 UMBAUBA           Umbaúba            2807600         1997-09-26   
-#&gt; <span style='color: #BCBCBC;'> 5</span> 1996-11-26 ESTANCIA          Estância           2802106         1998-08-10   
-#&gt; <span style='color: #BCBCBC;'> 6</span> 1996-11-26 ESTANCIA          Estância           2802106         2009-07-06   
-#&gt; <span style='color: #BCBCBC;'> 7</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-10-09   
-#&gt; <span style='color: #BCBCBC;'> 8</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-08-10   
-#&gt; <span style='color: #BCBCBC;'> 9</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-07-10   
-#&gt; <span style='color: #BCBCBC;'>10</span> 1997-03-06 ESTANCIA          Estância           2802106         1998-05-11   
-#&gt; <span style='color: #949494;'># … with 9,521 more rows, and 16 more variables: valorPago &lt;dbl&gt;, numAI &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   tipoInfracao &lt;fct&gt;, ultimaAtualizacaoRelatorio &lt;dttm&gt;, parcela &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   quantidadeParcela &lt;int&gt;, uf &lt;chr&gt;, tipoAuto &lt;fct&gt;, moeda &lt;fct&gt;,</span>
-#&gt; <span style='color: #949494;'>#   statusDebito &lt;chr&gt;, enquadramentoLegal &lt;fct&gt;, nomeRazaoSocial &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   cpfCnpj &lt;chr&gt;, valorbaseParcela &lt;dbl&gt;, valorAuto &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   enquadramentoJuridico &lt;fct&gt;</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='st'>"distribuidas"</span>, <span class='st'>"SE"</span><span class='op'>)</span>
+<span class='fu'>get_dataset_ibamam</span><span class='op'>(</span><span class='st'>"arrecadadas"</span>, <span class='st'>"SE"</span><span class='op'>)</span>
+<span class='op'>}</span>
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

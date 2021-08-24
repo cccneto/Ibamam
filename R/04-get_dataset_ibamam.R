@@ -55,8 +55,10 @@
 #' }
 #'
 #' @examples
+#' \dontrun{
 #' get_dataset_ibamam("distribuidas", "SE")
 #' get_dataset_ibamam("arrecadadas", "SE")
+#' }
 #'
 #' @export
 get_dataset_ibamam <- function(dataset, uf = "all", clean = TRUE) {
